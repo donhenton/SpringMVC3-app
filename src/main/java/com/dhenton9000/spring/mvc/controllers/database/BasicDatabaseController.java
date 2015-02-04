@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.service.RestaurantService;
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.service.RestaurantService;
 
 @Controller
 @RequestMapping(value = "/database/simple/restaurant/")

@@ -1,10 +1,10 @@
-package com.dhenton9000.spring.mvc.jdo.entities;
+package com.dhenton9000.restaurant.model;
 
 import java.util.Date;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-import com.google.appengine.api.datastore.Key;
+ 
  
 
 
@@ -21,8 +21,8 @@ public class ReviewDTO {
 		this.setStampDate(rv.getStampDate());
 		this.setStarRating(rv.getStarRating());
 		this.setReviewListing(rv.getReviewListing());
-		this.setParentRestaurantId(rv.getParentRestaurantId());
-		this.setId(rv.getId().getId());
+		this.setParentRestaurantId(rv.getParentRestaurant().getId());
+		this.setId(rv.getId() );
 	}
 
 	public ReviewDTO() {
@@ -31,13 +31,13 @@ public class ReviewDTO {
 	public Review makeReview() {
 		Review r = new Review();
 		r.setStampDate(this.getStampDate());
-		r.setParentRestaurantId(this.getParentRestaurantId());
+		//r.setParentRestaurantId(this.getParentRestaurantId());
 		r.setStarRating(this.getStarRating());
 		r.setReviewListing(this.getReviewListing());
 		if (this.getId() != null)
 		{
-			Key k = new Key(this.getId());
-			r.setId(k);
+			 
+			r.setId(this.getId());
 		}
 
 		return r;

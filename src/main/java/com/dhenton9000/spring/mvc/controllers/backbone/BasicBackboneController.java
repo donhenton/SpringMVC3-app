@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.RestaurantDTO;
-import com.dhenton9000.spring.mvc.jdo.service.RestaurantService;
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.model.RestaurantDTO;
+import com.dhenton9000.restaurant.service.RestaurantService;
 
 /**
  * 

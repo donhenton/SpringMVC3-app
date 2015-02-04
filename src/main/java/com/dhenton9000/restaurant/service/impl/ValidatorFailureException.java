@@ -1,4 +1,4 @@
-package com.dhenton9000.spring.mvc.jdo.service.impl;
+package com.dhenton9000.restaurant.service.impl;
 
 import java.util.HashMap;
 

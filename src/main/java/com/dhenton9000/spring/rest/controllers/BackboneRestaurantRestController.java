@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.dhenton9000.spring.mvc.controllers.ResourceNotFoundException;
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.RestaurantDTO;
-import com.dhenton9000.spring.mvc.jdo.entities.Review;
-import com.dhenton9000.spring.mvc.jdo.entities.ReviewDTO;
-import com.dhenton9000.spring.mvc.jdo.service.RestaurantService;
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.model.RestaurantDTO;
+import com.dhenton9000.restaurant.model.Review;
+import com.dhenton9000.restaurant.model.ReviewDTO;
+import com.dhenton9000.restaurant.service.RestaurantService;
 import com.dhenton9000.spring.rest.NumberParsingException;
-import com.google.appengine.api.datastore.Key;
+
 
 @Controller
 @RequestMapping(value = "backbone/restaurant")
@@ -41,11 +41,11 @@ public class BackboneRestaurantRestController {
 	public @ResponseBody
 	BackBoneIdResponse create(@RequestBody RestaurantDTO rDTO) {
 		log.debug("starting create "+rDTO);
-		Key k = getRestaurantService().saveOrAddRestaurant(
+		Long k = getRestaurantService().saveOrAddRestaurant(
 				rDTO.makeRestaurant());
-		log.debug("hit created id "+k.getId());
+		log.debug("hit created id "+k.toString());
 		BackBoneIdResponse res = new BackBoneIdResponse();
-		res.setId(new Long(k.getId()));
+		res.setId(k);
 		return res;
 	}
 
@@ -178,7 +178,7 @@ public class BackboneRestaurantRestController {
 		Review ret = getRestaurantService().addReview(restaurantIdLong,
 				rDTO.makeReview());
 		BackBoneIdResponse res = new BackBoneIdResponse();
-		res.setId(ret.getId().getId());
+		res.setId(ret.getId());
 		return res;
 	}
 

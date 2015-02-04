@@ -1,4 +1,4 @@
-package com.dhenton9000.spring.mvc.jdo.service.impl;
+package com.dhenton9000.restaurant.service.impl;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -6,8 +6,8 @@ import java.util.Random;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.Review;
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.model.Review;
 
 public class ReviewGenerator {
 

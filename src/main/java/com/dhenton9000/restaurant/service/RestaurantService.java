@@ -1,17 +1,17 @@
-package com.dhenton9000.spring.mvc.jdo.service;
+package com.dhenton9000.restaurant.service;
 
 import java.util.List;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.Review;
-import com.google.appengine.api.datastore.Key;
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.model.Review;
+ 
 
 public interface RestaurantService {
 
 	
 	List<Restaurant> getAllRestaurants();
 	Restaurant getRestaurant(Long id);
-	Key saveOrAddRestaurant(Restaurant t);
+	Long saveOrAddRestaurant(Restaurant t);
 	void deleteRestaurant(Long key);
 	void loadSampleData();
 	List<Restaurant> getRestaurantsWithMaxRating(int ratingLimit);

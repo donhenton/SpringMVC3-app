@@ -1,4 +1,4 @@
-package com.dhenton9000.spring.mvc.jdo.service.impl;
+package com.dhenton9000.restaurant.service.impl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,12 +18,12 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
-import com.dhenton9000.spring.mvc.jdo.dao.RestaurantDao;
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.Review;
-import com.dhenton9000.spring.mvc.jdo.service.RestaurantService;
-import com.google.appengine.api.datastore.Key;
-//import com.google.appengine.api.datastore.KeyFactory;
+import com.dhenton9000.restaurant.dao.RestaurantDao;
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.model.Review;
+import com.dhenton9000.restaurant.service.RestaurantService;
+ 
+
 
 public class RestaurantServiceImpl implements RestaurantService {
 
@@ -41,14 +41,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 	@Override
 	public Restaurant getRestaurant(Long id) {
 
-		Key k = new Key(id);
-		return getRestaurantDao().getRestaurant(k);
+		 
+		return getRestaurantDao().getRestaurant(id);
 	}
 
 	@Override
-	public Key saveOrAddRestaurant(Restaurant t) {
+	public Long saveOrAddRestaurant(Restaurant t) {
 
-		log.debug("save or add restaurant "+t.getIdAsLong());
+		log.debug("save or add restaurant "+t.getPrimaryKey());
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 		Set<ConstraintViolation<Restaurant>> violations = validator.validate(t);
@@ -57,7 +57,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 			{
 				for (Review rv: t.getReviews())
 				{
-					rv.setRestaurant(t);
+					rv.setParentRestaurant(t);
 				}
 			}
 			return getRestaurantDao().saveOrAddRestaurant(t);
@@ -99,7 +99,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 		List<Restaurant> listing = this.getAllRestaurants();
 		for (Restaurant r : listing) {
-			this.deleteRestaurant(r.getId().getId());
+			this.deleteRestaurant(r.getId());
 
 		}
 
@@ -178,12 +178,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		}
 		List<Review> reviews = parent.getReviews();
 		log.debug("before delete "+reviews.size());
-		Key restaurantKey = new Key(restaurantId);
-		Key reviewKey = new Key(reviewId);
+		//Key restaurantKey = new Key(restaurantId);
+		//Key reviewKey = new Key(reviewId);
 		int idx = -1;
 		for (int i = 0; i < reviews.size(); i++) {
-			log.debug("key review " + reviewKey + " -- " + reviews.get(i).getId());
-			if (reviews.get(i).getId().equals(reviewKey)) {
+			log.debug("key review " + reviewId + " -- " + reviews.get(i).getId());
+			if (reviews.get(i).getId().equals(reviewId)) {
 				idx = i;
 				break;
 			}
@@ -209,23 +209,23 @@ public class RestaurantServiceImpl implements RestaurantService {
 			log.warn("could not find restaurant in saveReview " + restaurantId);
 			return null;
 		}
-		log.debug("saveReview found parent " + parent.getIdAsLong());
+		log.debug("saveReview found parent " + parent.getPrimaryKey());
 
 		List<Review> reviews = parent.getReviews();
-		Key reviewKey = newReview.getId();
+		Long reviewKey = newReview.getId();
 		boolean isAdding = false;
 		Long reviewKeyLong = null;
 		if (reviewKey == null) {
 			log.warn("review key null in  saveReview " + restaurantId);
 			return null;
 		} else {
-			reviewKeyLong = new Long(reviewKey.getId());
+			reviewKeyLong = new Long(reviewKey);
 		}
 		log.debug("review Key to match: " + reviewKey);
 
 		for (int i = 0; i < reviews.size(); i++) {
 			log.debug("key review " + reviewKeyLong + " " + reviews.get(i));
-			if (new Long(reviews.get(i).getId().getId())
+			if (new Long(reviews.get(i).getId())
 					.compareTo(reviewKeyLong) == 0) {
 				log.debug("found match ");
 				Review oR = reviews.get(i);

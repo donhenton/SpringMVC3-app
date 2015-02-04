@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.dhenton9000.spring.mvc.jdo.service.impl.ValidatorFailureException;
+import com.dhenton9000.restaurant.service.impl.ValidatorFailureException;
 import com.dhenton9000.spring.rest.NumberParsingException;
 
 

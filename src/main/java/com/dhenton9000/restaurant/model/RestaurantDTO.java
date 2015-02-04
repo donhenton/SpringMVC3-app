@@ -1,11 +1,10 @@
-package com.dhenton9000.spring.mvc.jdo.entities;
+package com.dhenton9000.restaurant.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
-import com.google.appengine.api.datastore.Key;
+ 
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -36,7 +35,7 @@ public class RestaurantDTO implements Serializable {
 		if (r.getVersion() != null)
 			this.setVersion(new Integer(r.getVersion().intValue()));
 		if (r.getId() != null)
-			this.setId(new Long(r.getId().getId()));
+			this.setId(new Long(r.getId() ));
 		if (r.getReviews() != null) {
 			for (Review rv : r.getReviews()) {
 				this.getReviewDTOs().add(new ReviewDTO(rv));
@@ -54,8 +53,8 @@ public class RestaurantDTO implements Serializable {
 		if (this.getVersion() != null)
 			r.setVersion(new Integer(this.getVersion().intValue()));
 		if (this.getId() != null) {
-			Key k = new Key(this.getId().longValue());
-			r.setId(k);
+			 
+			r.setId(this.getId());
 		}
 		if (this.getReviewDTOs() != null)
 		{

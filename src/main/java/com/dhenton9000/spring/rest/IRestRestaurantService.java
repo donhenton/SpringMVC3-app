@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
+import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.spring.rest.controllers.RestResult;
 
 public interface IRestRestaurantService {

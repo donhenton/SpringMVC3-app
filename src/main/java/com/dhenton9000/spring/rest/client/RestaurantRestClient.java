@@ -9,7 +9,7 @@ import java.util.List;
 //import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
 import org.apache.commons.io.IOUtils;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
+import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.spring.rest.IRestRestaurantService;
 import com.dhenton9000.spring.rest.controllers.RestResult;
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dhenton9000.spring.mvc.jdo.service.RestaurantService;
+import com.dhenton9000.restaurant.service.RestaurantService;
 
 
 @Controller
