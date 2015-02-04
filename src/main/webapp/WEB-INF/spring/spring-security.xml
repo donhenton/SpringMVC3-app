@@ -15,8 +15,9 @@
 	
 		<intercept-url pattern="/*" access="permitAll"/>
 		<intercept-url pattern="/app/security/demo/admin" access="hasRole('ROLE_ADMIN')"/>
-		 
-		
+                <!--
+		<intercept-url pattern="/app/security/demo/special/admin" access="hasRole('ROLE_ADMIN')"/> 
+		-->
 		<form-login 
 				login-page="/app/security/demo/home?message=Please+login+for+admin+access" 
 				authentication-failure-url="/app/security/demo/home?message=Username+or+password+incorrect" 
