@@ -1,0 +1,12 @@
+http://bthurley.wordpress.com/2012/07/18/spring-mvc-with-restful-datatables/
+
+ 
+
+not compatible with the appengine but twitter tag lib
+http://dandelion.github.io/datatables/docs/installation/
+
+
+
+running from the command line:
+
+java -jar target/dependency/jetty-runner.jar target/SpringMVC3-app-1.0-SNAPSHOT.war
