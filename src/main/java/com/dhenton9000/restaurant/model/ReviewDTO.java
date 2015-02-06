@@ -15,13 +15,13 @@ public class ReviewDTO {
 	private String reviewListing;
 	private Date stampDate = new Date();
 	private Long id = null;
-	private Long parentRestaurantId = null;
+	 
 
 	public ReviewDTO(Review rv) {
 		this.setStampDate(rv.getStampDate());
 		this.setStarRating(rv.getStarRating());
 		this.setReviewListing(rv.getReviewListing());
-		this.setParentRestaurantId(rv.getParentRestaurant().getId());
+		 
 		this.setId(rv.getId() );
 	}
 
@@ -77,14 +77,7 @@ public class ReviewDTO {
 		this.id = id;
 	}
 
-	public Long getParentRestaurantId() {
-		return parentRestaurantId;
-	}
-
-	public void setParentRestaurantId(Long parentRestaurantId) {
-		this.parentRestaurantId = parentRestaurantId;
-	}
-
+	 
 
 
 }

@@ -27,6 +27,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -37,7 +38,9 @@ import javax.persistence.Transient;
 @Table(name = "RESTAURANT")
 @NamedQueries({
     @NamedQuery(name = "Restaurant.findAll", query = "SELECT u FROM Restaurant u"),
-    @NamedQuery(name = "Restaurant.findByid", query = "SELECT u FROM Restaurant u WHERE id = :id")})
+    @NamedQuery(name = "Restaurant.nameLike", query = "SELECT u FROM Restaurant u WHERE u.name like  :searchString "),
+    @NamedQuery(name = "Restaurant.findByid", query = "SELECT u FROM Restaurant u WHERE u.id = :id")})
+
 @XmlRootElement
 public class Restaurant implements Serializable, Identifiable<Long> {
 
@@ -47,7 +50,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     private String name;
     @NumberFormat(pattern = "####")
     private Integer version;
-     
+
     @NotEmpty(message = "Zipcode cannot be blank")
     private String zipCode;
 
@@ -68,8 +71,10 @@ public class Restaurant implements Serializable, Identifiable<Long> {
 
     }
 
-@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "restaurant_id_seq")
+    @SequenceGenerator(name = "restaurant_id_seq", sequenceName = "restaurant_id_seq", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "ID", nullable = false)
     public Long getId() {
@@ -80,14 +85,14 @@ public class Restaurant implements Serializable, Identifiable<Long> {
         this.id = id;
 
     }
-    
+
     @Override
     public void setPrimaryKey(Long id) {
         this.id = id;
 
     }
 
-@Column(name = "NAME", length = 120)
+    @Column(name = "NAME", length = 255)
     public String getName() {
         return name;
     }
@@ -121,7 +126,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     /**
      * @return the version
      */
-@Column(name = "VERSION" )
+    @Column(name = "VERSION")
     public Integer getVersion() {
         return version;
     }
@@ -136,7 +141,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     /**
      * @return the zipCode
      */
-@Column(name = "ZIP_CODE", length = 255)
+    @Column(name = "ZIP_CODE", length = 255)
     public String getZipCode() {
         return zipCode;
     }
@@ -151,7 +156,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     /**
      * @return the city
      */
-@Column(name = "CITY", length = 255)
+    @Column(name = "CITY", length = 255)
     public String getCity() {
         return city;
     }
@@ -166,7 +171,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     /**
      * @return the state
      */
-@Column(name = "STATE", length = 255)
+    @Column(name = "STATE", length = 255)
     public String getState() {
         return state;
     }
@@ -185,9 +190,16 @@ public class Restaurant implements Serializable, Identifiable<Long> {
         if (getId() != null) {
             id = getId().toString();
         }
-        return getName() + "|" + getZipCode() + "| {" + id + "}";
+        return display(getName()) + "|" + display(getZipCode()) + "| {" + id + "}";
     }
 
+     private String display(String t) {
+        if (t == null) {
+            return "null";
+        } else {
+            return t.trim();
+        }
+    }
     public void clear() {
         setName(null);
         setCity(null);
@@ -202,13 +214,13 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     @Transient
     public Long getPrimaryKey() {
         if (getId() != null) {
-            return getId() ;
+            return getId();
         } else {
             return null;
         }
     }
 
-@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     public List<Review> getReviews() {
         if (reviews == null) {
@@ -221,16 +233,12 @@ public class Restaurant implements Serializable, Identifiable<Long> {
         Review r = new Review();
         r.setReviewListing(message);
         r.setStarRating(rating);
-        r.setParentRestaurant(this);
+
         reviews.add(r);
 
     }
 
- 
-
-    
-
-     @Override
+    @Override
     @Transient
     public boolean isPrimaryKeySet() {
         return id != null;

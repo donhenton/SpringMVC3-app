@@ -18,11 +18,7 @@
 	 <bean id="jHellerBookMaker" class="com.dhenton9000.spring.mvc.model.BestSellerBookMakerImpl" />
 	 
     -->
-    <context:property-placeholder />      
-          
-    <bean class="java.net.URI" id="dbUrl">
-        <constructor-arg value="${DATABASE_URL}"/>
-    </bean>
+    
 	
 
 </beans>

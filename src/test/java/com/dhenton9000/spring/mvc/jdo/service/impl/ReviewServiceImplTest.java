@@ -1,34 +1,25 @@
 package com.dhenton9000.spring.mvc.jdo.service.impl;
 
+import com.dhenton9000.restaurant.dao.RestaurantDao;
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.service.impl.RestaurantServiceImpl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import javax.jdo.JDOHelper;
-import javax.jdo.JDOObjectNotFoundException;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
-
-import org.datanucleus.exceptions.NucleusObjectNotFoundException;
+ 
+ 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.dhenton9000.spring.mvc.jdo.dao.RestaurantDao;
-import com.dhenton9000.spring.mvc.jdo.dao.impl.RestaurantDaoImpl;
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.Review;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
-import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
+ 
 
 public class ReviewServiceImplTest {
 
-	private final LocalServiceTestHelper helper = new LocalServiceTestHelper(
-			new LocalDatastoreServiceTestConfig());
+ /*
 	private RestaurantServiceImpl restaurantService = null;
 	private RestaurantDao restaurantDao = null;
 
@@ -37,9 +28,9 @@ public class ReviewServiceImplTest {
 
 	private final Logger logger = LoggerFactory
 			.getLogger(ReviewServiceImplTest.class);
-	private Key sampleKey;
+	 
 	private Restaurant sampleRestaurant;
-	private PersistenceManagerFactory pmf;
+	 
 	
 
 	@Before
@@ -149,6 +140,6 @@ public class ReviewServiceImplTest {
 		
 		
 	}
-	
+*/	
 	
 }

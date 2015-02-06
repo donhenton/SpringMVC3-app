@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true"
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:task="http://www.springframework.org/schema/task"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="    
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd   
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd   
+ http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd    
+http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd    
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd    
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd    
+http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd    
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+    
+    
+    
+    <description><![CDATA[Main entry point for spring configuration]]></description>
+    <context:property-placeholder  />
+    <bean class="java.net.URI" id="dbUrl">
+        <constructor-arg value="${DATABASE_URL}"/>
+    </bean>
+    
+    <bean class="java.lang.String" id="connString">
+        <constructor-arg   value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"   />
+    </bean>
+    
+    
+    
+     
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor">
+        <description>Enable exception translation for beans annotated with @Repository</description>
+    </bean>
+    <bean   class="com.mchange.v2.c3p0.ComboPooledDataSource"
+        destroy-method="close" id="dataSource">
+        <property name="driverClass" value="org.postgresql.Driver"/>
+        <property name="jdbcUrl" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
+        <property name="user" value="#{@dbUrl.getUserInfo().split(':')[0] }"/>
+        <property name="password" value="#{@dbUrl.getUserInfo().split(':')[1] }"/>
+    </bean>
+    
+     
+    
+    
+</beans>

@@ -1,5 +1,6 @@
 package com.dhenton9000.json;
 
+import com.dhenton9000.restaurant.model.Restaurant;
 import java.io.StringWriter;
 import java.io.Writer;
 
@@ -9,7 +10,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.SerializationConfig.Feature;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
+ 
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 public class JacksonDemo {

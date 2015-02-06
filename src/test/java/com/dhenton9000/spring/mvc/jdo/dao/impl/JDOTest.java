@@ -5,23 +5,14 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jdo.JDOHelper;
-import javax.jdo.JDOObjectNotFoundException;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
-import javax.jdo.Query;
+
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.Review;
-import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.datastore.KeyFactory;
-import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
-import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
+
 //import org.datanucleus.store.appengine.jdo.DatastoreJDOPersistenceManagerFactory;
 
 /**
@@ -39,6 +30,7 @@ import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
  */
 
 public class JDOTest {
+    /*
 	private static final String SAMPLE_CITY_NAME = "Bodega Bay";
 	private static final int SAMPLE_ID = 666;
 	private static final String RESTAURANT_NAME = "Alice's";
@@ -233,5 +225,5 @@ public class JDOTest {
 			pm.close();
 		}
 	}
-
+*/
 }

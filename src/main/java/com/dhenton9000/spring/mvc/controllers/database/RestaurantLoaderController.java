@@ -32,18 +32,7 @@ public class RestaurantLoaderController {
 
 	}
 	
-	@RequestMapping(value = "load")
-	public ModelAndView loadRestaurants() {
-
-		ModelAndView mav = new ModelAndView(RESTAURANT_LOAD_TILES);
-		
-		restaurantService.loadSampleData();
-		
-		mav.addObject(MESSAGE_KEY,"Load Performed");
-		return mav;
-
-	}
-	
+	 
 	public RestaurantService getRestaurantService() {
 		return restaurantService;
 	}

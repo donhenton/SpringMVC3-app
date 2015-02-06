@@ -1,14 +1,11 @@
 package com.dhenton9000.restaurant.service.impl;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import com.dhenton9000.jpa.dao.support.GenericDao;
+import com.dhenton9000.jpa.service.support.GenericEntityServiceImpl;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -22,234 +19,204 @@ import com.dhenton9000.restaurant.dao.RestaurantDao;
 import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.restaurant.model.Review;
 import com.dhenton9000.restaurant.service.RestaurantService;
- 
+import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
+public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, Long> implements RestaurantService {
 
-public class RestaurantServiceImpl implements RestaurantService {
+    @Autowired
+    private RestaurantDao restaurantDao;
+    private static Logger log = LogManager
+            .getLogger(RestaurantServiceImpl.class);
 
-	private RestaurantDao restaurantDao;
-	private static Logger log = LogManager
-			.getLogger(RestaurantServiceImpl.class);
-	private ReviewGenerator reviewer = new ReviewGenerator();
+    @Override
+    public List<Restaurant> getAllRestaurants() {
 
-	@Override
-	public List<Restaurant> getAllRestaurants() {
+        return getRestaurantDao().getAllRestaurants();
+    }
 
-		return getRestaurantDao().getAllRestaurants();
-	}
+    @Override
+    public Restaurant getRestaurant(Long id) {
 
-	@Override
-	public Restaurant getRestaurant(Long id) {
+        // return getRestaurantDao().getRestaurant(id);
+        return this.getByPrimaryKey(id);
+    }
 
-		 
-		return getRestaurantDao().getRestaurant(id);
-	}
+    @Override
+    public Long saveOrAddRestaurant(Restaurant t) {
 
-	@Override
-	public Long saveOrAddRestaurant(Restaurant t) {
+        log.debug("save or add restaurant " + t.getPrimaryKey());
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<Restaurant>> violations = validator.validate(t);
+        if (violations.size() == 0) {
+            if (t.getReviews() != null) {
+                for (Review rv : t.getReviews()) {
+                    //rv.setParentRestaurant(t);
+                }
+            }
 
-		log.debug("save or add restaurant "+t.getPrimaryKey());
-		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-		Validator validator = factory.getValidator();
-		Set<ConstraintViolation<Restaurant>> violations = validator.validate(t);
-		if (violations.size() == 0) {
-			if (t.getReviews() != null)
-			{
-				for (Review rv: t.getReviews())
-				{
-					rv.setParentRestaurant(t);
-				}
-			}
-			return getRestaurantDao().saveOrAddRestaurant(t);
-		} else {
-			HashMap<String, String> errors = new HashMap<String, String>();
-			Iterator<ConstraintViolation<Restaurant>> iter = violations
-					.iterator();
-			while (iter.hasNext()) {
-				ConstraintViolation<Restaurant> violation = iter.next();
-				errors.put(violation.getPropertyPath().toString(),
-						violation.getMessage());
-				log.debug("saveOrAddRestaurant problem: "+violation.getPropertyPath().toString()+" "+violation.getMessage());
-			}
-			throw new ValidatorFailureException("errors found", errors);
-		}
+            Restaurant aa = this.merge(t);
+            return aa.getPrimaryKey();
 
-	}
+        } else {
+            HashMap<String, String> errors = new HashMap<String, String>();
+            Iterator<ConstraintViolation<Restaurant>> iter = violations
+                    .iterator();
+            while (iter.hasNext()) {
+                ConstraintViolation<Restaurant> violation = iter.next();
+                errors.put(violation.getPropertyPath().toString(),
+                        violation.getMessage());
+                log.debug("saveOrAddRestaurant problem: " + violation.getPropertyPath().toString() + " " + violation.getMessage());
+            }
+            throw new ValidatorFailureException("errors found", errors);
+        }
 
-	public RestaurantDao getRestaurantDao() {
-		return restaurantDao;
-	}
+    }
 
-	public void setRestaurantDao(RestaurantDao restaurantDao) {
-		this.restaurantDao = restaurantDao;
-	}
+    public RestaurantDao getRestaurantDao() {
+        return restaurantDao;
+    }
 
-	@Override
-	public void deleteRestaurant(Long key) {
-		log.debug("hit deleteRestaurant "+key);
-		getRestaurantDao().deleteRestaurant(key);
+    public void setRestaurantDao(RestaurantDao restaurantDao) {
+        this.restaurantDao = restaurantDao;
+    }
 
-	}
+    @Override
+    public void deleteRestaurant(Long key) {
+        log.debug("hit deleteRestaurant " + key);
+        this.deleteByPrimaryKey(key);
+        // getRestaurantDao().deleteRestaurant(key);
 
-	/**
-	 * Subway, Plymouth, WI, 53073, 1 name, city, state, zipCode, version
-	 */
-	@Override
-	public void loadSampleData() {
+    }
 
-		List<Restaurant> listing = this.getAllRestaurants();
-		for (Restaurant r : listing) {
-			this.deleteRestaurant(r.getId());
+    @Override
+    public List<Restaurant> getRestaurantsWithMaxRating(int ratingLimit) {
 
-		}
+        return getRestaurantDao().getRestaurantsWithMaxRating(ratingLimit);
+    }
 
-		InputStream dataStream = this.getClass().getClassLoader()
-				.getResourceAsStream("data/restaurant.csv");
+    @Override
+    public List<Restaurant> getRestaurantsLike(String searchString) {
 
-		BufferedReader br = null;
-		String line = null;
+        return getRestaurantDao().getRestaurantsLike(searchString);
+    }
 
-		try {
+    @Override
+    public void deleteReview(Long restaurantId, Long reviewId) {
+        Restaurant parent = getRestaurant(restaurantId);
+        log.debug("hit deleteReview " + restaurantId + " " + reviewId);
 
-			br = new BufferedReader(new InputStreamReader(dataStream));
+        if (parent == null) {
+            log.warn("could not find restaurant in delete review "
+                    + restaurantId);
+            return;
+        }
+        List<Review> reviews = parent.getReviews();
+        log.debug("before delete " + reviews.size());
+        //Key restaurantKey = new Key(restaurantId);
+        //Key reviewKey = new Key(reviewId);
+        int idx = -1;
+        for (int i = 0; i < reviews.size(); i++) {
+            log.debug("key review " + reviewId + " -- " + reviews.get(i).getId());
+            if (reviews.get(i).getId().equals(reviewId)) {
+                idx = i;
+                break;
+            }
+        }
+        log.debug("idx is " + idx);
+        if (idx > -1) {
+            log.debug("did remove ");
+            parent.getReviews().remove(idx);
+        }
+        log.debug("after delete " + reviews.size());
+        this.saveOrAddRestaurant(parent);
 
-			while ((line = br.readLine()) != null) {
-				Restaurant r = new Restaurant();
-				StringTokenizer t = new StringTokenizer(line, ",");
-				while (t.hasMoreElements()) {
-					r.setName((String) t.nextElement());
-					r.setCity((String) t.nextElement());
-					r.setState((String) t.nextElement());
-					r.setZipCode((String) t.nextElement());
-					String v = (String) t.nextElement();
-					if (v != null)
-						v = v.trim();
-					int ver = -99;
-					try {
-						ver = Integer.parseInt(v);
-					} catch (NumberFormatException e) {
-						log.error("cannot parse " + v);
-					}
-					r.setVersion(ver);
-					reviewer.generateReviews(r);
-					log.debug("@@@ " + r.getReviews());
-					saveOrAddRestaurant(r);
-				}
+    }
 
-			}
+    @Override
+    public Review saveReview(Long restaurantId, Review newReview) {
+        Restaurant parent = getRestaurant(restaurantId);
+        //log.debug("hit saveReview "+restaurantId+" "+newReview.getId().getId());
 
-		} catch (IOException e) {
-			log.error("IO problem reading sample data " + e.getMessage());
-		} finally {
-			if (br != null) {
+        if (parent == null) {
+            log.warn("could not find restaurant in saveReview " + restaurantId);
+            return null;
+        }
+        log.debug("saveReview found parent " + parent.getPrimaryKey());
 
-				try {
-					br.close();
-				} catch (IOException e) {
+        List<Review> reviews = parent.getReviews();
+        Long reviewKey = newReview.getId();
+        boolean isAdding = false;
+        Long reviewKeyLong = null;
+        if (reviewKey == null) {
+            log.warn("review key null in  saveReview " + restaurantId);
+            return null;
+        } else {
+            reviewKeyLong = new Long(reviewKey);
+        }
+        log.debug("review Key to match: " + reviewKey);
 
-				}
+        for (int i = 0; i < reviews.size(); i++) {
+            log.debug("key review " + reviewKeyLong + " " + reviews.get(i));
+            if (new Long(reviews.get(i).getId())
+                    .compareTo(reviewKeyLong) == 0) {
+                log.debug("found match ");
+                Review oR = reviews.get(i);
+                oR.setReviewListing(newReview.getReviewListing());
+                oR.setStarRating(newReview.getStarRating());
+            }
+        }
+        this.saveOrAddRestaurant(parent);
+        return newReview;
+    }
 
-			}
-		}
+    @Override
+    public Review addReview(Long restaurantId, Review newReview) {
+        log.debug("hit addReview " + restaurantId);
+        Restaurant parent = getRestaurant(restaurantId);
+        if (parent == null) {
+            log.warn("could not find restaurant in addReview " + restaurantId);
+            return null;
+        }
 
-	}
+        
+        ArrayList<Long> oldReviewKeys = new ArrayList<Long>();
+        for (Review r : parent.getReviews()) {
+            oldReviewKeys.add(r.getPrimaryKey());
+        }
 
-	@Override
-	public List<Restaurant> getRestaurantsWithMaxRating(int ratingLimit) {
+        parent.getReviews().add(newReview);
+        this.saveOrAddRestaurant(parent);
 
-		return getRestaurantDao().getRestaurantsWithMaxRating(ratingLimit);
-	}
+        ArrayList<Long> newReviewKeys = new ArrayList<Long>();
+        for (Review r : parent.getReviews()) {
+            newReviewKeys.add(r.getPrimaryKey());
+        }
+        
+        newReviewKeys.removeAll(oldReviewKeys);
+        newReview.setId(newReviewKeys.get(0));
 
-	@Override
-	public List<Restaurant> getRestaurantsLike(String searchString) {
+       
+        return newReview;
 
-		return getRestaurantDao().getRestaurantsLike(searchString);
-	}
+    }
 
-	@Override
-	public void deleteReview(Long restaurantId, Long reviewId) {
-		Restaurant parent = getRestaurant(restaurantId);
-		log.debug("hit deleteReview "+restaurantId+" "+reviewId);
-		
-		if (parent == null) {
-			log.warn("could not find restaurant in delete review "
-					+ restaurantId);
-			return;
-		}
-		List<Review> reviews = parent.getReviews();
-		log.debug("before delete "+reviews.size());
-		//Key restaurantKey = new Key(restaurantId);
-		//Key reviewKey = new Key(reviewId);
-		int idx = -1;
-		for (int i = 0; i < reviews.size(); i++) {
-			log.debug("key review " + reviewId + " -- " + reviews.get(i).getId());
-			if (reviews.get(i).getId().equals(reviewId)) {
-				idx = i;
-				break;
-			}
-		}
-		log.debug("idx is "+idx);
-		if (idx > -1) {
-			log.debug("did remove ");
-			parent.getReviews().remove(idx);
-		}
-		log.debug("after delete "+reviews.size());
-		this.saveOrAddRestaurant(parent);
+    @Override
+    public GenericDao<Restaurant, Long> getDao() {
+        return restaurantDao;
+    }
 
-	}
+    @Override
+    public Restaurant getNew() {
+        return new Restaurant();
+    }
 
-	@Override
-	public Review saveReview(Long restaurantId, Review newReview) {
-		Restaurant parent = getRestaurant(restaurantId);
-		//log.debug("hit saveReview "+restaurantId+" "+newReview.getId().getId());
-		 
-		
-		
-		if (parent == null) {
-			log.warn("could not find restaurant in saveReview " + restaurantId);
-			return null;
-		}
-		log.debug("saveReview found parent " + parent.getPrimaryKey());
-
-		List<Review> reviews = parent.getReviews();
-		Long reviewKey = newReview.getId();
-		boolean isAdding = false;
-		Long reviewKeyLong = null;
-		if (reviewKey == null) {
-			log.warn("review key null in  saveReview " + restaurantId);
-			return null;
-		} else {
-			reviewKeyLong = new Long(reviewKey);
-		}
-		log.debug("review Key to match: " + reviewKey);
-
-		for (int i = 0; i < reviews.size(); i++) {
-			log.debug("key review " + reviewKeyLong + " " + reviews.get(i));
-			if (new Long(reviews.get(i).getId())
-					.compareTo(reviewKeyLong) == 0) {
-				log.debug("found match ");
-				Review oR = reviews.get(i);
-				oR.setReviewListing(newReview.getReviewListing());
-				oR.setStarRating(newReview.getStarRating());
-			}
-		}
-		this.saveOrAddRestaurant(parent);
-		return newReview;
-	}
-
-	@Override
-	public Review addReview(Long restaurantId, Review newReview) {
-		log.debug("hit addReview "+restaurantId);
-		Restaurant parent = getRestaurant(restaurantId);
-		if (parent == null) {
-			log.warn("could not find restaurant in addReview " + restaurantId);
-			return null;
-		}
-
-		parent.getReviews().add(newReview);
-		this.saveOrAddRestaurant(parent);
-		return newReview;
-
-	}
+    @Override
+    public Restaurant getNewWithDefaults() {
+        return new Restaurant();
+    }
 
 }

@@ -1,5 +1,8 @@
 package com.dhenton9000.json;
 
+import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.model.RestaurantDTO;
+import com.dhenton9000.restaurant.model.ReviewDTO;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Set;
@@ -13,9 +16,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.dhenton9000.spring.mvc.jdo.entities.Restaurant;
-import com.dhenton9000.spring.mvc.jdo.entities.RestaurantDTO;
-import com.dhenton9000.spring.mvc.jdo.entities.ReviewDTO;
+ 
 
 
 public class JacksonSampler {

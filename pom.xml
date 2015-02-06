@@ -176,7 +176,7 @@
     <dependencies>
         
         
-          <dependency>
+        <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
             <version>1.0.0.Final</version>
@@ -245,7 +245,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.0</version>
+            <version>1.5.8</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tiles</groupId>
@@ -370,7 +370,11 @@
 
         
         
-        
+        <dependency> 
+            <groupId>org.springframework</groupId> 
+            <artifactId>spring-aspects</artifactId> 
+            <version>${org.springframework.version}</version> 
+        </dependency>
         
         
         
@@ -535,6 +539,20 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1.2</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.2-1000.jdbc4</version>
+            <scope>test</scope>
+            <type>jar</type>
         </dependency>
     </dependencies>
 </project>
