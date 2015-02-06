@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.restaurant.model.RestaurantDTO;
 import com.dhenton9000.restaurant.service.RestaurantService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 
@@ -31,6 +32,7 @@ import com.dhenton9000.restaurant.service.RestaurantService;
 @RequestMapping(value = "/backbone/demos/*")
 public class BasicBackboneController {
 
+        @Autowired
 	private RestaurantService restaurantService;
 
 	@RequestMapping(value = "/{modelId}", method = RequestMethod.DELETE)

@@ -25,21 +25,21 @@
 	</bean>
 	<bean id="restaurantLoaderController" scope="singleton"
 		class="com.dhenton9000.spring.mvc.controllers.database.RestaurantLoaderController">
-		<property name="restaurantService" ref="restaurantService" />
+		<!--<property name="restaurantService" ref="restaurantService" />-->
 	</bean>
 
  
 	<bean id="backboneRestaurantRestController" scope="singleton"
 		class="com.dhenton9000.spring.rest.controllers.BackboneRestaurantRestController">
-		<property name="restaurantService" ref="restaurantService" />
+		<!--<property name="restaurantService" ref="restaurantService" />-->
 	</bean>
 	<bean id="basicBackboneController" scope="singleton"
 		class="com.dhenton9000.spring.mvc.controllers.backbone.BasicBackboneController">
-		<property name="restaurantService" ref="restaurantService" />
+		<!--<property name="restaurantService" ref="restaurantService" />-->
 	</bean>
 
 
-
+<!--
 	<bean id="restaurantService" scope="singleton"
 		class="com.dhenton9000.spring.mvc.jdo.service.impl.RestaurantServiceImpl">
 		<property name="restaurantDao" ref="restaurantDao" />
@@ -49,7 +49,7 @@
 		class="com.dhenton9000.spring.mvc.jdo.dao.impl.RestaurantDaoImpl">
 
 	</bean>
-
+-->
 
 	<bean id="beanMessage" class="java.lang.String">
 		<constructor-arg index="0" value="get a job" />

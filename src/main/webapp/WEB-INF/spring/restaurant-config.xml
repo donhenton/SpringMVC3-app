@@ -41,7 +41,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     <bean
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
         <property name="dataSource" ref="dataSource"/>
-        <property name="persistenceUnitName" value="Test_Restaurant_PU"/>
+        <property name="persistenceUnitName" value="Restaurant_PU"/>
         <property name="jpaVendorAdapter" ref="vendorAdapter"/>
         <property name="jpaDialect" ref="jpaDialect"/>
     </bean>

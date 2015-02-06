@@ -24,6 +24,7 @@ import com.dhenton9000.restaurant.model.Review;
 import com.dhenton9000.restaurant.model.ReviewDTO;
 import com.dhenton9000.restaurant.service.RestaurantService;
 import com.dhenton9000.spring.rest.NumberParsingException;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
@@ -32,6 +33,7 @@ public class BackboneRestaurantRestController {
 
 	private static Logger log = LogManager
 			.getLogger(BackboneRestaurantRestController.class);
+        @Autowired
 	private RestaurantService restaurantService;
 
 	// http://localhost:8888/app/backbone/restaurant/4723501952925696

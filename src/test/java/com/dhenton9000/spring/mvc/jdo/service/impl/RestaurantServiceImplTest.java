@@ -147,18 +147,54 @@ public class RestaurantServiceImplTest {
             oldReviewKeys.add(r.getPrimaryKey());
         }
         int oldReviewCount = res.getReviews().size();
-        assertTrue (oldReviewCount > 1);
+        assertTrue(oldReviewCount > 1);
         Review review = new Review(3, "fred");
         assertNull(review.getPrimaryKey());
 
-        Review newReview  = service.addReview(id, review);
-       
+        Review newReview = service.addReview(id, review);
+
         entityManager.flush();
         assertNotNull(newReview.getPrimaryKey());
-       
+
         Restaurant otherR = service.getRestaurant(id);
         assertEquals(oldReviewCount + 1, otherR.getReviews().size());
         assertFalse(oldReviewKeys.contains(newReview.getPrimaryKey()));
 
+    }
+
+    @Test
+    public void testSaveReview() {
+        List<Restaurant> restaurants = service.getAllRestaurants();
+        Long id = restaurants.get(0).getPrimaryKey();
+        Restaurant res = service.getRestaurant(id);
+        List<Review> reviews = res.getReviews();
+        assertTrue(reviews.size() > 0);
+        Review rev = reviews.get(0);
+        Long revReviewId = rev.getPrimaryKey();
+        rev.setStarRating(-99);
+        
+        Review rrr = service.saveReview(id, rev);
+        entityManager.flush();
+        
+        res = service.getRestaurant(id);
+        assertEquals(-99,res.getReviews().get(0).getStarRating().longValue());
+        
+    }
+    
+    @Test
+    public void testDeleteReview() {
+        List<Restaurant> restaurants = service.getAllRestaurants();
+        Long id = restaurants.get(0).getPrimaryKey();
+        Restaurant res = service.getRestaurant(id);
+        List<Review> reviews = res.getReviews();
+        assertTrue(reviews.size() > 0);
+        int oldReviewSize = reviews.size();
+        Review rev = reviews.get(0);
+        service.deleteReview(id, rev.getPrimaryKey());
+        entityManager.flush();
+        
+        res = service.getRestaurant(id);
+        assertEquals(oldReviewSize-1,res.getReviews().size());
+        
     }
 }

@@ -13,6 +13,7 @@ http://www.springframework.org/schema/context         http://www.springframework
     <security:global-method-security jsr250-annotations="enabled" secured-annotations="enabled" />
     <mvc:annotation-driven validator="validator" />
      <import resource="controllers.xml" />
+      
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
    

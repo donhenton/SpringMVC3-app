@@ -22,6 +22,7 @@ import com.dhenton9000.restaurant.service.RestaurantService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, Long> implements RestaurantService {
@@ -45,6 +46,7 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     }
 
     @Override
+    @Transactional
     public Long saveOrAddRestaurant(Restaurant t) {
 
         log.debug("save or add restaurant " + t.getPrimaryKey());
@@ -85,6 +87,7 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     }
 
     @Override
+    @Transactional
     public void deleteRestaurant(Long key) {
         log.debug("hit deleteRestaurant " + key);
         this.deleteByPrimaryKey(key);
@@ -105,6 +108,7 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     }
 
     @Override
+    @Transactional
     public void deleteReview(Long restaurantId, Long reviewId) {
         Restaurant parent = getRestaurant(restaurantId);
         log.debug("hit deleteReview " + restaurantId + " " + reviewId);
@@ -137,6 +141,7 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     }
 
     @Override
+    @Transactional
     public Review saveReview(Long restaurantId, Review newReview) {
         Restaurant parent = getRestaurant(restaurantId);
         //log.debug("hit saveReview "+restaurantId+" "+newReview.getId().getId());
@@ -174,6 +179,7 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     }
 
     @Override
+    @Transactional
     public Review addReview(Long restaurantId, Review newReview) {
         log.debug("hit addReview " + restaurantId);
         Restaurant parent = getRestaurant(restaurantId);

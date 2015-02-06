@@ -190,7 +190,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
         if (getId() != null) {
             id = getId().toString();
         }
-        return display(getName()) + "|" + display(getZipCode()) + "| {" + id + "}";
+        return display(getName()) + "|zip " + display(getZipCode()) + "| {" + id + "}";
     }
 
      private String display(String t) {

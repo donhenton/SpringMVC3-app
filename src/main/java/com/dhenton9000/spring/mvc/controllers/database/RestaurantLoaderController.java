@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dhenton9000.restaurant.service.RestaurantService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
 @RequestMapping(value = "/database/restaurant/load")
 public class RestaurantLoaderController {
 	
+        @Autowired
 	private RestaurantService restaurantService;
 	
 	private static Logger log = LogManager
