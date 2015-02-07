@@ -2,23 +2,72 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
         xmlns:security="http://www.springframework.org/schema/security"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="         
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd   
  http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd  
+http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.0.xsd  
 http://www.springframework.org/schema/context         http://www.springframework.org/schema/context/spring-context-4.0.xsd   
  http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!-- Configures the @Controller programming model -->
    
+   
+   
+   
+       <bean
+        class="com.dhenton9000.spring.websocket.events.StompConnectedEvent" id="connectedListener"/>
+    <bean
+        class="com.dhenton9000.spring.websocket.events.StompDisconnectEvent" id="disConnectListener"/>
+    <bean
+        class="com.dhenton9000.spring.websocket.events.StompConnectEvent" id="connectionListener"/>
+    <bean
+        class="com.dhenton9000.spring.websocket.handlers.TestHandshakeHandler" id="customHandler"/>
+    <websocket:message-broker application-destination-prefix="/app">
+        <websocket:stomp-endpoint path="/ws">
+            <websocket:handshake-handler ref="customHandler"/>
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <websocket:stomp-endpoint path="/chatSocket">
+            <websocket:handshake-handler ref="customHandler"/>
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <websocket:stomp-endpoint path="/randomData">
+            <websocket:handshake-handler ref="customHandler"/>
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <websocket:simple-broker prefix="/topic,/queue,/temp-queue"/>
+        <!-- 
+
+ <websocket:stomp-broker-relay prefix="/topic,/queue,/temp-queue" 
+        
+                                      relay-host="localhost" relay-port="61613"
+                                      client-login="guest" client-passcode="guest"
+                                      system-login="guest" system-passcode="guest"
+                                      heartbeat-send-interval="5000" heartbeat-receive-interval="5000"
+                                      />
+
+
+
+        -->
+    </websocket:message-broker>
+   
+   
+   
+   
+   
+   
+   
+   
     <security:global-method-security jsr250-annotations="enabled" secured-annotations="enabled" />
     <mvc:annotation-driven validator="validator" />
-     <import resource="controllers.xml" />
+    <import resource="controllers.xml" />
       
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
    
     <bean id="validator"
-              class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+          class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <property name="validationMessageSource" ref="messageSource"/>
     </bean>
     
