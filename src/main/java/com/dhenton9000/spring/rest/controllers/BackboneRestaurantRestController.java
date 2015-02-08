@@ -3,7 +3,7 @@ package com.dhenton9000.spring.rest.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jdo.JDOObjectNotFoundException;
+import com.dhenton9000.spring.rest.ObjectNotFoundException;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -111,7 +111,7 @@ public class BackboneRestaurantRestController {
 
 		try {
 			getRestaurantService().deleteRestaurant(key);
-		} catch (JDOObjectNotFoundException e) {
+		} catch (ObjectNotFoundException e) {
 			throw new ResourceNotFoundException("cannot find restaurant with key "+key);
 		}
 
@@ -156,7 +156,7 @@ public class BackboneRestaurantRestController {
 
 		try {
 			getRestaurantService().deleteReview(restaurantIdLong, reviewIdLong);
-		} catch (JDOObjectNotFoundException e) {
+		} catch (ObjectNotFoundException e) {
 			String info = String.format("Cannot find review %d for restaurant %d",reviewIdLong,restaurantIdLong);
 			throw new ResourceNotFoundException(info);
 		}

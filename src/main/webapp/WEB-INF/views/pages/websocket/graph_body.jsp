@@ -5,9 +5,7 @@
 
 
 
-<p>From <a href="http://kimrudolph.de/blog/spring-4-websockets-tutorial/">
-    http://kimrudolph.de/blog/spring-4-websockets-tutorial/
-</a></p>
+
 <div class="row">
     <div style="height: 350px" class="well offset1 col-lg-7" id="randomDataChart"></div>
 </div>

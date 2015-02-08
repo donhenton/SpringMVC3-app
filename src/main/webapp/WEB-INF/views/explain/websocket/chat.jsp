@@ -1,29 +1,29 @@
-This is the default dialog text The <b>idea</b> is to fill a lot of
-text into a small item.
 <div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
+    This code demonstrates features that would be useful in a websocket based chat
+</div>
 
-<div class="text-error">
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
+<p>This code demonstrates public and private (user) channels.</p>
+<h3> Send to App Code </h3>
+<p>This code talks on public channels that are visible to all users. With two browsers open, users
+    will see updates any time the button is pressed.</p>
+
+<h3> Send to User Code </h3>
+<p>This code talks on a private channel that is  visible only to the current user. With two browsers open, users
+    will <em>ONLY</em> see their own updates any time the button is pressed.</p>
+
+<p>The controller code is in ChatController. The private channel works by getting user information from the
+    HTTP session, which is normally filled out by Spring authentication in the webapp. In this case, a user
+    name is created for the anonymous user for his session to allow for identification. This is done in
+    the class TestHandshakeHandler. See 
+    <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html">
+        http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html
+    </a>. Search for <span class="badge">determineUser</span>
+
+
+
 
 <div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-<div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-<div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-<div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-
+    The corresponding java code that handles these actions can be found in
+    <code>com.dhenton9000.spring.mvc.controllers.websocket ChatController</code>
+    This is using the Spring in memory websocket stomp broker in the spring-servlet.xml file.
+</div> 

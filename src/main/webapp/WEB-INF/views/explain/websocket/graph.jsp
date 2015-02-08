@@ -1,29 +1,18 @@
-This is the default dialog text The <b>idea</b> is to fill a lot of
-text into a small item.
 <div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
+    This code demonstrates pushing from the server and client response to those
+    server events. Simulated data is pushed on a topic and the client displays
+    this in the high chart graph.
+</div>
 
-<div class="text-error">
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
+<div>From <a href="http://kimrudolph.de/blog/spring-4-websockets-tutorial/">
+    http://kimrudolph.de/blog/spring-4-websockets-tutorial/
+</a></div>
+ 
 
 <div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-<div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-<div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-<div>
-Sed vel diam id libero rutrum convallis. Donec aliquet leo vel magna. 
-Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, 
-arcu felis ultricies neque, sit amet auctor elit eros a lectus.</div>
-
+    The corresponding java code that handles these actions can be found in
+    <code>com.dhenton9000.spring.mvc.controllers.websocket WebSocketController 
+    </code>
+    This is using the Spring in memory websocket stomp broker in the spring-servlet.xml file.
+    
+</div> 
