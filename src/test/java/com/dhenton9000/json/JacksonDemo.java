@@ -1,17 +1,16 @@
 package com.dhenton9000.json;
 
 import com.dhenton9000.restaurant.model.Restaurant;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.MapperFeature;
+ 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.StringWriter;
 import java.io.Writer;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.SerializationConfig;
-import org.codehaus.jackson.map.SerializationConfig.Feature;
-
  
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 public class JacksonDemo {
 
@@ -36,11 +35,12 @@ public class JacksonDemo {
 
 	public void demonstrateNotShowingNulls() {
 		ObjectMapper mapper = new ObjectMapper();
-		Feature xx;
+		 
 		//
-		mapper.getSerializationConfig().setSerializationInclusion(
-				Inclusion.NON_NULL);
-		mapper.configure(Feature.WRITE_NULL_PROPERTIES, false);
+		mapper.getSerializationConfig().withSerializationInclusion(
+				Include.NON_NULL);
+             
+		//mapper.configure( ff., false);
 		// this is older style see demonstrateNotShowingNulls2 for newer
 
 		Restaurant res = new Restaurant();
@@ -60,10 +60,10 @@ public class JacksonDemo {
 
 	public void demonstrateNotShowingNulls2() {
 		ObjectMapper mapper = new ObjectMapper();
-		Feature xx;
-		//
-		mapper.getSerializationConfig().setSerializationInclusion(
-				Inclusion.NON_NULL);
+		 
+                
+		mapper.getSerializationConfig().withSerializationInclusion(
+				Include.NON_NULL);
 
 		Restaurant res = new Restaurant();
 		res.setVersion(1);

@@ -1,12 +1,13 @@
 package com.dhenton9000.spring.rest.store.categories;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import org.codehaus.jackson.map.ObjectMapper;
+
 
 
 /**

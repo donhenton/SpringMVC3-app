@@ -1,8 +1,9 @@
 package com.dhenton9000.restaurant.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Date;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 
  
  
