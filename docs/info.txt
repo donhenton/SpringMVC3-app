@@ -7,6 +7,9 @@ http://dandelion.github.io/datatables/docs/installation/
 
 
 
-running from the command line:
+running from the command line: (java 7)
 
-java -jar target/dependency/jetty-runner.jar target/SpringMVC3-app-1.0-SNAPSHOT.war
+##java -jar target/dependency/jetty-runner.jar target/SpringMVC3-app-1.0-SNAPSHOT.war
+
+
+/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/bin/java  -jar target/dependency/jetty-runner.jar target/SpringMVC3-app-1.0-SNAPSHOT.war
