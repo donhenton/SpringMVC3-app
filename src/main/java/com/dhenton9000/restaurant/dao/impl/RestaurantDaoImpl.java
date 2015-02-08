@@ -55,22 +55,11 @@ public class RestaurantDaoImpl
 
     @Override
     public List<Restaurant> getRestaurantsWithMaxRating(int ratingLimit) {
-        List<Restaurant> all = getAllRestaurants();
-        ArrayList<Restaurant> found = new ArrayList<Restaurant>();
-        for (Restaurant r : all) {
-            boolean addToList = true;
-            if (r.getReviews() != null) {
-                for (Review rv : r.getReviews()) {
-                    if (rv.getStarRating() > ratingLimit) {
-                        addToList = false;
-                        break;
-                    }
-                }
-                if (addToList) {
-                    found.add(r);
-                }
-            }
-        }
+         SearchTemplate template = new SearchTemplate();
+        template.setNamedQuery("Restaurant.maxRating");
+        template.addParameter("ratingLimit", ratingLimit);
+
+        List<Restaurant> found = this.find(new Restaurant(), template);
         return found;
     }
 
@@ -80,14 +69,6 @@ public class RestaurantDaoImpl
 
         SearchTemplate template = new SearchTemplate();
         template.setNamedQuery("Restaurant.nameLike");
-        Map<String, Object> parms = template.getParameters();
-        log.debug("@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        for (String key: parms.keySet())
-        {
-            
-            log.debug("key "+parms.get(key).toString());
-            
-        }
         template.addParameter("searchString", "%"+searchString+"%");
 
         List<Restaurant> found = this.find(new Restaurant(), template);

@@ -6,9 +6,12 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -31,9 +34,9 @@ public class Review implements Serializable, Identifiable<Long> {
     @NumberFormat(pattern = "####")
     @NotNull(message = "must have a rating")
     private Integer starRating;
-    //@Persistent
+    
     private String reviewListing;
-
+    private Restaurant restaurant;
     private Date stampDate = new Date();
 
 //    private Restaurant parentRestaurant;
@@ -108,27 +111,35 @@ public class Review implements Serializable, Identifiable<Long> {
             return false;
         }
         Review other = (Review) obj;
-//        if (id == null) {
-//            if (other.id != null) {
-//                return false;
-//            }
-//        } else if (!id.equals(other.id)) {
-//            return false;
-//        }
-        if (reviewListing == null) {
-            if (other.reviewListing != null) {
-                return false;
-            }
-        } else if (!reviewListing.equals(other.reviewListing)) {
+
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
-        return starRating.equals(other.starRating);
+
+        /*
+         if (id == null) {
+         if (other.id != null) {
+         return false;
+         }
+         } else if (!id.equals(other.id)) {
+         return false;
+         }
+         if (reviewListing == null) {
+         if (other.reviewListing != null) {
+         return false;
+         }
+         } else if (!reviewListing.equals(other.reviewListing)) {
+         return false;
+         }
+         return starRating.equals(other.starRating);
+         */
+        return true;
     }
 
     @Override
     public String toString() {
         return "Review [id=" + id + ", starRating=" + starRating
-                + ", reviewListing= '" + display(reviewListing) + "']";
+                + ", reviewListing= '" + display(reviewListing) + "'] (parent " + restaurant+")";
     }
 
     private String display(String t) {
@@ -149,18 +160,19 @@ public class Review implements Serializable, Identifiable<Long> {
         this.stampDate = stampDate;
     }
 
-    /**
-     * @return the parentRestaurant
-     *
-     * @ManyToOne(fetch = FetchType.LAZY, optional = false)
-     * @JoinColumn(name = "RESTAURANT_ID", referencedColumnName = "ID", nullable
-     * = false, insertable = false, updatable = false) public Restaurant
-     * getParentRestaurant() { return parentRestaurant; }
-     *
-     *
-     * public void setParentRestaurant(Restaurant parentRestaurant) {
-     * this.parentRestaurant = parentRestaurant; }
-     */
+    /*
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "RESTAURANT_ID", referencedColumnName = "ID", nullable
+            = false, insertable = false, updatable = false)
+    public Restaurant
+            getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant parentRestaurant) {
+        this.restaurant = parentRestaurant;
+    }
+*/
     @Override
     @Transient
     public Long getPrimaryKey() {
@@ -181,4 +193,23 @@ public class Review implements Serializable, Identifiable<Long> {
     public void setPrimaryKey(Long id) {
         this.id = id;
     }
+
+     /**
+     * @return the parent
+     */
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "RESTAURANT_ID", referencedColumnName = "ID", nullable = false,
+            insertable = false, updatable = false)
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    /**
+     * @param parent the parent to set
+     */
+    public void setRestaurant(Restaurant parent) {
+        this.restaurant = parent;
+    }
+
 }

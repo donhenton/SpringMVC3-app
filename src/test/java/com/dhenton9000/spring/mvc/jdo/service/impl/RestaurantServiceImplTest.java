@@ -3,15 +3,19 @@ package com.dhenton9000.spring.mvc.jdo.service.impl;
 // transactions
 // https://groups.google.com/forum/#!topic/google-appengine-java/VMg9xiQv1jM
 //https://code.google.com/p/datanucleus-appengine/source/browse/#svn/trunk/tests/com/google/appengine/datanucleus/test/jdo
+import com.dhenton9000.restaurant.dao.RestaurantDao;
+import com.dhenton9000.restaurant.dao.ReviewDao;
 import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.restaurant.model.Review;
 import com.dhenton9000.restaurant.service.RestaurantService;
 import java.util.ArrayList;
+import java.util.HashSet;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -35,8 +39,10 @@ public class RestaurantServiceImplTest {
 
     @PersistenceContext()
     private EntityManager entityManager;
-//    @Autowired
-//    RestaurantDao dao;
+    @Autowired
+    ReviewDao reviewDao;
+    @Autowired
+    RestaurantDao restaurantDao;
     @Autowired
     RestaurantService service;
 
@@ -81,6 +87,14 @@ public class RestaurantServiceImplTest {
     }
 
     @Test
+    public void testMaxRatingLimit() {
+        List<Restaurant> restaurants = service.getAllRestaurants();
+        int totalCount = restaurants.size();
+        restaurants = service.getRestaurantsWithMaxRating(4);
+        assertTrue(totalCount > restaurants.size());
+    }
+
+    @Test
     public void testGetRestaurantById() {
         List<Restaurant> restaurants = service.getAllRestaurants();
         Long id = restaurants.get(0).getPrimaryKey();
@@ -93,7 +107,7 @@ public class RestaurantServiceImplTest {
     public void testAddRestaurant() {
         Restaurant r = new Restaurant();
 
-        r.setReviews(new ArrayList<Review>());
+        r.setReviews(new HashSet<Review>());
         r.setCity("bonzo");
         r.setName("bonzo");
         r.setZipCode("12345");
@@ -101,6 +115,7 @@ public class RestaurantServiceImplTest {
         Long id = service.saveOrAddRestaurant(r);
         logger.debug("id was " + id);
         entityManager.flush();
+        entityManager.clear();
 
         Restaurant otherR = service.getRestaurant(id);
         logger.debug("otherR " + otherR.getCity());
@@ -127,6 +142,7 @@ public class RestaurantServiceImplTest {
         service.saveOrAddRestaurant(r);
 
         entityManager.flush();
+        entityManager.clear();
 
         Restaurant otherR = service.getRestaurant(id);
 
@@ -137,23 +153,60 @@ public class RestaurantServiceImplTest {
     }
 
     @Test
-    public void testAddReview() {
-        List<Restaurant> restaurants = service.getAllRestaurants();
-        Long id = restaurants.get(0).getPrimaryKey();
+    public void testMergeReview() {
+        Long id = new Long(1);
         Restaurant res = service.getRestaurant(id);
-        List<Review> reviews = res.getReviews();
+        Review review = new Review(3, "fred");
+        int oldReviewCount = 0;
+        // review.setRestaurant(res);
+        Set<Review> reviews = res.getReviews();
+        if (reviews == null) {
+            reviews = new HashSet<Review>();
+
+        }
+        oldReviewCount = reviews.size();
+        ArrayList<Long> oldReviewKeys = new ArrayList<Long>();
+        for (Review rr : reviews) {
+            oldReviewKeys.add(rr.getId());
+        }
+        logger.debug("old reviews " + reviews);
+        reviews.add(review);
+        res.setReviews(reviews);
+
+        restaurantDao.merge(res);
+
+        entityManager.flush();
+        entityManager.clear();
+
+        Restaurant otherR = service.getRestaurant(id);
+        logger.debug("new reviews " + otherR.getReviews());
+        assertEquals(oldReviewCount + 1, otherR.getReviews().size());
+
+    }
+
+    @Test
+    public void testAddReview() {
+        logger.debug("Z1");
+
+        Long id = new Long(1);
+        Restaurant res = service.getRestaurant(id);
+        logger.debug("Z1");
+        Set<Review> reviews = res.getReviews();
         ArrayList<Long> oldReviewKeys = new ArrayList<Long>();
         for (Review r : reviews) {
             oldReviewKeys.add(r.getPrimaryKey());
         }
         int oldReviewCount = res.getReviews().size();
-        assertTrue(oldReviewCount > 1);
+        assertEquals(3, oldReviewCount);
+        logger.debug("XXXXX");
         Review review = new Review(3, "fred");
         assertNull(review.getPrimaryKey());
-
+        entityManager.flush();
+        entityManager.clear();
         Review newReview = service.addReview(id, review);
 
         entityManager.flush();
+        entityManager.clear();
         assertNotNull(newReview.getPrimaryKey());
 
         Restaurant otherR = service.getRestaurant(id);
@@ -164,37 +217,51 @@ public class RestaurantServiceImplTest {
 
     @Test
     public void testSaveReview() {
-        List<Restaurant> restaurants = service.getAllRestaurants();
-        Long id = restaurants.get(0).getPrimaryKey();
+        //List<Restaurant> restaurants = service.getAllRestaurants();
+        Long id = (long) 1; //restaurants.get(0).getPrimaryKey();
         Restaurant res = service.getRestaurant(id);
-        List<Review> reviews = res.getReviews();
+        Set<Review> reviews = res.getReviews();
         assertTrue(reviews.size() > 0);
-        Review rev = reviews.get(0);
-        Long revReviewId = rev.getPrimaryKey();
+        int reviewCount = reviews.size();
+        Review rev = reviews.iterator().next();
+        Long revId = rev.getId();
+
         rev.setStarRating(-99);
-        
+
         Review rrr = service.saveReview(id, rev);
         entityManager.flush();
-        
+        entityManager.clear();
+
         res = service.getRestaurant(id);
-        assertEquals(-99,res.getReviews().get(0).getStarRating().longValue());
-        
+        assertEquals(reviewCount, res.getReviews().size());
+        assertEquals(-99, rrr.getStarRating().longValue());
+        boolean foundIt = false;
+        for (Review rr : res.getReviews()) {
+            logger.debug("review key " + rr.getId());
+            if (rr.getId().equals(revId)) {
+                assertEquals(-99, rr.getStarRating().longValue());
+                foundIt = true;
+            }
+
+        }
+        assertTrue("could not find review " + revId, foundIt);
+
     }
-    
+
     @Test
     public void testDeleteReview() {
         List<Restaurant> restaurants = service.getAllRestaurants();
-        Long id = restaurants.get(0).getPrimaryKey();
+        Long id = new Long(1);
         Restaurant res = service.getRestaurant(id);
-        List<Review> reviews = res.getReviews();
+        Set<Review> reviews = res.getReviews();
         assertTrue(reviews.size() > 0);
         int oldReviewSize = reviews.size();
-        Review rev = reviews.get(0);
+        Review rev = reviews.iterator().next();
         service.deleteReview(id, rev.getPrimaryKey());
         entityManager.flush();
-        
+        entityManager.clear();
         res = service.getRestaurant(id);
-        assertEquals(oldReviewSize-1,res.getReviews().size());
-        
+        assertEquals(oldReviewSize - 1, res.getReviews().size());
+
     }
 }

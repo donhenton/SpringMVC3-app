@@ -16,10 +16,13 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import com.dhenton9000.restaurant.dao.RestaurantDao;
+import com.dhenton9000.restaurant.dao.ReviewDao;
 import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.restaurant.model.Review;
 import com.dhenton9000.restaurant.service.RestaurantService;
-import java.util.ArrayList;
+import java.util.HashSet;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,8 +30,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, Long> implements RestaurantService {
 
+    @PersistenceContext()
+    private EntityManager entityManager;
     @Autowired
     private RestaurantDao restaurantDao;
+    @Autowired
+    private ReviewDao reviewDao;
     private static Logger log = LogManager
             .getLogger(RestaurantServiceImpl.class);
 
@@ -41,7 +48,6 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     @Override
     public Restaurant getRestaurant(Long id) {
 
-        // return getRestaurantDao().getRestaurant(id);
         return this.getByPrimaryKey(id);
     }
 
@@ -53,15 +59,20 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Restaurant>> violations = validator.validate(t);
-        if (violations.size() == 0) {
-            if (t.getReviews() != null) {
-                for (Review rv : t.getReviews()) {
-                    //rv.setParentRestaurant(t);
-                }
-            }
+        Restaurant aa = null;
 
-            Restaurant aa = this.merge(t);
-            return aa.getPrimaryKey();
+        log.debug("object " + t.toString() + " managed " + this.entityManager.contains(t) 
+                + " count " + t.getReviews().size());
+        if (violations.isEmpty()) {
+            if (t.getPrimaryKey() == null) {
+                log.debug("doing merge");
+                aa = this.merge(t);
+                return aa.getPrimaryKey();
+            } else {
+                log.debug("doing save");
+                this.save(t);
+                return t.getPrimaryKey();
+            }
 
         } else {
             HashMap<String, String> errors = new HashMap<String, String>();
@@ -118,25 +129,24 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
                     + restaurantId);
             return;
         }
-        List<Review> reviews = parent.getReviews();
+        Set<Review> reviews = parent.getReviews();
         log.debug("before delete " + reviews.size());
-        //Key restaurantKey = new Key(restaurantId);
-        //Key reviewKey = new Key(reviewId);
-        int idx = -1;
-        for (int i = 0; i < reviews.size(); i++) {
-            log.debug("key review " + reviewId + " -- " + reviews.get(i).getId());
-            if (reviews.get(i).getId().equals(reviewId)) {
-                idx = i;
+        Iterator<Review> iterReview = reviews.iterator();
+
+        while (iterReview.hasNext()) {
+            Review rr = iterReview.next();
+            log.debug("key review " + reviewId + " -- " + rr.getId());
+            if (rr.getId().equals(reviewId)) {
+                log.debug("hit delete " + rr);
+                iterReview.remove();
+                reviewDao.delete(rr);
                 break;
             }
         }
-        log.debug("idx is " + idx);
-        if (idx > -1) {
-            log.debug("did remove ");
-            parent.getReviews().remove(idx);
-        }
+
         log.debug("after delete " + reviews.size());
-        this.saveOrAddRestaurant(parent);
+
+        this.merge(parent);
 
     }
 
@@ -152,28 +162,27 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
         }
         log.debug("saveReview found parent " + parent.getPrimaryKey());
 
-        List<Review> reviews = parent.getReviews();
+        Set<Review> reviews = parent.getReviews();
         Long reviewKey = newReview.getId();
-        boolean isAdding = false;
-        Long reviewKeyLong = null;
+
+        //Long reviewKeyLong = null;
         if (reviewKey == null) {
             log.warn("review key null in  saveReview " + restaurantId);
             return null;
-        } else {
-            reviewKeyLong = new Long(reviewKey);
         }
         log.debug("review Key to match: " + reviewKey);
 
-        for (int i = 0; i < reviews.size(); i++) {
-            log.debug("key review " + reviewKeyLong + " " + reviews.get(i));
-            if (new Long(reviews.get(i).getId())
-                    .compareTo(reviewKeyLong) == 0) {
+        Iterator<Review> iterReview = reviews.iterator();
+        while (iterReview.hasNext()) {
+            Review oR = iterReview.next();
+            if (oR.getId().equals(reviewKey)) {
                 log.debug("found match ");
-                Review oR = reviews.get(i);
                 oR.setReviewListing(newReview.getReviewListing());
                 oR.setStarRating(newReview.getStarRating());
+                this.reviewDao.merge(oR);
             }
         }
+
         this.saveOrAddRestaurant(parent);
         return newReview;
     }
@@ -182,31 +191,37 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     @Transactional
     public Review addReview(Long restaurantId, Review newReview) {
         log.debug("hit addReview " + restaurantId);
+        log.debug("review " + newReview);
         Restaurant parent = getRestaurant(restaurantId);
         if (parent == null) {
             log.warn("could not find restaurant in addReview " + restaurantId);
             return null;
         }
-
-        
-        ArrayList<Long> oldReviewKeys = new ArrayList<Long>();
-        for (Review r : parent.getReviews()) {
-            oldReviewKeys.add(r.getPrimaryKey());
+        log.debug("starting review dao");
+        Set<Review> reviews = parent.getReviews();
+        if (reviews == null) {
+            reviews = new HashSet<Review>();
         }
+        Set<Review> reviewCopy = new HashSet<Review>();
+         for (Review r: reviews)
+         {
+             reviewCopy.add(r);
+         }
+         
+        newReview.setRestaurant(parent);
+        reviews.add(newReview);
+        parent.setReviews(reviews);
+         
 
-        parent.getReviews().add(newReview);
-        this.saveOrAddRestaurant(parent);
-
-        ArrayList<Long> newReviewKeys = new ArrayList<Long>();
-        for (Review r : parent.getReviews()) {
-            newReviewKeys.add(r.getPrimaryKey());
-        }
-        
-        newReviewKeys.removeAll(oldReviewKeys);
-        newReview.setId(newReviewKeys.get(0));
-
+        log.debug("finished reveiw dao");
+        //parent.getReviews().add(rr);
+        log.debug("start parent save");
+        parent = this.merge(parent);
+        reviews = parent.getReviews();
+        reviews.removeAll(reviewCopy);
        
-        return newReview;
+
+        return reviews.iterator().next();
 
     }
 

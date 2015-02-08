@@ -7,7 +7,9 @@ package com.dhenton9000.restaurant.model;
 import com.dhenton9000.jpa.domain.Identifiable;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -39,6 +41,9 @@ import javax.persistence.Transient;
 @NamedQueries({
     @NamedQuery(name = "Restaurant.findAll", query = "SELECT u FROM Restaurant u"),
     @NamedQuery(name = "Restaurant.nameLike", query = "SELECT u FROM Restaurant u WHERE u.name like  :searchString "),
+    @NamedQuery(name = "Restaurant.maxRating", query = "SELECT distinct   u FROM Restaurant u "
+            + "JOIN u.reviews c "
+            + "WHERE c.starRating >  :ratingLimit"),
     @NamedQuery(name = "Restaurant.findByid", query = "SELECT u FROM Restaurant u WHERE u.id = :id")})
 
 @XmlRootElement
@@ -58,7 +63,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     private String city;
     @NotEmpty(message = "State cannot be blank")
     private String state;
-    private List<Review> reviews = new ArrayList<Review>();
+    private Set<Review> reviews = new HashSet<Review>();
 
     private final transient Logger logger = LoggerFactory
             .getLogger(Restaurant.class);
@@ -222,10 +227,10 @@ public class Restaurant implements Serializable, Identifiable<Long> {
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
-    public List<Review> getReviews() {
-        if (reviews == null) {
-            reviews = new ArrayList<Review>();
-        }
+    public Set<Review> getReviews() {
+//        if (reviews == null) {
+//            reviews = new ArrayList<Review>();
+//        }
         return reviews;
     }
 
@@ -244,8 +249,26 @@ public class Restaurant implements Serializable, Identifiable<Long> {
         return id != null;
     }
 
-    public void setReviews(List<Review> reviews) {
+    public void setReviews(Set<Review> reviews) {
         this.reviews = reviews;
+    }
+    
+    
+    public void loadRestaurantOnlyFromDTO(RestaurantDTO dto)
+    {
+        this.setCity(dto.getCity());
+        this.setName(dto.getName());
+        this.setId(dto.getId());
+        this.setState(dto.getState());
+        this.setZipCode(dto.getZipCode());
+        this.setVersion(dto.getVersion());
+//        this.getReviews().clear();
+//        for (ReviewDTO reviewDTO: dto.getReviewDTOs())
+//        {
+//            this.getReviews().add(reviewDTO.makeReview());
+//        }
+        
+        
     }
 
 }
