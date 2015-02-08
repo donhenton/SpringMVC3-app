@@ -87,18 +87,19 @@
 
                 <ul class="nav pull-left">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bootstrap Demos <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Websocket Demos <b class="caret"></b></a>
                         <ul class="dropdown-menu">
 
-
+<!--
                             <li><a href="<c:out value="${baseURL}bootstrap/demos/tabledemo" />">Tables</a></li>
                             <li><a href="${baseURL}bootstrap/demos/buttons.html">Buttons</a></li>
                             <li><a href="${baseURL}bootstrap/demos/dropdowns.html">Dropdowns</a></li>
                             <li><a href="${baseURL}bootstrap/demos/tabs.html">Tabs</a></li>
                             <li><a href="${baseURL}bootstrap/demos/modals.html">Modal Dialogs</a></li>
+-->
 
-
-
+                            <li><a href="<c:out value="${baseURL}websocket/graph" />">Graph Update</a></li>
+                            <li><a href="<c:out value="${baseURL}websocket/chat" />">Websocket Chat</a></li>
                         </ul>
                     </li>
                 </ul> 
