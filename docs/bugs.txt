@@ -7,5 +7,5 @@
 rewrite angular app to preload the initial database in a variable on the page
 
 JQuery Demos
-    update Selections
+    -- update Selections
     get Linked Lists to work on MAC chrome
