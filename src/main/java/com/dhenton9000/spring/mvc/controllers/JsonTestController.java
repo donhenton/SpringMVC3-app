@@ -16,6 +16,8 @@ import org.apache.log4j.*;
 import com.dhenton9000.spring.mvc.model.Book;
 import com.dhenton9000.spring.mvc.model.BookMaker;
 import com.mkyong.common.model.Coffee;
+import java.util.Random;
+import java.util.UUID;
 
 @Controller
 public class JsonTestController {
@@ -44,7 +46,8 @@ public class JsonTestController {
 	@RequestMapping(value="/json/name/getbook", method=RequestMethod.GET)
 	public @ResponseBody Book getBookByName(@RequestParam String name) {
 	   log.debug("name is "+name);
-		
+		bookmaker.getBook().setOfficeName(name);
+                
 		return bookmaker.getBook();
 	}
 	
@@ -52,8 +55,8 @@ public class JsonTestController {
 	@RequestMapping(value="/json/getbook", method=RequestMethod.GET)
 	public @ResponseBody Book getBook() {
 	   Book book = bookmaker.getBook();
-	   book.setAuthor("fred");
-		log.debug("hit default book");
+	   book.setAuthor("Lew Wallace "+UUID.randomUUID().toString());
+		//log.debug("hit default book");
 		return book;
 	}
 	
@@ -61,18 +64,19 @@ public class JsonTestController {
 	@RequestMapping(value="/json/coffee", method = RequestMethod.GET)
 	public @ResponseBody Coffee getCoffeeBean(@RequestParam("brand") String brand) {
 
-	
-		Coffee coffee = new Coffee(brand+" deluxe server edition!!", 100);
+                Random r = new Random();
+		Coffee coffee = new Coffee(brand , r.nextInt(40));
 	
 		log.debug("hit coffee with name of '"+brand+"'");
 		return coffee;
 
 	}
 	
-	@RequestMapping(value="/json/sendCoffee", method = RequestMethod.POST)
-	public @ResponseBody Coffee recieveCoffeeBean(@RequestBody Coffee coffee, HttpServletResponse response) {
+	@RequestMapping(value="/json/postCoffee", method = RequestMethod.POST)
+	public @ResponseBody Coffee postCoffeeBean(@RequestBody Coffee coffee, HttpServletResponse response) {
 
-		coffee.setQuantity(1010);
+                Random r = new Random();
+		coffee.setQuantity(r.nextInt(20));
 		log.debug("hit send coffee with brand of '"+coffee.getBrand()+"'");
 		return coffee;
 

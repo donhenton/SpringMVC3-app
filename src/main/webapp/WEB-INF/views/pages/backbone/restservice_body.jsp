@@ -8,7 +8,7 @@
 
 
 <h2>Service Description</h2>
-<p><b>Service url:</b> http://donhenton.appspot.com/app/backbone/restaurant/</p>
+<p><b>Service url:</b>http://donhenton-springmvc3.herokuapp.com/app/backbone/restaurant/</p>
 <p><b>Service url:</b> http://localhost:8888/app/backbone/restaurant/</p>
 <ul>
 	<li>

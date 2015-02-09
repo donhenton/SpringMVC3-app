@@ -7,16 +7,19 @@
 <script>
 
 
-    function sendCoffee()
+    function postCoffee()
     {
 
         //var bean = $('#coffeeForm').serializeObject();
         // alert($.param(bean));
-        var url = "<%= basePath%>/app/json/sendCoffee";
+        $("#postJSONReply").empty();
+        var url = "<%= basePath%>/app/json/postCoffee";
+        //create the coffee object
         var jsonMap = new Object();
+        
         jsonMap['brand'] = $("#brandPost").val();
         var datastring = JSON.stringify(jsonMap, null);
-        alert(datastring);
+       
 
         var request = $.ajax({
             type: 'POST',
@@ -24,20 +27,16 @@
             data: datastring,
             contentType: 'application/json; charset=utf-8',
             dataType: 'json'
-//        ,
-//        beforeSend:function(xhr){
-//         $.blockUI({ message: '<h1><img src="images/loader.gif" /> Just a moment...</h1>' });
-//        
-//        }
+ 
         });
 
-        request.done(function(coffee) {
-
-            alert('success: brand: ' + coffee.brand + " quantity: " + coffee.quantity);
+        request.done(function (coffee) {
+             var brandInfo = coffee.brand +" has qty of "+coffee.quantity;
+             $("#postJSONReply").text(brandInfo);
         }
         );
-        request.error(function(jqXHR, textStatus, errorThrown) {
-            alert('error ' + textStatus + ' errorthrown ' + errorThrown);
+        request.error(function (jqXHR, textStatus, errorThrown) {
+             $("#postJSONReply").text('error ' + textStatus + ' errorthrown ' + errorThrown);
         }
         );
 
@@ -47,21 +46,21 @@
     }
 
     function getJSON() {
-
-        $.getJSON('app/json/getbook.json', function(book) {
-            alert(book.author);
+        $("#getJSONReply").empty();
+        $.getJSON('app/json/getbook.json', function (book) {
+            $("#getJSONReply").text(book.author);
         });
 
     }
 
 
-    function getCoffee()
+    function getBrand()
     {
         var url = "app/json/coffee.json?brand=";
         var brand = $('#brandGet').val();
         url = url + brand;
-        $.getJSON(url, function(coffee) {
-            alert(coffee.brand);
+        $.getJSON(url, function (coffee) {
+             $("#getBrandReply").text(coffee.brand +" ("+coffee.quantity+")");
         });
 
     }
@@ -72,24 +71,46 @@
 
 <h3>Processing Jason on the Server via jQuery and JSON.js</h3>
 
-<div class="row">
-    <div class="offset2 row-separate">
-        <button class="btn btn-primary" onclick="getJSON();">Get Json</button>
-    </div>
+<div class="row offset1">
+    <h4>Get To Json Service</h4> 
 </div>
 
-<div class="row">
-    <div class="offset2 row-separate form-horizontal">        
-         Brand: <input type="text" id="brandGet" name="brand" class="input-prepend" size="20"/>
-         <button class="btn btn-primary" onclick="getCoffee();">Get Coffee</button>
-    </div>
-</div> 
 
 <div class="row">
-    <div class="offset2 row-separate form-horizontal">
+    <div class="offset2 row-separate">
         
-        Brand: <input type="text" id="brandPost" class="input-prepend"  name="brand" size="20"/>
-         <button class="btn btn-primary"  onclick="sendCoffee()">Send Coffee</button>
+        <span class="col1">&nbsp;</span>   
+        <button class="btn btn-primary" onclick="getJSON();">Get Json</button>
+        <span class="col1">&nbsp;</span>
+        <span id="getJSONReply"> </span> 
+        
+    </div>
+</div>
+<div class="row offset1">
+    <h4>GET to service with Brand Name as String Payload</h4> 
+</div>
+<div   class="row">
+    <div class="offset2 row-separate form-horizontal">   
+         
+        <button class="btn btn-primary" onclick="getBrand();">Get Brand</button>
+        Brand: <input type="text" id="brandGet" name="brand" value="Nescafe" class="input-prepend" size="20"/>
+        
+        <span class="col1">&nbsp;</span>  
+         <span id="getBrandReply"> </span> 
+        
+    </div>
+</div> 
+<div class="row offset1">
+    <h4>POST to service with Coffee JSON as Post Body</h4> 
+</div>
+<div class="row">
+    <div class="offset2 row-separate form-horizontal">
+
+        <button class="btn btn-primary"  onclick="postCoffee()">Post Coffee</button>
+        Brand: <input type="text" id="brandPost" class="input-prepend" value="Folgers" name="brand" size="20"/>
+        
+        <span class="col1">&nbsp;</span>   
+        <span id="postJSONReply"> </span> 
     </div>
 </div> 
 

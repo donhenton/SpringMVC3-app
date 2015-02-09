@@ -3,11 +3,11 @@
 These forms demonstration getting and sending JSON objects
 
 <ol>
-<li>Send Coffee serializes its form and transmits it as JSON to the server
-This uses JQuery's ajax calls</li>
-<li>Get JSON receives a JSON serialized book object from the server. The code is from JSON.js</li>
-<li>Get coffee sends a form element that is used to modify a return JSON object. The code is from JSON.js</li>
 
+<li>Get JSON requests and receives a JSON serialized book object from the server.</li>
+<li>Get Brand sends a form element as as a String. 
+    The server returns a coffee JSON object</li>
+<li>Post Coffee composes a JSON coffee object and POSTs that to the server</li>
 </ol>
 
 <div>

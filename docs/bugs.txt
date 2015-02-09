@@ -1,7 +1,7 @@
-eliminate load restaurants menu item under javascript frameworks
-update service url on restaurant REST service docs under javascript frameworks
+-- eliminate load restaurants menu item under javascript frameworks
+-- update service url on restaurant REST service docs under javascript frameworks
 
-Update Spring MVC 3 --> Json Demo Entry
+-- Update Spring MVC 3 --> Json Demo Entry
 Update Spring MVC 3 --> Simple Html via Jsp
 
 rewrite angular app to preload the initial database in a variable on
