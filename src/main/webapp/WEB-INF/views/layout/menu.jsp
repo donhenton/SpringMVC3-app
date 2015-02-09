@@ -62,7 +62,7 @@
 
                             <li><a href="<c:out value="${baseURL}jquery/demos/linkedLists" />">Linked Lists</a></li>
                             <li><a href="<c:out value="${baseURL}jquery/demos/jsonData" />">JSON Data</a></li>
-                            <li><a href="<c:out value="${baseURL}jquery/demos/findingElements" />">Selections</a></li>
+                            
                             <li><a href="<c:out value="${baseURL}jquery/demos/positioning" />">Positioning</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-submenu"><a tabindex="-1" href="#">Forms</a>
