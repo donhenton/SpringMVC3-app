@@ -62,23 +62,17 @@
 
                             <li><a href="<c:out value="${baseURL}jquery/demos/linkedLists" />">Linked Lists</a></li>
                             <li><a href="<c:out value="${baseURL}jquery/demos/jsonData" />">JSON Data</a></li>
-                            
                             <li><a href="<c:out value="${baseURL}jquery/demos/positioning" />">Positioning</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-submenu"><a tabindex="-1" href="#">Forms</a>
-                            <ul  class="dropdown-menu">
-	                            <li><a href="<c:out value="${baseURL}jquery/demos/periodicUpdater" />">Periodic Updater</a></li>
-	                            <li><a href="<c:out value="${baseURL}jquery/demos/formSamples" />">Form Samples</a></li>
-	                            <li><a href="<c:out value="${baseURL}jquery/formSubmission/home" />">Ajax Form Submission</a></li>
-	                        </ul>
-	                        </li>
-                            <li class="divider"></li>
-                            <li class="dropdown-submenu"><a tabindex="-1" href="#">Image Displays</a>
-	                            <ul  class="dropdown-menu">
-		                            <li><a href="<c:out value="${baseURL}jquery/demos/pixDisplay" />">JQuery Lightbox</a></li>
-		                            <li><a href="<c:out value="${baseURL}jquery/demos/arttimer" />">Art Timer</a></li>
-								</ul>
-							</li>
+
+                            <li class="divider"></li><li class="dropdown-header">Forms</li> 
+                            <li><a href="<c:out value="${baseURL}jquery/demos/periodicUpdater" />">Periodic Updater</a></li>
+                            <li><a href="<c:out value="${baseURL}jquery/demos/formSamples" />">Form Samples</a></li>
+                            <li><a href="<c:out value="${baseURL}jquery/formSubmission/home" />">Ajax Form Submission</a></li>
+
+                            <li class="divider"></li><li class="dropdown-header">Image Displays</li>        
+                            <li><a href="<c:out value="${baseURL}jquery/demos/pixDisplay" />">JQuery Lightbox</a></li>
+                            <li><a href="<c:out value="${baseURL}jquery/demos/arttimer" />">Art Timer</a></li>
+
 
                         </ul>
                     </li>
@@ -89,14 +83,6 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Websocket Demos <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-
-<!--
-                            <li><a href="<c:out value="${baseURL}bootstrap/demos/tabledemo" />">Tables</a></li>
-                            <li><a href="${baseURL}bootstrap/demos/buttons.html">Buttons</a></li>
-                            <li><a href="${baseURL}bootstrap/demos/dropdowns.html">Dropdowns</a></li>
-                            <li><a href="${baseURL}bootstrap/demos/tabs.html">Tabs</a></li>
-                            <li><a href="${baseURL}bootstrap/demos/modals.html">Modal Dialogs</a></li>
--->
 
                             <li><a href="<c:out value="${baseURL}websocket/graph" />">Graph Update</a></li>
                             <li><a href="<c:out value="${baseURL}websocket/chat" />">Websocket Chat</a></li>
@@ -109,28 +95,18 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Javascript Framework Demos<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                          
-                           <li><a href="<c:out value="${baseURL}backbone/demos/js/model" />">Javascript Model/View</a></li>
-                           <li><a href="<c:out value="${baseURL}angular/restaurant" />">Angular Restaurant App</a></li> 	
-                         	<li class="dropdown-submenu"><a tabindex="-1" href="#">Backbone</a>
-                            <ul  class="dropdown-menu">
-	                             <li><a href="<c:out value="${baseURL}backbone/demos/localstorage" />">Backbone Local Storage</a></li>
-	                             <li><a href="<c:out value="${baseURL}backbone/demos/restaurant" />">Backbone Restaurant App</a></li>
-	                        </ul>
-	                        </li>
-                         	
-                         	 <li class="dropdown-submenu"><a tabindex="-1" href="#">D3 Demos</a>
-                            <ul  class="dropdown-menu">
-	                            <li><a href="<c:out value="${baseURL}d3/treeDemo" />">Tree Demo</a></li>
-	                             
-	                        </ul>
-	                        </li>
-	                        
-	                          <li class="divider"></li>
-         				   
-         				   <li><a href="<c:out value="${baseURL}backbone/demos/restservice/docs" />">Restaurant REST Service Docs</a></li>
-                         	<li class="divider"></li>
-                            
+
+                            <li><a href="<c:out value="${baseURL}backbone/demos/js/model" />">Javascript Model/View</a></li>
+                            <li><a href="<c:out value="${baseURL}angular/restaurant" />">Angular Restaurant App</a></li> 	
+
+                            <li><a href="<c:out value="${baseURL}backbone/demos/localstorage" />">Backbone Local Storage</a></li>
+                            <li><a href="<c:out value="${baseURL}backbone/demos/restaurant" />">Backbone Restaurant App</a></li>
+                            <li><a href="<c:out value="${baseURL}d3/treeDemo" />">D3 Tree Demo</a></li>
+                            <li class="divider"></li>
+
+                            <li><a href="<c:out value="${baseURL}backbone/demos/restservice/docs" />">Restaurant REST Service Docs</a></li>
+
+
                         </ul>
                     </li>
                 </ul> 
