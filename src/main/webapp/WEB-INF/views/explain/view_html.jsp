@@ -2,7 +2,8 @@
 <div>
 This is a simple demonstration of the controller paridigm for MVC 3.
 The controller places a pair of strings into the model, that are then
-echoed on the page.
+echoed on the page. The view resolver that looks for *.html is what routes
+this to the <code>ViewsController</code> code
 </div>
 
 
