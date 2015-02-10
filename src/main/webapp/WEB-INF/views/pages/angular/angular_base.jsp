@@ -71,6 +71,12 @@ body {
   <script>
             
             g_restaurantUrlBase = "<%= basePath %>"+"app/backbone/restaurant/";
+            
+            
+            g_restaurantData = ${jsonRestaurants}
+            
+            
+            
         </script>
   <script src="http://code.jquery.com/jquery.js"></script> 
 <script src="js/bootstrap.min.js"

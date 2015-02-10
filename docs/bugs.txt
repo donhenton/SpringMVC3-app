@@ -4,7 +4,7 @@
 -- Update Spring MVC 3 --> Json Demo Entry
 -- Update Spring MVC 3 --> Simple Html via Jsp
 
-rewrite angular app to preload the initial database in a variable on the page
+-- rewrite angular app to preload the initial database in a variable on the page
 
 JQuery Demos
     -- update Selections

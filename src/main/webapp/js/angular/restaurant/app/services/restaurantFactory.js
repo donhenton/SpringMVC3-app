@@ -166,14 +166,11 @@
 
         factory.init = function ()
         {
-            return restaurantDAOService.init().
-                    success(function (data, status, headers, config) {
-                        console.log("factory init")
-                        restaurantList = data;
-                        currentRestaurant = {};
-                        factory.resetCurrentStatus();
-
-                    });
+            restaurantList = restaurantDAOService.init();
+            currentRestaurant = {};
+            factory.resetCurrentStatus();
+            return restaurantList;
+       
         }
 
 
