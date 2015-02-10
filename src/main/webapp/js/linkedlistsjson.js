@@ -6,7 +6,7 @@ if (typeof console == 'undefined') {
         return;
     };
 }
-var selectionDialog = null;
+ 
 /* data object */
 
 var carMakers = [{
@@ -107,7 +107,7 @@ function setUpFirstBox()
 function getModelsForMaker(makerName)
 {
 
-    carMaker = filterByProperty(carMakers, 'name', makerName), models = [];
+    var carMaker = filterByProperty(carMakers, 'name', makerName), models = [];
     if (carMaker.length > 0)
         models = $
                 .map(
@@ -124,10 +124,10 @@ function getModelsForMaker(makerName)
 // get model features  for a given car maker and Model
 function getFeaturesForMakerandModel(makerName, modelName)
 {
-    carMaker = filterByProperty(carMakers, 'name', makerName);
+    var carMaker = filterByProperty(carMakers, 'name', makerName);
     console.log(" carmaker " + carMaker[0].name);
-    features = [];
-    model = filterByProperty(carMaker[0].models, 'name', modelName);
+    var features = [];
+    var model = filterByProperty(carMaker[0].models, 'name', modelName);
     if (notThere(model))
     {
         return null;
@@ -156,7 +156,7 @@ function doBoxChange(item, itemIndex)
 {
     if (itemIndex === 1)
     {
-        models = getModelsForMaker(item.value);
+        var models = getModelsForMaker(item.value);
         if (notThere(models))
         {
             $('#model').empty();
@@ -173,9 +173,9 @@ function doBoxChange(item, itemIndex)
     if (itemIndex === 2)
     {
 
-        maker = $('#maker').val();
-        model = $('#model').val();
-        features = getFeaturesForMakerandModel(maker, model);
+        var maker = $('#maker').val();
+        var model = $('#model').val();
+        var features = getFeaturesForMakerandModel(maker, model);
         console.log("maker " + maker + " model " + model + " got features " + features);
         if (notThere(features))
         {
@@ -193,7 +193,7 @@ function doBoxChange(item, itemIndex)
     {
         maker = $('#maker').val();
         model = $('#model').val();
-        feature = $('#feature').val();
+        var feature = $('#feature').val();
 
         $('#makerResult').html(maker);
         $('#modelResult').html(model);
@@ -206,13 +206,7 @@ function doBoxChange(item, itemIndex)
     }
 }
 
-function showSelection()
-{
-
-    selectionDialog.dialog('open');
-
-}
-
+ 
 
 /*
  This is the main document call. Since this page is inside a tile
@@ -246,7 +240,7 @@ $(document)
             );
             $('#feature')
                     .bind(
-                    'click',
+                    'change',
                     function()
                     {
                         doBoxChange(this, 3);

@@ -1,6 +1,8 @@
 <script type="text/javascript"  src="js/linkedlistsjson.js"></script>
 <script type="text/javascript"  src="js/linkedlistsviaCall.js"></script>
 
+ 
+
 <div class="row offset1">
     <div class="span5">
         <h3>Using JSON Object</h3>
@@ -29,9 +31,9 @@
     </div>
     <div class="span5">
 
-        <h3>Using MVC Call</h3>
+        <h3>Using MVC Call <img id="loaderImage"  width="40px" height="40px" src="images/loader.gif" /></h3>
         <table class="table">
-            <tr><th>Product Categories</th><td> <select style="width:140px" id="categories"></select></td><td rowspan="2"><img id="loaderImage"  width="40px" height="40px" src="images/loader.gif" /></td></tr>
+            <tr><th>Product Categories</th><td> <select style="width:140px" id="categories"></select></td><td rowspan="2"> </td></tr>
             <tr><th>Product SubCategories</th><td> <select  style="width:140px"  id="subCategories"></select></td></tr>
         </table>
     </div>
