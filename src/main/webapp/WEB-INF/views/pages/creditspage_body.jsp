@@ -6,7 +6,7 @@
 
 
 
-    <li><a href="http://code.google.com/p/springmvc-sample/source/browse/trunk/spring/GoogleSpringMVCEclipse">Google Code Source for this project</a></li>
+    <li><a href="https://github.com/donhenton/SpringMVC3-app">Github Source for this project</a></li>
 
 
 

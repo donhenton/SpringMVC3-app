@@ -10,6 +10,11 @@
 	</ol>
 </div>
 
+<h4>Actions</h4>
+<div>Click on the folders to open the tree for other choices.The leaf nodes
+    can be clicked on and off</div>
+
+
 <h4>Model View Paradigm</h4>
 
 <div>
