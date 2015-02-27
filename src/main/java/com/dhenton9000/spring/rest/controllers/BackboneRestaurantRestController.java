@@ -42,7 +42,7 @@ public class BackboneRestaurantRestController {
     @Autowired
     private RestaurantService restaurantService;
 
-	// http://localhost:8888/app/backbone/restaurant/4723501952925696
+    // http://localhost:8888/app/backbone/restaurant/4723501952925696
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "create restaurant", notes = "Create or save a restaurant")
@@ -76,17 +76,20 @@ public class BackboneRestaurantRestController {
     @ApiResponses({
         @ApiResponse(code = 201, message = "Restaurant updated"),
         @ApiResponse(code = 400, message = "validation error")})
-    public void update(   @ApiParam(value = "the new Restaurant Data", required = true)  @RequestBody RestaurantDTO rDTO,
-          @ApiParam(value = "the id of the restaurant to update", required = true)   @PathVariable("id") String id) {
+    public void update(@ApiParam(value = "the new Restaurant Data", required = true) @RequestBody RestaurantDTO rDTO,
+            @ApiParam(value = "the id of the restaurant to update", required = true) @PathVariable("id") String id) {
         log.debug("hit update id " + rDTO.getId());
-        log.debug("restaurant name "+rDTO.getName());
+        log.debug("restaurant name " + rDTO.getName());
         getRestaurantService().saveOrAddRestaurant(rDTO.makeRestaurant());
     }
 
     @RequestMapping(value = "{restaurantId}", method = RequestMethod.GET)
+    @ApiOperation(value = "get single restaurant", notes = "Get a single restaurant")
+    @ApiResponses({
+        @ApiResponse(code = 404, message = "restaurant not found")})
     public @ResponseBody
     RestaurantDTO getRestaurant(
-            @PathVariable("restaurantId") String restaurantId) {
+            @ApiParam(value = "restaurant id", required = true) @PathVariable("restaurantId") String restaurantId) {
         log.debug("hit getRestaurant!!!!");
         Long key = null;
 
@@ -115,7 +118,12 @@ public class BackboneRestaurantRestController {
 
     @RequestMapping(value = "{restaurantId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void remove(@PathVariable("restaurantId") String restaurantId) {
+    @ApiOperation(value = "delete single restaurant", notes = "Delete single restaurant and all reviews")
+    @ApiResponses({
+        @ApiResponse(code = 404, message = "restaurant not found")})
+    public void remove(
+            @ApiParam(value = "restaurant id", required = true)
+            @PathVariable("restaurantId") String restaurantId) {
         Long key = null;
         log.debug("hit delete id " + restaurantId);
         try {
@@ -148,11 +156,15 @@ public class BackboneRestaurantRestController {
         return restaurants;
     }
 
-	// /////// REVIEWS/////////////////////////////////
+    // /////// REVIEWS/////////////////////////////////
     @RequestMapping(value = "/review/{restaurantId}/{reviewId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void removeReview(@PathVariable("restaurantId") String restaurantId,
-            @PathVariable("reviewId") String reviewId) {
+    @ApiOperation(value = "remove a review", notes = "Remove a review for a restaurant")
+    @ApiResponses({
+        @ApiResponse(code = 404, message = "review or restaurant not found")})
+    public void removeReview(
+            @ApiParam(value = "restaurant id", required = true) @PathVariable("restaurantId") String restaurantId,
+            @ApiParam(value = "review id", required = true) @PathVariable("reviewId") String reviewId) {
         Long restaurantIdLong = null;
         Long reviewIdLong = null;
         log.debug("hit removeReview " + restaurantId + " " + reviewId);
@@ -181,9 +193,12 @@ public class BackboneRestaurantRestController {
 
     @RequestMapping(value = "/review/{restaurantId}", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "add a review", notes = "Add a review for a restaurant")
+    @ApiResponses({
+        @ApiResponse(code = 404, message = "restaurant not found")})
     public @ResponseBody
     BackBoneIdResponse addReview(@RequestBody ReviewDTO rDTO,
-            @PathVariable("restaurantId") String restaurantId) {
+            @ApiParam(value = "restaurant id", required = true) @PathVariable("restaurantId") String restaurantId) {
 
         Long restaurantIdLong = null;
         log.debug("hit addReview " + restaurantId + " " + rDTO.getId());
@@ -202,9 +217,12 @@ public class BackboneRestaurantRestController {
 
     @RequestMapping(value = "/review/{restaurantId}/{reviewId}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "remove a review", notes = "Remove a review for a restaurant")
+    @ApiResponses({
+        @ApiResponse(code = 404, message = "review or restaurant not found")})
     public void saveReview(@RequestBody ReviewDTO rDTO,
-            @PathVariable("restaurantId") String restaurantId,
-            @PathVariable("reviewId") String reviewId) {
+            @ApiParam(value = "restaurant id", required = true) @PathVariable("restaurantId") String restaurantId,
+            @ApiParam(value = "review id", required = true) @PathVariable("reviewId") String reviewId) {
         Long restaurantIdLong = null;
         log.debug("hit updateReview " + restaurantId + " " + rDTO.getId());
 
@@ -219,7 +237,7 @@ public class BackboneRestaurantRestController {
                 rDTO.makeReview());
     }
 
-	// ////////////////////////////////////////////////////////////////////////////////////
+    // ////////////////////////////////////////////////////////////////////////////////////
     public RestaurantService getRestaurantService() {
         return restaurantService;
     }
