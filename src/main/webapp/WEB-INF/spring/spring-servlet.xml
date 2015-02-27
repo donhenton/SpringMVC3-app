@@ -62,7 +62,7 @@ http://www.springframework.org/schema/context         http://www.springframework
     <security:global-method-security jsr250-annotations="enabled" secured-annotations="enabled" />
     <mvc:annotation-driven validator="validator" />
     
-    <bean class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />
+     <bean class="com.dhenton9000.swagger.SwaggerConfig"/>
     <import resource="controllers.xml" />
       
     
