@@ -26,9 +26,16 @@ import com.dhenton9000.restaurant.service.RestaurantService;
 import com.dhenton9000.spring.rest.NumberParsingException;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wordnik.swagger.annotations.ApiResponse;
+import com.wordnik.swagger.annotations.ApiResponses;
+
 
 @Controller
 @RequestMapping(value = "backbone/restaurant")
+@Api(value = "/restaurants/", description = "Service for maintaining restaurants")
 public class BackboneRestaurantRestController {
 
 	private static Logger log = LogManager
@@ -40,6 +47,7 @@ public class BackboneRestaurantRestController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
+        @ApiOperation(value = "create restaurant", notes = "Create or save a restaurant")
 	public @ResponseBody
 	BackBoneIdResponse create(@RequestBody RestaurantDTO rDTO) {
 		log.debug("starting create "+rDTO);

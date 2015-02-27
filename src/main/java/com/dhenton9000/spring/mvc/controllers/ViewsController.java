@@ -38,5 +38,13 @@ public class ViewsController {
 		 
 		 
 	}
+        
+        @RequestMapping(value="/swagger/sdoc", method=RequestMethod.GET)
+	public void usingRequestToSwagger(Model model) {
+		model.addAttribute("foo", "bar");
+		model.addAttribute("fruit", "apple");
+		 
+		 
+	}
 
 }
