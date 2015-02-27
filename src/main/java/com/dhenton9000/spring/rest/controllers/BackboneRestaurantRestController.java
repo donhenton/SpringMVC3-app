@@ -217,7 +217,7 @@ public class BackboneRestaurantRestController {
 
     @RequestMapping(value = "/review/{restaurantId}/{reviewId}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "remove a review", notes = "Remove a review for a restaurant")
+    @ApiOperation(value = "save a review", notes = "Save/update a review for a restaurant")
     @ApiResponses({
         @ApiResponse(code = 404, message = "review or restaurant not found")})
     public void saveReview(@RequestBody ReviewDTO rDTO,

@@ -6,6 +6,7 @@
 package com.dhenton9000.swagger;
 
 import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
+import com.mangofactory.swagger.models.dto.ApiInfo;
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class SwaggerConfig {
     */
    @Autowired
    public void setSpringSwaggerConfig(SpringSwaggerConfig springSwaggerConfig) {
+        
       this.springSwaggerConfig = springSwaggerConfig;
    }
 
@@ -39,11 +41,27 @@ public class SwaggerConfig {
     */
    @Bean
    public SwaggerSpringMvcPlugin customImplementation(){
-      return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
-              .includePatterns(".*restaurant.*");
+      
+       
+       String title = "Restaurant Swagger Api";
+       String description ="Full API for Maintaining Restaurants";
+       String termsOfServiceUrl = "";
+       String contact = "donhenton@gmail.com"; 
+       String license = "MIT Full" ; 
+       String licenseUrl ="" ;
+       
+       
+       ApiInfo info = new ApiInfo(  title,  description,   termsOfServiceUrl, contact, license,  licenseUrl) ;
+       
+       
+       return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
+              .includePatterns(".*restaurant.*").apiVersion("1.0-alpha").apiInfo(info);
    }
 
     
     
     
 }
+//http://localhost:8080/app/swagger/sdoc
+
+//http://localhost:8080/app/api-docs
