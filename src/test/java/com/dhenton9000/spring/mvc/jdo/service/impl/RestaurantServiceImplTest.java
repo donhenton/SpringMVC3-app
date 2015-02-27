@@ -6,6 +6,7 @@ package com.dhenton9000.spring.mvc.jdo.service.impl;
 import com.dhenton9000.restaurant.dao.RestaurantDao;
 import com.dhenton9000.restaurant.dao.ReviewDao;
 import com.dhenton9000.restaurant.model.Restaurant;
+import com.dhenton9000.restaurant.model.RestaurantDTO;
 import com.dhenton9000.restaurant.model.Review;
 import com.dhenton9000.restaurant.service.RestaurantService;
 import java.util.ArrayList;
@@ -124,6 +125,32 @@ public class RestaurantServiceImplTest {
 
     }
 
+    
+    @Test
+    public void testSaveRestaurantViaDTO()
+    {
+        
+        
+        Long id = 1L;
+        
+        Restaurant r = service.getRestaurant(id); 
+        RestaurantDTO rDTO = new RestaurantDTO(r);
+        logger.debug("1 dto name is "+rDTO.getName());
+        rDTO.setName("bonzo");
+        logger.debug("2 dto name is "+rDTO.getName());
+        service.saveOrAddRestaurant(rDTO.makeRestaurant());
+        
+        entityManager.flush();
+        entityManager.clear();
+
+        Restaurant otherR = service.getRestaurant(id);
+
+        assertTrue(otherR.getName().contains("bonzo"));
+    }
+    
+    
+    
+    
     @Test
     public void testSaveRestaurant() {
         List<Restaurant> restaurants = service.getAllRestaurants();
