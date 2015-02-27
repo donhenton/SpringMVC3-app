@@ -35,6 +35,7 @@ public class SwaggerConfig {
    /**
     * Every SwaggerSpringMvcPlugin bean is picked up by the swagger-mvc framework - allowing for multiple
     * swagger groups i.e. same code base multiple swagger resource listings.
+    * can be comma separated list ".restau*","alpha" ...
     */
    @Bean
    public SwaggerSpringMvcPlugin customImplementation(){
