@@ -11,7 +11,7 @@
 %>
 <html>
 <head>
-  <title>Swagger UI</title>
+  <title>Restaurant API</title>
   <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
   <link href='<%= swaggerPath %>css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='<%= swaggerPath %>css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
@@ -37,6 +37,7 @@
       window.swaggerUi = new SwaggerUi({
       url: window.location.origin + "${pageContext.request.contextPath}/app/api-docs",
       dom_id: "swagger-ui-container",
+      title: "bonzo", info_title: "bonzo_info_title",
       supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
       onComplete: function(swaggerApi, swaggerUi){
         log("Loaded SwaggerUI");
@@ -74,6 +75,7 @@
 </head>
 
 <body class="swagger-section">
+    <!--
 <div id='header'>
   <div class="swagger-ui-wrap">
     <a id="logo" href="http://swagger.wordnik.com">swagger</a>
@@ -90,7 +92,7 @@
     </form>
   </div>
 </div>
-
+-->
 <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </body>
