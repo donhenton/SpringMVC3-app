@@ -29,7 +29,14 @@
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/creditspage.jsp" />	
     </definition>
 
-
+    <definition name="tiles.swagger" extends="tiles.base.definition">
+        <put-attribute name="title" value="Swagger Documentation" />
+        <put-attribute name="subTitle" value="Swagger Restaurant REST Service Documentation" />
+        <put-attribute name="body"
+                               value="/WEB-INF/views/pages/swagger_body.jsp" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/swagger.jsp" />	
+    </definition>
+    
     <definition name="tiles.tag.demo" extends="tiles.base.definition">
         <put-attribute name="title" value="Tag Demo" />
         <put-attribute name="subTitle" value="New Tag Method Demonstation" />

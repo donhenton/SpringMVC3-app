@@ -35,7 +35,8 @@ public class SwaggerConfig {
    }
 
    /**
-    * Every SwaggerSpringMvcPlugin bean is picked up by the swagger-mvc framework - allowing for multiple
+    * Every SwaggerSpringMvcPlugin bean is picked up by the swagger-mvc 
+    * framework - allowing for multiple
     * swagger groups i.e. same code base multiple swagger resource listings.
     * can be comma separated list ".restau*","alpha" ...
     */
@@ -45,10 +46,10 @@ public class SwaggerConfig {
        
        String title = "Restaurant Swagger Api";
        String description ="Full API for Maintaining Restaurants";
-       String termsOfServiceUrl = "";
+       String termsOfServiceUrl = null;
        String contact = "donhenton@gmail.com"; 
        String license = "MIT Full" ; 
-       String licenseUrl ="" ;
+       String licenseUrl ="http://en.wikipedia.org/wiki/MIT_License" ;
        
        
        ApiInfo info = new ApiInfo(  title,  description,   termsOfServiceUrl, contact, license,  licenseUrl) ;

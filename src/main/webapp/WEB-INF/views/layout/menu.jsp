@@ -103,10 +103,11 @@
                             <li><a href="<c:out value="${baseURL}backbone/demos/restaurant" />">Backbone Restaurant App</a></li>
                             <li><a href="<c:out value="${baseURL}d3/treeDemo" />">D3 Tree Demo</a></li>
                             <li class="divider"></li>
-
+                            <!--
                             <li><a href="<c:out value="${baseURL}backbone/demos/restservice/docs" />">Restaurant REST Service Docs</a></li>
-
-
+                            -->
+                           <li><a href="<c:out value="${baseURL}swagger/mainPage" />">Swaggers Restaurant REST Service Docs</a></li>
+ 
                         </ul>
                     </li>
                 </ul> 
