@@ -70,7 +70,7 @@ public class BackboneRestaurantRestController {
      * @param rDTO
      * @param id
      */
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT,consumes = "application/json")
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "update restaurant", notes = "Update a restaurant")
     @ApiResponses({
@@ -83,7 +83,7 @@ public class BackboneRestaurantRestController {
         getRestaurantService().saveOrAddRestaurant(rDTO.makeRestaurant());
     }
 
-    @RequestMapping(value = "{restaurantId}", method = RequestMethod.GET)
+    @RequestMapping(value = "{restaurantId}", method = RequestMethod.GET , produces = "application/json")
     @ApiOperation(value = "get single restaurant", notes = "Get a single restaurant")
     @ApiResponses({
         @ApiResponse(code = 404, message = "restaurant not found")})
