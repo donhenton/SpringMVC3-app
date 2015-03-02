@@ -10,6 +10,7 @@ The main technologies on exhibit are :
     <li>JQuery Functionality</li>
     <li>Twitter Bootstrap UI Elements</li>
     <li>Backbone.js for Javascript MV*</li>
+    <li>Angular.js</li>
 </ol>
 
 <div>Apache Tiles is used to format the pages, allowing for reusable sections
