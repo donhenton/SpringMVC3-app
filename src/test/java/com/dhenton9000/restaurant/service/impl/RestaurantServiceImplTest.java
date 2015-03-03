@@ -1,4 +1,4 @@
-package com.dhenton9000.spring.mvc.jdo.service.impl;
+package com.dhenton9000.restaurant.service.impl;
 
 // transactions
 // https://groups.google.com/forum/#!topic/google-appengine-java/VMg9xiQv1jM

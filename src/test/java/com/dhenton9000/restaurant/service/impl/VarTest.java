@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dhenton9000.spring.mvc.jdo.service.impl;
+package com.dhenton9000.restaurant.service.impl;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
