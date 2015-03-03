@@ -8,6 +8,7 @@ import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.restaurant.model.RestaurantDTO;
 import com.dhenton9000.restaurant.service.RestaurantService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mangofactory.swagger.annotations.ApiIgnore;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author dhenton
  */
 @Controller
+@ApiIgnore
 @RequestMapping(value = "/angular/*")
 public class AngularController {
 

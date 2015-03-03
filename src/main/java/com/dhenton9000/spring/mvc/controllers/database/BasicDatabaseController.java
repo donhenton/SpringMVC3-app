@@ -20,8 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.restaurant.service.RestaurantService;
+import com.mangofactory.swagger.annotations.ApiIgnore;
 
 @Controller
+@ApiIgnore
 @RequestMapping(value = "/database/simple/restaurant/")
 @SessionAttributes({ "restaurantBean", "state" })
 public class BasicDatabaseController {

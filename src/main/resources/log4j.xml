@@ -40,6 +40,14 @@ zzzzzzzzzzzzzzzzzzzzzzz
     <logger name="com.dhenton9000">
         <level value="INFO"/>
     </logger>
+    
+    
+    
+    
+    <logger name="com.mangofactory.swagger">
+        <level value="ERROR"/>
+    </logger>
+    
     <logger name="org.springframework">
         <level value="ERROR"/>
     </logger>

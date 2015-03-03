@@ -55,7 +55,7 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     @Transactional
     public Long saveOrAddRestaurant(Restaurant t) {
 
-        log.debug("save or add restaurant " + t.getPrimaryKey());
+        log.debug("save or add restaurant " + t.getPrimaryKey()+" "+t.getName());
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
         Set<ConstraintViolation<Restaurant>> violations = validator.validate(t);
@@ -70,7 +70,7 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
                 return aa.getPrimaryKey();
             } else {
                 log.debug("doing save");
-                this.save(t);
+                this.merge(t);
                 return t.getPrimaryKey();
             }
 

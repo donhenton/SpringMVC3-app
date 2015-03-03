@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dhenton9000.restaurant.service.RestaurantService;
+import com.mangofactory.swagger.annotations.ApiIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Controller
+@ApiIgnore
 @RequestMapping(value = "/database/restaurant/load")
 public class RestaurantLoaderController {
 	
