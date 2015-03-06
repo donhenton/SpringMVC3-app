@@ -6,6 +6,9 @@ not compatible with the appengine but twitter tag lib
 http://dandelion.github.io/datatables/docs/installation/
 
 
+The jsmodel.zip file contains a Netbeans project that allows for non-network
+development on the jsmodel tree page.
+
 
 running from the command line: (java 7)
 
