@@ -39,6 +39,13 @@ payload. This way, the tree only knows about the message pump, which acts as a m
 not need to know about what is done with the payload, it only routes the message.
 </div>
 
+<h4>Testbed Isolation</h4>
+<div>
+    In the source code docs folder, the jsmodel.zip file contains a Netbeans
+    HTML5 project that isolates the display using Mockjax to simulate this
+    applications AJAX calls. This testbed can be used for iterative development
+    of the XSLT transforms and application behavior.
+</div>
 
 <div>
 	The corresponding java code that handles these actions can be found in
