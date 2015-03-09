@@ -37,7 +37,6 @@ public class JerseyRestaurantClient implements RestaurantService {
     private final Client client;
     private static Logger LOG = LogManager.getLogger(JerseyRestaurantClient.class);
 
-    // private GenericType<List<Restaurant>> bookType = new GenericType<List<Restaurant>>();
     public JerseyRestaurantClient(String baseURL) {
 
         baseURI = UriBuilder.fromUri(baseURL).build();
@@ -155,12 +154,36 @@ public class JerseyRestaurantClient implements RestaurantService {
 
     @Override
     public List<Restaurant> getRestaurantsWithMaxRating(int ratingLimit) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        ArrayList<Restaurant> foundRestaurants = new ArrayList<Restaurant>();
+        List<Restaurant> restaurants = getAllRestaurants();
+        for (Restaurant r : restaurants) {
+            for (Review rev : r.getReviews()) {
+                if (rev.getStarRating() >= ratingLimit) {
+                    foundRestaurants.add(r);
+                    break;
+                }
+            }
+
+        }
+
+        return foundRestaurants;
+
     }
 
     @Override
     public List<Restaurant> getRestaurantsLike(String searchString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Restaurant> foundRestaurants = new ArrayList<Restaurant>();
+        List<Restaurant> restaurants = getAllRestaurants();
+        for (Restaurant r : restaurants) {
+
+            if (r.getName().contains(searchString)) {
+                foundRestaurants.add(r);
+            }
+
+        }
+
+        return foundRestaurants;
     }
 
     @Override
@@ -195,11 +218,10 @@ public class JerseyRestaurantClient implements RestaurantService {
     public Review saveReview(Long restaurantId, Review newReview) {
 
         Long reviewId = newReview.getId();
-        if (reviewId == null)
-        {
+        if (reviewId == null) {
             throw new BadRequestException("id cannot be null for saveReview in Review object");
         }
-        
+
         WebTarget target = getWebTarget();
         Entity dataToSend = Entity.json(newReview);
         target.path("restaurant")
