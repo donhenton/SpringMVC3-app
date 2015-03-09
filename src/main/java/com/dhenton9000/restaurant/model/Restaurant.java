@@ -198,13 +198,14 @@ public class Restaurant implements Serializable, Identifiable<Long> {
         return display(getName()) + "|zip " + display(getZipCode()) + "| {" + id + "}";
     }
 
-     private String display(String t) {
+    private String display(String t) {
         if (t == null) {
             return "null";
         } else {
             return t.trim();
         }
     }
+
     public void clear() {
         setName(null);
         setCity(null);
@@ -234,13 +235,25 @@ public class Restaurant implements Serializable, Identifiable<Long> {
         return reviews;
     }
 
-    public void addReview(int rating, String message) {
+//    public void addReview(int rating, String message) {
+//        Review r = new Review();
+//        r.setReviewListing(message);
+//        r.setStarRating(rating);
+//
+//        reviews.add(r);
+//
+//    }
+
+    public Review addReview(ReviewDTO rDTO) {
         Review r = new Review();
-        r.setReviewListing(message);
-        r.setStarRating(rating);
-
+        r.setReviewListing(rDTO.getReviewListing());
+        r.setStarRating(rDTO.getStarRating());
         reviews.add(r);
+        r.setId(rDTO.getId());
+        r.setStampDate(rDTO.getStampDate());
+        
 
+        return r;
     }
 
     @Override
@@ -252,10 +265,8 @@ public class Restaurant implements Serializable, Identifiable<Long> {
     public void setReviews(Set<Review> reviews) {
         this.reviews = reviews;
     }
-    
-    
-    public void loadRestaurantOnlyFromDTO(RestaurantDTO dto)
-    {
+
+    public void loadRestaurantOnlyFromDTO(RestaurantDTO dto) {
         this.setCity(dto.getCity());
         this.setName(dto.getName());
         this.setId(dto.getId());
@@ -267,8 +278,7 @@ public class Restaurant implements Serializable, Identifiable<Long> {
 //        {
 //            this.getReviews().add(reviewDTO.makeReview());
 //        }
-        
-        
+
     }
 
 }

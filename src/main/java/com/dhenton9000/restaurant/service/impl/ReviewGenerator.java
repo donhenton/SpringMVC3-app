@@ -1,13 +1,12 @@
 package com.dhenton9000.restaurant.service.impl;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import com.dhenton9000.restaurant.model.Restaurant;
-import com.dhenton9000.restaurant.model.Review;
+import com.dhenton9000.restaurant.model.ReviewDTO;
 
 public class ReviewGenerator {
 
@@ -32,7 +31,10 @@ public class ReviewGenerator {
 		}
 
 		for (int i = 0; i < n; i++) {
-			r.addReview(getStarRating(), getRandomReview());
+                        ReviewDTO rDTO = new ReviewDTO();
+                        rDTO.setStarRating(getStarRating());
+                        rDTO.setReviewListing(getRandomReview());
+			r.addReview(rDTO);
 		}
 
 	}
