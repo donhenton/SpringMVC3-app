@@ -22,13 +22,13 @@ import javax.ws.rs.BadRequestException;
  *
  * @author dhenton
  */
-public class ClientTests {
+public class MarshallingClientTests {
 
-    private JerseyRestaurantClient client;
-    private static Logger LOG = LogManager.getLogger(ClientTests.class);
+    private JerseyMarshallingRestaurantClient client;
+    private static Logger LOG = LogManager.getLogger(MarshallingClientTests.class);
 
-    public ClientTests() {
-        client = new JerseyRestaurantClient("http://localhost:8080/app/backbone");
+    public MarshallingClientTests() {
+        client = new JerseyMarshallingRestaurantClient("http://localhost:8080/app/backbone");
     }
 
     @Test

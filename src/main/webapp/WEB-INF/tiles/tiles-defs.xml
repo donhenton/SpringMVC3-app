@@ -20,6 +20,15 @@
                                value="/WEB-INF/views/pages/homepage_body.jsp" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/homepage.jsp" />	
     </definition>
+    
+    
+    <definition name="tiles.jerseyclient" extends="tiles.base.definition">
+        <put-attribute name="title" value="Jersey Client" />
+        <put-attribute name="subTitle" value="Jersey Client" />
+        <put-attribute name="body"
+                               value="/WEB-INF/views/pages/jerseyclient_body.jsp" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/jerseyclient.jsp" />	
+    </definition>
 
     <definition name="tiles.creditspage" extends="tiles.base.definition">
         <put-attribute name="title" value="Credits Page" />

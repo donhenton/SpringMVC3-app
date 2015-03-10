@@ -107,7 +107,7 @@
                             <li><a href="<c:out value="${baseURL}backbone/demos/restservice/docs" />">Restaurant REST Service Docs</a></li>
                             -->
                            <li><a href="<c:out value="${baseURL}swagger/mainPage" />">Swaggers Restaurant REST Service Docs</a></li>
- 
+                            <li><a href="<c:out value="${baseURL}jerseyclient.html" />">Jersey REST Client</a></li>
                         </ul>
                     </li>
                 </ul> 

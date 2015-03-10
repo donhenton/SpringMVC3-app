@@ -28,16 +28,17 @@ import javax.ws.rs.NotFoundException;
 import javax.ws.rs.BadRequestException;
 
 /**
- *
+ * Jersey restaurant client using marshalling.
+ * 
  * @author dhenton
  */
-public class JerseyRestaurantClient implements RestaurantService {
+public class JerseyMarshallingRestaurantClient implements RestaurantService {
 
     private final URI baseURI;
     private final Client client;
-    private static Logger LOG = LogManager.getLogger(JerseyRestaurantClient.class);
+    private static Logger LOG = LogManager.getLogger(JerseyMarshallingRestaurantClient.class);
 
-    public JerseyRestaurantClient(String baseURL) {
+    public JerseyMarshallingRestaurantClient(String baseURL) {
 
         baseURI = UriBuilder.fromUri(baseURL).build();
         this.client = ClientBuilder.newClient(createConfig());
@@ -71,7 +72,7 @@ public class JerseyRestaurantClient implements RestaurantService {
 
     @Override
     public Restaurant getRestaurant(Long id) {
-        //GenericType<List<Book>> bookType = new GenericType<List<Book>>()
+         
 
         WebTarget target = getWebTarget();
         RestaurantDTO rDTO = null;

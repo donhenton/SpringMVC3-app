@@ -31,4 +31,12 @@ public class HomePageController {
 		return new ModelAndView("tiles.creditspage");
 	}	
 	
+        
+        @RequestMapping("/jerseyclient")
+	public ModelAndView jerseyClientPage() {
+		
+		return new ModelAndView("tiles.jerseyclient");
+	}	
+        
+        
 }
