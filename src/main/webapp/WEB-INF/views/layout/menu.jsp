@@ -35,7 +35,7 @@
                             <li><a href="<c:out value="${baseURL}jsondemo.html"/>">JSON Demo</a></li>
                             <li><a href="<c:out value="${baseURL}getpostdemo/home.html"/>">Get Post Demo</a></li>
                             <li><a href="<c:out value="${baseURL}data/standard/home.html"/>">Standard Arguments</a></li>
-                            <li><a href="<c:out value="${baseURL}messageconverters/home.html"/>">Processing Input</a></li>
+                            <li><a href="<c:out value="${baseURL}messageconverters/home.html"/>">Message Converters</a></li>
                             <li><a href="<c:out value="${baseURL}views/html.html" />">Simple Html via JSP</a></li>
                             <li><a href="<c:out value="${baseURL}tags/demo/home" />">Tag Demo</a></li>
                             <li><a href="<c:out value="${baseURL}views/nontile.html" />">Non Tile Demos</a></li>
