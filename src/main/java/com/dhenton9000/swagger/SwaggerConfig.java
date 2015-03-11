@@ -27,6 +27,7 @@ public class SwaggerConfig {
 
    /**
     * Required to autowire SpringSwaggerConfig
+     * @param springSwaggerConfig
     */
    @Autowired
    public void setSpringSwaggerConfig(SpringSwaggerConfig springSwaggerConfig) {
@@ -39,6 +40,7 @@ public class SwaggerConfig {
     * framework - allowing for multiple
     * swagger groups i.e. same code base multiple swagger resource listings.
     * can be comma separated list ".restau*","alpha" ...
+     * @return 
     */
    @Bean
    public SwaggerSpringMvcPlugin customImplementation(){

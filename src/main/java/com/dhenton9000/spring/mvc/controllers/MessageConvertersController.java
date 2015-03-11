@@ -41,6 +41,7 @@ public class MessageConvertersController {
 	@RequestMapping(value="stringPOST", method=RequestMethod.POST)
 	public ModelAndView readString(@RequestBody String string) {
 		 String t = "Read string '" + string + "'";
+                 t = t.replaceAll("\\+", "+<br>");
 		 ModelAndView model = new ModelAndView(DESTINATION_TILE);
 		 model.addObject(RESULTS_KEY,t);
 		 return model;

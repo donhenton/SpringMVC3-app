@@ -9,7 +9,7 @@ import com.wordnik.swagger.annotations.ApiModelProperty;
 
 @ApiModel
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RestaurantDTO implements Serializable {
+public final class RestaurantDTO implements Serializable {
 
     /**
      *
@@ -64,10 +64,10 @@ public class RestaurantDTO implements Serializable {
         this.setZipCode(r.getZipCode());
         this.setState(r.getState());
         if (r.getVersion() != null) {
-            this.setVersion(new Integer(r.getVersion().intValue()));
+            this.setVersion(r.getVersion());
         }
         if (r.getId() != null) {
-            this.setId(new Long(r.getId()));
+            this.setId(r.getId());
         }
         if (r.getReviews() != null) {
             for (Review rv : r.getReviews()) {
@@ -84,7 +84,7 @@ public class RestaurantDTO implements Serializable {
         r.setZipCode(this.getZipCode());
         r.setState(this.getState());
         if (this.getVersion() != null) {
-            r.setVersion(new Integer(this.getVersion().intValue()));
+            r.setVersion(this.getVersion());
         }
         if (this.getId() != null) {
 
@@ -92,7 +92,8 @@ public class RestaurantDTO implements Serializable {
         }
         if (this.getReviewDTOs() != null) {
             for (ReviewDTO rd : getReviewDTOs()) {
-                r.addReview(rd.getStarRating(), rd.getReviewListing());
+                r.addReview(rd);
+                 
             }
         }
 
