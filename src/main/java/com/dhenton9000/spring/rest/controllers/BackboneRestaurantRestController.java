@@ -80,6 +80,13 @@ public class BackboneRestaurantRestController {
             @ApiParam(value = "the id of the restaurant to update", required = true) @PathVariable("id") String id) {
         log.debug("hit update id " + rDTO.getId());
         log.debug("restaurant name " + rDTO.getName());
+        
+        RestaurantDTO r = this.getRestaurant(id);
+        if (r == null)
+        {
+            throw new ObjectNotFoundException("unable to find restaurant "+id);
+        }
+        
         getRestaurantService().saveOrAddRestaurant(rDTO.makeRestaurant());
     }
 
@@ -111,6 +118,15 @@ public class BackboneRestaurantRestController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     public ErrorResponseClass handleResourceNotFoundException(ResourceNotFoundException b) {
+        ErrorResponseClass response = new ErrorResponseClass(b);
+        return response;
+
+    }
+    
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public ErrorResponseClass handleObjectNotFoundException(ObjectNotFoundException b) {
         ErrorResponseClass response = new ErrorResponseClass(b);
         return response;
 

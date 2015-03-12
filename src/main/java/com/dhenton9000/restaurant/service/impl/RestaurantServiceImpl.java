@@ -20,6 +20,7 @@ import com.dhenton9000.restaurant.dao.ReviewDao;
 import com.dhenton9000.restaurant.model.Restaurant;
 import com.dhenton9000.restaurant.model.Review;
 import com.dhenton9000.restaurant.service.RestaurantService;
+import com.dhenton9000.spring.rest.ObjectNotFoundException;
 import java.util.HashSet;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -101,6 +102,11 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
     @Transactional
     public void deleteRestaurant(Long key) {
         log.debug("hit deleteRestaurant " + key);
+        Restaurant r = this.getRestaurant(key);
+        if (r == null)
+        {
+            throw new ObjectNotFoundException("unable to find restaurant "+key);
+        }
         this.deleteByPrimaryKey(key);
         // getRestaurantDao().deleteRestaurant(key);
 
@@ -125,9 +131,9 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
         log.debug("hit deleteReview " + restaurantId + " " + reviewId);
 
         if (parent == null) {
-            log.warn("could not find restaurant in delete review "
+            throw new ObjectNotFoundException("could not find restaurant in delete review "
                     + restaurantId);
-            return;
+             
         }
         Set<Review> reviews = parent.getReviews();
         log.debug("before delete " + reviews.size());
@@ -157,8 +163,8 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
         //log.debug("hit saveReview "+restaurantId+" "+newReview.getId().getId());
 
         if (parent == null) {
-            log.warn("could not find restaurant in saveReview " + restaurantId);
-            return null;
+            throw new ObjectNotFoundException("could not find restaurant in saveReview " + restaurantId);
+            
         }
         log.debug("saveReview found parent " + parent.getPrimaryKey());
 
@@ -167,8 +173,8 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
 
         //Long reviewKeyLong = null;
         if (reviewKey == null) {
-            log.warn("review key null in  saveReview " + restaurantId);
-            return null;
+            throw new ObjectNotFoundException("review key null in  saveReview " + restaurantId);
+            
         }
         log.debug("review Key to match: " + reviewKey);
 
@@ -194,8 +200,8 @@ public class RestaurantServiceImpl extends GenericEntityServiceImpl<Restaurant, 
         log.debug("review " + newReview);
         Restaurant parent = getRestaurant(restaurantId);
         if (parent == null) {
-            log.warn("could not find restaurant in addReview " + restaurantId);
-            return null;
+            throw new ObjectNotFoundException("could not find restaurant in addReview " + restaurantId);
+             
         }
         log.debug("starting review dao");
         Set<Review> reviews = parent.getReviews();
