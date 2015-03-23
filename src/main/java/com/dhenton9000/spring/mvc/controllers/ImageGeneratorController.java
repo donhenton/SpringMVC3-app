@@ -11,13 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-/*
+ 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.*;
-*/
+ 
 
 /**
  * This code will not compile on the Google app engine, but could be
@@ -31,7 +31,7 @@ import java.io.*;
 @Controller
 @RequestMapping(value = "/image/generator/*")
 public class ImageGeneratorController {
-/*
+ 
 	public static final String IMAGE_DESTINATION_TILE = "tiles.imagegenerator";
 	public static final String IMAGE_KEY = "image";
 
@@ -123,5 +123,5 @@ public class ImageGeneratorController {
 		g.setColor(color);
 		g.fillRect(0, 0, width, height);
 	}
-*/
+ 
 }

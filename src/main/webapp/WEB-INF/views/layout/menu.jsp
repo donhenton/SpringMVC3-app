@@ -41,9 +41,9 @@
                             <li><a href="<c:out value="${baseURL}views/nontile.html" />">Non Tile Demos</a></li>
                             <li><a href="<c:out value="${baseURL}complex/forms/home" />">Complex Forms</a></li>
                             <li><a href="<c:out value="${baseURL}servlet/functions/home" />">Basic Servlet Functions</a></li>
-                            <!--  not supported by the google app engine as it uses java.awt.* 
+                          
                             <li><a href="<c:out value="${baseURL}image/generator/home" />">Image Generator</a></li>
-                            -->
+                             
                             <li><a href="<c:out value="${baseURL}errors/demo/home" />">Error Handling</a></li>
                             <li><a href="<c:out value="${baseURL}security/demo/home" />">Security Demo</a></li>      
 
