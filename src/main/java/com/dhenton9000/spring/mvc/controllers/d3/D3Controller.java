@@ -21,4 +21,9 @@ public class D3Controller {
 
 		return new ModelAndView("tiles.d3.demos.dynamicgraph");
 	}
+        @RequestMapping("/fade")
+	public ModelAndView gotoFadeGraph() {
+
+		return new ModelAndView("tiles.d3.demos.fade");
+	}
 }
