@@ -101,7 +101,13 @@
 
                             <li><a href="<c:out value="${baseURL}backbone/demos/localstorage" />">Backbone Local Storage</a></li>
                             <li><a href="<c:out value="${baseURL}backbone/demos/restaurant" />">Backbone Restaurant App</a></li>
-                            <li><a href="<c:out value="${baseURL}d3/treeDemo" />">D3 Tree Demo</a></li>
+                            
+                            
+                            <li class="divider"></li><li class="dropdown-header">D3 JS Demos</li>
+                            
+                            
+                            <li><a href="<c:out value="${baseURL}d3/treeDemo" />">Tree Demo</a></li>
+                            <li><a href="<c:out value="${baseURL}d3/dynamicGraph " />">Dynamic Graph</a></li>
                             <li class="divider"></li>
                             <!--
                             <li><a href="<c:out value="${baseURL}backbone/demos/restservice/docs" />">Restaurant REST Service Docs</a></li>

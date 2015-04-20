@@ -17,5 +17,13 @@
         <put-attribute name="jsscripts_app_specific" value="/WEB-INF/views/pages/d3/treedemo_scripts.jsp" />
     </definition>
     
+     <definition name="tiles.d3.demos.dynamicgraph" extends="tiles.base.d3.definition">
+        <put-attribute name="title" value="D3 Dynamic Graph" />
+        <put-attribute name="body"
+                       value="/WEB-INF/views/pages/d3/dynamicgraph_body.jsp" />
+        <put-attribute name="subTitle" value="Dynamic Graph" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/d3/dynamicgraph.jsp" />
+        <put-attribute name="jsscripts_app_specific" value="/WEB-INF/views/pages/d3/dynamicgraph_scripts.jsp" />
+    </definition>
 	
 </tiles-definitions>
