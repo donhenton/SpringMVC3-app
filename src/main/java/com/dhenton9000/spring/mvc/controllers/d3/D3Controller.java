@@ -26,4 +26,10 @@ public class D3Controller {
 
 		return new ModelAndView("tiles.d3.demos.fade");
 	}
+        
+         @RequestMapping("/d3labels")
+	public ModelAndView gotoD3Labels() {
+
+		return new ModelAndView("tiles.d3.demos.d3labels");
+	}
 }

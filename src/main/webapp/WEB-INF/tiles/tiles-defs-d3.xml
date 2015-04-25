@@ -35,7 +35,7 @@
         <put-attribute name="jsscripts_app_specific" value="/WEB-INF/views/pages/d3/fade_scripts.jsp" />
     </definition>
 	
-    <definition name="tiles.d3.demos.d3Labels" extends="tiles.base.d3.definition">
+    <definition name="tiles.d3.demos.d3labels" extends="tiles.base.d3.definition">
         <put-attribute name="title" value="D3 Labels" />
         <put-attribute name="body"
                        value="/WEB-INF/views/pages/d3/d3labels_body.jsp" />
