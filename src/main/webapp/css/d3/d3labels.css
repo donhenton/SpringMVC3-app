@@ -1,0 +1,74 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 25, 2014, 8:26:25 AM
+    Author     : dhenton
+*/
+
+svg text::selection { background: transparent; }
+
+svg 
+{
+    cursor: arrow
+}
+svg.moveCursor
+{
+    cursor:move;
+}
+text.textClass
+{
+    text-anchor: middle;
+    font-size:  20px;
+    fill: black;
+    font-family: Helvetica;
+
+}
+
+rect.labelClass
+{
+    cursor:move;
+    fill: lightblue;
+      
+
+}
+
+rect.shadowClass,path.shadowClass
+{
+    fill: rgb(60,100,101);
+
+
+}
+
+path.pointerClass
+{
+    fill: lightblue;
+}
+path.pointerClass.handCursor
+{
+    cursor: pointer
+}
+
+input[type="text"].labelClass
+{
+    background: lightblue;
+    border: none;
+    color:  black;
+    z-index: 5000;
+  
+    font-size: 20px;
+}
+
+input[type="text"].labelClass:focus {
+      outline-width: 0;
+}
+
+
+#div, .class, svg, input {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+}
+
