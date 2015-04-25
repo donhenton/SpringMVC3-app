@@ -21,24 +21,38 @@
 
 <div class="container">
     <div class="container top-buffer">
-        <div class="row">
-            <div class="span6">
-                <div id="graph"> </div>
+        <div class="row top-buffer">
+            <div class="offset1 span5">
+                Mouse over the graph to see the indicator line
+                <span>&nbsp;</span>
+                <button onclick="reLoad()" class="top-buffer btn btn-lg btn-primary">ReLoad</button>  
             </div>
-            <div class="offset2 span4">
-                <div id="info" class="well">
-                    Move the mouse across the graph to see data
-                </div>
-                <div>
-                    <button onclick="reDrawGraph()" class="btn btn-lg btn-primary">Redraw</button>  
-                </div>
 
-                <div class="top-buffer">Mouse over the graph to see the indicator line</div>
+            <div id="info" class="span5 well">
+                Move the mouse across the graph to see data
+                <br/>
+                Reload to see animation.
+
+
+            </div>
+
+        </div>
+        <div class="row top-buffer">
+            <div class="offset1">
+                <div class="graph" id="graph"> </div>
             </div>
         </div>
+
+
+
+
+
     </div>
+</div>
 
 </div>
+
+
 
 
 

@@ -10,6 +10,14 @@
   </a>
 </div>
 <div>
+    In addition, the javascript code illustrates the use of exporting a public
+    API for the graph object. The internal aspects of the code are generally
+    unavailable, the only public methods are the contstructor,  the redraw 
+    method, and a hide method.
+    
+</div>
+
+<div>
 	The corresponding java code that handles these actions can be found in
 	<code>com.dhenton9000.spring.mvc.controllers.d3.</code>
 	<code>D3Controller</code>
