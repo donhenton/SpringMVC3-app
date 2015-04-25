@@ -1,4 +1,4 @@
-/* global d3 */
+ /* global d3 */
 
 /**
  * Demonstration D3 graph with an encapsulated API. Also demonstrates
@@ -95,31 +95,45 @@ d3.fadeAPI.init = function (initConditions)
 
         svg = d3.select("#" + attachmentID)
                 .append("svg")
-                .attr("height", height + margin.top + margin.bottom).attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .attr("width", width + margin.left + margin.right)
 
                 .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("transform", "translate(" + margin.left + ","
+                        + margin.top + ")");
 
         loaderIndicator = d3.select("#" + attachmentID).append("div")
                 .attr("class", "indicatorClass")
-                .attr("style", "display: none");
+                .attr("style", "display: none")
 
         loaderIndicator.append("img")
                 .attr("src", "../../assets/img/ajax-loader.gif")
                 .attr("class", "imageIndicator");
-  
-        var hWide = 35; //half the image's width
-        var hTall = 35; //half the image's height, etc.
-        // attach negative and pixel for CSS rule
-        hWide = '-' + hWide + 'px';
-        hTall = '-' + hTall + 'px';
+
+
         $(".indicatorClass").css(
-                {"top": "50%",
-                    "left": "50%",
-                    "margin-left": hWide,
-                    "margin-top": hTall,
+                {
+                    "top": 0 + margin.top + (height / 2) - 35,
+                    "left": 0 + margin.left + (width / 2) - 35,
                     "position": 'absolute'});
 
+
+
+//        this centers  rectangle when attached to the body
+//        console.log("ctm "+ctm);
+//        var ctm = svg[0][0].getScreenCTM();
+//        var hh = $('<span>').appendTo('body');
+//        hh.css(
+//                {"border":"thin solid green",
+//                 "position":"absolute",
+//                 "width":width+margin.right,
+//                 "height":height,
+//                 "class": "bonzo",
+//                 "top": ctm.f,
+//                 "left": ctm.e  
+//        
+//                }
+//                );
     };
 
 
@@ -390,6 +404,7 @@ d3.fadeAPI.init = function (initConditions)
     svg.append("rect")
             .attr("width", width)
             .attr("height", height)
+            .attr("class", "mouseRect")
             .style("fill", "none")
             .style("pointer-events", "all")
             .on("mouseover", function () {
@@ -436,7 +451,7 @@ d3.fadeAPI.init = function (initConditions)
     exports.hide = function (doHide)
     {
 
-        var messageDIv = $(".indicatorClass");
+        var messageDiv = $(".indicatorClass");
         isLoading = doHide;
         var opacityStr = "1";
         if (isLoading)
@@ -451,15 +466,15 @@ d3.fadeAPI.init = function (initConditions)
 
             if (isLoading)
             {
-                messageDIv.css("display", "");
-                messageDIv.css("display", "block");
-                messageDIv.css({"top": "50%", "left": "50%", "position": 'absolute'});
+                messageDiv.css("display", "");
+                messageDiv.css("display", "block");
+
 
             }
             else
             {
-                messageDIv.css("display", "");
-                messageDIv.css("display", "none")
+                messageDiv.css("display", "");
+                messageDiv.css("display", "none")
                 //raise onLoad Event End
                 dispatch.onLoad.apply(this, [{"type": "Load End"}]);
 
@@ -478,93 +493,6 @@ d3.fadeAPI.init = function (initConditions)
 
 
 
-////////////// Fade API Example usage //////////////////////
-var margin = {top: 5, right: 40, bottom: 50, left: 60};
-var width = 550 - margin.left - margin.right;
-var height = 350 - margin.top - margin.bottom;
-var MAX_POINTS = 20;
-function rand(max) {
-    return Math.floor(Math.random() * (max + 1));
-}
-//http://www.d3noob.org/2014/07/my-favourite-tooltip-method-for-line.html
 
-function getSampleData(num) {
-    var arr = [];
-    var myDate = new Date("06/15/2011");
-    myDate.setDate(myDate.getDate() + rand(20));
-    for (var x = 0; x < num; x++) {
-        myDate.setDate(myDate.getDate() + 1);
-        var d = d3.time.format("%Y-%m-%d")(myDate);
-        var parseDate = d3.time.format("%Y-%m-%d").parse;
-        var t = rand(20000);
-        var item = {"date": parseDate(d), "data": t, "index": x};
-        arr.push(item);
-    }
-    return arr;
-}
-
-
-var fadeAPI = null;
-rundemo();
-function rundemo()
-{
-
-    var initConditions =
-            {
-                "margin": margin,
-                "width": width,
-                "height": height,
-                "delay": 500,
-                "data": getSampleData(MAX_POINTS),
-                "attachmentID": "graph"
-
-
-            };
-    //create a object that contains the public API        
-    fadeAPI = d3.fadeAPI.init(initConditions);
-
-    // bind code to handle a 'newSelection' event which is whenever
-    // the mouse moves near a new point, the binding sends the data of the
-    //point and the index
-    //it also sets the meaning of 'this'
-    fadeAPI.on("newSelection", function (d, i) {
-        var dateFormatter = d3.time.format("%Y-%m-%d");
-        var me = this;
-        $("#info").html(i + ": " + dateFormatter(d.date) + " data: " + d.data + " this (" + me.toString() + ")");
-    });
-
-    //bind code to handle the onLoad event
-    fadeAPI.on("onLoad", function (d) {
-        var message = d.type;
-        var me = this;
-        $("#info").html("Load Action: " + message + " this (" + me.toString() + ")");
-    });
-
-
-
-}
-/**
- * 
- * @returns {undefined}
- * code for the redraw button
- */
-function reLoad()
-{
-    //hide the graph
-    fadeAPI.hide(true);
-    //get new data
-    var newData = getSampleData(MAX_POINTS);
-    //timer for fake delay
-    window.setTimeout(function ()
-    {
-        //redraw the graph
-        fadeAPI.reDraw(newData);
-        //unhide it
-        fadeAPI.hide(false);
-
-    }, 1500);
-
-
-}
 
  

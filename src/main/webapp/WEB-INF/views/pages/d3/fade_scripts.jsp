@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </script>
     
     <script src="js/d3/fade/fade.js"></script>
+    <script src="js/d3/fade/fadeInit.js"></script>
     
     <link rel="stylesheet" href="css/d3/dynamic_graph.css" />
      
