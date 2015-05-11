@@ -8,12 +8,27 @@
   <a target="_blank" href="http://www.d3noob.org/2014/07/my-favourite-tooltip-method-for-line.html">
       D3 Noob's favorite tooltip method
   </a>
+  
+  <h3>Functions Available</h3>
+  <ul>
+      <li>sliding menu and graph resizing--click the orange half circle</li>
+      <li>tooltips</li>
+      <li>brush selection of points slide the rectangles beneath the graph</li>
+      <li>loading display on data reload</li>
+      
+      
+  </ul>
+  
+  
+  
+  
 </div>
 <div>
     In addition, the javascript code illustrates the use of exporting a public
-    API for the graph object. The internal aspects of the code are generally
-    unavailable, the only public methods are the contstructor,  the redraw 
-    method, and a hide method.
+    API for the calpiper, menu and graph components. The internal aspects of 
+    the code are generally
+    unavailable. Specific methods are exposed for use. Communiction is via 
+    the d3 event system..
     
 </div>
 
