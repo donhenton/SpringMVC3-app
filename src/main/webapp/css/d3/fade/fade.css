@@ -1,0 +1,76 @@
+     
+.top-buffer {    margin-top:20px }
+
+circle.dot
+{
+    fill: #346782
+}
+
+path { 
+    stroke: #CDA94B;
+    stroke-width: 3;
+    fill: none;
+}
+
+circle.focusCircle
+{
+    stroke: #87280D;
+    stroke-width: 2.25;
+}
+
+.axis path,
+path.caliperLine,
+.axis line {
+    fill: none;
+    stroke: #87280D;
+    stroke-width: 3;
+    shape-rendering: crispEdges;
+}
+
+div.tooltip {					/* set the CSS for tooltip divs */
+    position: absolute;			/* reference for measurement */
+    text-align: center;			/* align the text to the center */
+    width: 70px;					/* set the width of the rectangle */
+    height: 40px;					/* set the height of the rectangle */
+    padding: 2px;	
+    vertical-align: central;
+    font: 12px sans-serif;		/* set the font type for the tooltips */
+    background: #87280D;	/* set the colour of the rectangle */
+    border: 0px;					/* turn off the border (0px) */
+    border-radius: 8px;	
+    color: whitesmoke; 
+    pointer-events: none;			/* 'none' tells the mouse to ignore the rectangle */
+}
+
+div.graph
+{
+    position: relative ; 
+
+}
+
+
+
+rect#handleLeft,
+rect#handleRight
+{
+    stroke: #83A9BD;
+    fill: #0C3C56;
+    opacity:1.0;
+    stroke-width: 2;
+}
+
+
+rect.brushRect
+{
+    fill: #83A9BD;
+    opacity:.65;
+    /*    stroke: green;
+        stroke-width: 2;*/
+}
+
+rect.verticalBar
+{
+    stroke: #87280D;
+    width: 3;
+}
+

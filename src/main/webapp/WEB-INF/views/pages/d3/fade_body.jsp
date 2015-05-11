@@ -20,34 +20,25 @@
 </script>
 
 <div class="container">
-    <div class="container top-buffer">
-        <div class="row top-buffer">
-            <div class="offset1 span5">
-                Mouse over the graph to see the indicator line
-                <span>&nbsp;</span>
-                <button onclick="reLoad()" class="top-buffer btn btn-lg btn-primary">ReLoad</button>  
-            </div>
 
-            <div id="info" class="span5 well">
-                Move the mouse across the graph to see data
-                <br/>
-                Reload to see animation.
+    <div class="top-buffer">
 
+        <h4>See the Explain Panel for more information</h4>
+        
+        <div id="info" class="well">
+           Information will be reported here.
 
-            </div>
 
         </div>
-        <div class="row top-buffer">
-            <div class="offset1">
-                <div class="graph" id="graph"> </div>
-            </div>
-        </div>
-
-
-
-
 
     </div>
+    <div class="top-buffer">
+
+        <div class="graph" id="graph"> </div>
+
+    </div>
+
+
 </div>
 
 
