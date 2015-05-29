@@ -14,7 +14,7 @@
 
 </script>
 
-
+<script src="js/d3/fade/indicator.js" type="text/javascript"></script>
 <script src="js/d3/fade/calipler1.js" type="text/javascript"></script>
 <script src="js/d3/fade/menubar.js" type="text/javascript"></script>
 <script src="js/d3/fade/rectHandler.js" type="text/javascript"></script>
