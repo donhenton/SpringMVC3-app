@@ -109,7 +109,8 @@
                             <li><a href="<c:out value="${baseURL}d3/treeDemo" />">Tree Demo</a></li>
                             <li><a href="<c:out value="${baseURL}d3/dynamicGraph" />">Dynamic Graph</a></li>
                             <li><a href="<c:out value="${baseURL}d3/fade" />">Fading Graph Transition</a></li>
-                           <!-- <li><a href="<c:out value="${baseURL}d3/d3labels" />">D3 Labels</a></li>  -->
+                            <li><a href="<c:out value="${baseURL}d3/d3labels" />">D3 Labels</a></li>   
+                            <li><a href="<c:out value="${baseURL}jquery/demos/arttimer" />">Art Timer</a></li>
                             <li class="divider"></li>
                             <!--
                             <li><a href="<c:out value="${baseURL}backbone/demos/restservice/docs" />">Restaurant REST Service Docs</a></li>

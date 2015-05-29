@@ -1,38 +1,78 @@
-DIV.imageContainerDiv {
-	 width:400px; height:425px;
+ 
+
+#imageCollection{
+    position:relative; 
+    // overflow:hidden;
+    height: 400px;
+    width: 400px;
+    top:0;
+    left:0;
+
+
 }
-#countDownText {
-	 TEXT-ALIGN: center; FONT-SIZE: 90px;  v-align: center
-}
-DIV.fileAnnouncement
+#imageCollection img {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 100;
+    opacity: 1;
+    display:none;
+    margin-top: 20px
+
+} 
+
+label
 {
-	padding-bottom: 10px;
+    margin-left:20px;
+    margin-right: 20px
 }
 
-
-/*
-#controlContainerDiv {
-	POSITION: relative; TOP: 80%; LEFT: 0%
-}
-IMG.displayImagePositionBottom {
-	POSITION: absolute; TOP: 150px; LEFT: 150px
+svg{
+    stroke: #000;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
+        "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
-select
-{
-  width: 150px;
-}
-*/
-IMG.displayImagePosition {
-	POSITION: absolute; TOP: 225px
+#rim {
+    fill: none;
+    stroke: #999;
+    stroke-width: 3px;
 }
 
- 	
-	
-IMG.onTop {
-	Z-INDEX: 100
+.second-hand{
+    stroke-width:3;
+
 }
-IMG.onBottom {
-	Z-INDEX: -100
+
+.minute-hand{
+    stroke-width:8;
+    stroke-linecap:round;
+}
+
+.hour-hand{
+    stroke-width:12;
+    stroke-linecap:round;
+}
+
+.hands-cover{
+    stroke-width:3;
+    fill:#fff;
+}
+
+.second-tick{
+    stroke-width:3;
+    fill:#000;	
+}
+
+.hour-tick{
+    stroke-width:8; //same as the miute hand
+}
+
+.second-label{
+    font-size: 12px;
+}
+
+.hour-label{
+    font-size: 24px;
 }
 

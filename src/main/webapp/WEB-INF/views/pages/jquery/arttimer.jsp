@@ -11,70 +11,71 @@
 
 %>
 
-<link rel="stylesheet" href="css/arttimer.css" type="text/css"></link>
-<script type="text/javascript" src="js/jquery.timers.js"></script>
-<script type="text/javascript" src="js/arttimer.js"></script>
+ 
+        <script src="js/d3/d3.v3_4_2.min.js" type="text/javascript"></script>
+        <link href="css/arttimer.css" rel="stylesheet" type="text/css"/>
+        <script src="js/arttimer/imageCollection.js" type="text/javascript"></script>
+        <script src="js/arttimer/timer.js" type="text/javascript"></script>
+        <script src="js/arttimer/timer_setup.js" type="text/javascript"></script>
 
-<script>
-	var imageNames = new Array("<%= baseURL %>simages/a1.jpg", 
-			"<%= baseURL %>simages/a2.jpg", "<%= baseURL %>simages/a3.jpg", "<%= baseURL %>simages/a4.jpg",
-			"<%= baseURL %>simages/a5.jpg", "<%= baseURL %>simages/a6.jpg","<%= baseURL %>simages/a7.jpg",
-			"<%= baseURL %>simages/a8.jpg","<%= baseURL %>simages/a9.jpg");
-</script>
-
-<div class="row offset1">
-	<div id="fileAnnouncementDiv" class="fileAnnouncement">File
-		Announcement</div>
-</div>
-
-<div class="row offset1 span12">
-
-	<div id="controlContainerDiv" class="form-inline">
-
-		<button class="btn btn-small btn-primary" id="startButton"
-			onclick="startTimer()">Start</button>
-		<button class="btn btn-small btn-primary" id="stopButton"
-			onclick="stopTimer()">Stop</button>
-		<button class="btn btn-small btn-primary" id="resetButton"
-			onclick="resetTimer()">Reset</button>
-		Delay: <select id="maxTimeSelect">
-			<option>5</option>
-			<option>90</option>
-			<option>60</option>
-			<option>180</option>
-			<option>240</option>
-			<option>10</option>
-
-		</select> Image: <select onchange="imageChange(this)" id="imageSelect"></select>
+        <script>
+            $(document).ready(function () {
+                timer_init();
+                // http://bl.ocks.org/tomgp/6475678<br>
+                // http://bl.ocks.org/mbostock/1098617
 
 
-	</div>
-</div>
-<!--  end control row -->
+            });
+        </script>
+     
 
-<div class="row span12">
-	<div class="offset1">
-		<table>
-			<tr>
-				<td>
-					<div id="imageContainer" class="imageContainerDiv">
-						<img id="topImage" class="displayImagePosition onTop"></img> 
-						<img id="bottomImage" class="displayImagePosition onBottom"></img>
-					</div></td>
-				<td>
-					<div class="span6">
-						<div id="countDownText">1</div>
-					</div></td>
-			</tr>
+        <div class="row span12">
+
+            
+            <div  class="form-inline">
 
 
-		</table>
-
-	</div>
-
-</div>
 
 
+                <label for="imageSelect">Image</label> 
+                <select class="input-medium" onchange="goToImage(this)" id="imageSelector">
+
+                </select>
+
+
+
+                <label for="maxTimeSelect">Delay</label> <select  class="input-small"  
+                    onchange="goToTime(this)" id="maxTimeSelect">
+                    <option value="0">1 min</option>
+                    <option value="1">2 min</option>
+                    <option value="2">5 min</option>
+
+
+                </select> 
+
+                <label >&nbsp;</label>
+                <button id="timerButton" class="btn btn-primary" 
+                        onclick="toggleTimer(this)">Start Timer</button> 
+
+            </div>
+        </div>
+        <!--  end control row -->
+
+        <div class="row span12">
+            <div class="span5">
+                <div id="imageCollection">
+                    <img src="simages/a1.jpg" alt=""/>
+                    <img src="simages/a2.jpg" alt=""/>
+                    <img src="simages/a3.jpg" alt=""/>
+                    <img src="simages/a4.jpg" alt=""/>
+                    <img src="simages/a5.jpg" alt=""/>
+                    <img src="simages/a6.jpg" alt=""/>
+                </div>
+            </div>
+            <div class="span4">
+                <div  id="clockTimer"></div>
+            </div>
+        </div>
 
 
 
