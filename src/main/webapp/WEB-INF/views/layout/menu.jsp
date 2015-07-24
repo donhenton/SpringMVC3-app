@@ -121,6 +121,21 @@
                     </li>
                 </ul> 
 
+                        
+                
+                <ul class="nav pull-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing Reporting<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="<c:out value="${baseURL}testreporting/JSONGoldFiles" />">JSON Gold File Comparisons</a></li>
+                            <li><a href="<c:out value="${baseURL}testreporting/ImageTestComparison" />">Image Test Comparisons</a></li>
+                        </ul>
+                    </li>
+                </ul>         
+                        
+                        
+                        
 
             </div>
         </div>

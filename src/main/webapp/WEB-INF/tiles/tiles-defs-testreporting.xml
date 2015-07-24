@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition extends="tiles.base.definition" name="tiles.testreporting.jsoncomparisons">
+        <put-attribute name="title" value="JSON Comparisons"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/testreporting/jsoncomparisons_body.jsp"/>
+        <put-attribute name="subTitle" value="JSON Comparisons"/>
+        <put-attribute name="jsscripts_app_specific" value="" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/testreporting/explain.jsp"/>
+    </definition>
+    <definition extends="tiles.base.definition" name="tiles.testreporting.imagecomparisons">
+        <put-attribute name="title" value="Image Comparisons"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/testreporting/imagecomparisons_body.jsp"/>
+        <put-attribute name="subTitle" value="Image Comparisons"/>
+        <put-attribute name="jsscripts_app_specific" value="" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/testreporting/explain.jsp"/>
+    </definition>
+</tiles-definitions>
