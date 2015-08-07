@@ -23,6 +23,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.9.1</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
@@ -48,6 +49,7 @@
                     <webappDirectory>${basedir}/src/main/webapp</webappDirectory>
                     <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
                 </configuration>
+                <version>2.6</version>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -55,6 +57,7 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+               <version>3.3</version>
             </plugin>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -69,6 +72,7 @@
                         </fileset>
                     </filesets>
                 </configuration>
+                <version>2.6.1</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -133,6 +137,7 @@
         <jetty.version>9.3.0.M1</jetty.version>
         <jersey.version>2.16</jersey.version>
         <hibernate.version>3.5.6-Final</hibernate.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <repositories>
         
@@ -201,11 +206,7 @@
         
         
         
-        <dependency>
-            <groupId>com.mangofactory</groupId>
-            <artifactId>swagger-springmvc</artifactId>
-            <version>0.9.5</version>
-        </dependency>
+       
         <dependency>
             <groupId>org.ajar</groupId>
             <artifactId>swagger-spring-mvc-ui</artifactId>
@@ -303,13 +304,7 @@
             <scope>provided</scope>
         </dependency>
           
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>provided</scope>
-            
-        </dependency>
+      
     <!--
         <dependency>
             <groupId>javax.servlet</groupId>
