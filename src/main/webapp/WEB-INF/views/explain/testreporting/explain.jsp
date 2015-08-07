@@ -1,6 +1,6 @@
 <div>
-    These pages are demonstrations of code that assists in Continuous
-    Integration (eg Jenkins) servers for automated testing. Processes 
-    in the tests will produce the output for these items.
+    This page   demonstrates  code that assists in the Continuous
+    Integration process using servers such as  Jenkins.  The content 
+    of this page will explain the specific demonstration.
 
 </div>
