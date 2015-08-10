@@ -7,7 +7,7 @@
 %>
     
 <p>
-    <a target="_blank" href="<%=basePath%>testing_demos/public_html/index.html">Image based testing system</a>
+    <a target="_blank" href="<%=basePath%>testing_demos/public_html/index.html">Image based comparison testing system</a>
 </p>   
 <div>
     
