@@ -25,7 +25,7 @@
 </div>
 <div>
     In addition, the javascript code illustrates the use of exporting a public
-    API for the calpiper, menu and graph components. The internal aspects of 
+    API for the caliper, menu and graph components. The internal aspects of 
     the code are generally
     unavailable. Specific methods are exposed for use. Communiction is via 
     the d3 event system..
