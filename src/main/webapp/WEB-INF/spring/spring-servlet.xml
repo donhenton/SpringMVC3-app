@@ -92,6 +92,7 @@ http://www.springframework.org/schema/context         http://www.springframework
                 <value>/WEB-INF/tiles/tiles-defs-angular.xml</value>
                 <value>/WEB-INF/tiles/tiles-defs-d3.xml</value>
                 <value>/WEB-INF/tiles/tiles-defs-database.xml</value>
+                <value>/WEB-INF/tiles/tiles-defs-es.xml</value>
             </list>
         </property>
     </bean>

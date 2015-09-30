@@ -22,6 +22,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     
     
     <description><![CDATA[Main entry point for spring configuration]]></description>
+    <!-- this gets environment variables  into a property placeholder -->
     <context:property-placeholder  />
     <bean class="java.net.URI" id="dbUrl">
         <constructor-arg value="${DATABASE_URL}"/>
