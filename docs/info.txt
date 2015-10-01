@@ -1,6 +1,8 @@
 http://bthurley.wordpress.com/2012/07/18/spring-mvc-with-restful-datatables/
 
- 
+search corpus:
+
+http://www.search-engines-book.com/collections/
 
 not compatible with the appengine but twitter tag lib
 http://dandelion.github.io/datatables/docs/installation/
