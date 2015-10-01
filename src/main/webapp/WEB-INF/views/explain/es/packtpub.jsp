@@ -1,10 +1,19 @@
-<h3>Security</h3>
+<h3>PacktPub Elastic Search</h3>
 <div>
-This is the page that is delivered when a security request fails.
+    <p>
+        This pages demonstrates the use of a typeahead suggestion lookup 
+        using elastic search. The elastic search instance is on heroku, and 
+        the angular code talks to that instance directly. 
+    </p>
+
+    <p>
+        The code was adapted from <a href="https://www.packtpub.com/big-data-and-business-intelligence/building-search-server-elasticsearch-video">
+            https://www.packtpub.com/big-data-and-business-intelligence/building-search-server-elasticsearch-video
+        </a>. Changes included CSS from bootstrap, eliminating non functional code, and adapting the
+        angular files to a more component oriented style.
+        
+    </p>
 
 </div>
 
-<div>
-The corresponding java code that handles these actions can be found in
-<code>com.dhenton9000.spring.mvc.controllers.</code> <code>SecurityController</code>
-</div>
+
