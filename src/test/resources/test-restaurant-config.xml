@@ -22,19 +22,21 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     
     
     <description><![CDATA[Main entry point for spring configuration]]></description>
+    <!--
     <context:property-placeholder  />
     <bean class="java.net.URI" id="dbUrl">
         <constructor-arg value="${DATABASE_URL}"/>
     </bean>
+    -->
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor">
         <description>Enable exception translation for beans annotated with @Repository</description>
     </bean>
     <bean class="com.mchange.v2.c3p0.ComboPooledDataSource"
         destroy-method="close" id="dataSource">
         <property name="driverClass" value="org.postgresql.Driver"/>
-        <property name="jdbcUrl" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }"/>
-        <property name="user" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
-        <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5433/jdatabase"/>
+        <property name="user" value="test"/>
+        <property name="password" value="test"/>
     </bean>
     <bean
         class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" id="vendorAdapter"/>

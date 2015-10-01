@@ -29,6 +29,7 @@ import org.apache.log4j.Logger;
 import org.glassfish.jersey.client.ClientConfig;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -55,7 +56,7 @@ public class HeadersClientTest {
      * this demonstrates writing headers to the request
      * @throws java.io.IOException
      */
-     @Test
+     @Ignore
     public void testConfigRequestFilter() throws IOException {
         ClientConfig config = new ClientConfig();
         config.register(RequestFilter.class);
