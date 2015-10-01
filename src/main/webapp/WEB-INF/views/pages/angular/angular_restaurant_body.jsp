@@ -6,10 +6,10 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
+<link href="js/angular/restaurant/libs/angular.js/angular-csp.css" rel="stylesheet" type="text/css"/>
 
  <div ng-app="restaurantApp">
-      <div class="container  restaurantContainer span12">
+      <div class="container  restaurantContainer span12" ng-cloak>
 
 
             <div ng-controller="listRestaurantController">
