@@ -52,6 +52,14 @@
                     $scope.search();
                     $scope.showAutocomplete = false;
                 };
+                
+                $scope.searchForSingleTitle = function(suggestion) 
+                {
+                    $scope.searchTerms = suggestion;
+                    $scope.search();
+                    $scope.showAutocomplete = false;
+                }
+ 
 
                 var getSuggestions = function (query) {
                     searchService.getSuggestions(query).then(function (es_return) {

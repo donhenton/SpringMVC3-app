@@ -42,7 +42,7 @@
                         <a href="#" ng-mousedown="searchForSuggestion()"><small>Search for &mdash;</small> {{suggestion.options[0].text}}</a>
                     </li>
                     <li ng-repeat="result in autocomplete.results">
-                        <a href="https://www.packtpub.com/all/?search={{result._source.title}}">{{result._source.title}}</a>
+                        <a href="#" ng-mousedown="searchForSingleTitle(result._source.title)">{{result._source.title}}</a>
                     </li>
                 </ul>
             </div>
@@ -85,3 +85,4 @@
     <script src="js/es/packtpub//services/searchService.js" type="text/javascript"></script>
     <script src="js/es/packtpub/controllers/SearchResultsListController.js" type="text/javascript"></script>
 </div>
+ 
