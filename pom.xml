@@ -71,6 +71,14 @@
                             </includes>
                             <followSymlinks>false</followSymlinks>
                         </fileset>
+                        <fileset>
+                            <directory>./src/main/webapp/css/main</directory>
+                            <includes>
+                                <include>*.css</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        
                     </filesets>
                 </configuration>
                 <version>2.6.1</version>
@@ -159,7 +167,7 @@
                             </httpConnector>
                             <war>src/main/webapp</war>
                             <webApp>
-                                <contextPath>/app</contextPath>
+                                <contextPath>/</contextPath>
                             </webApp>
                             <scanIntervalSeconds>2</scanIntervalSeconds>
                            

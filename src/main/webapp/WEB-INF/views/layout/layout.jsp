@@ -30,45 +30,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css"  media="screen">
 
-
-        <style type='text/css'>
-            
-            .row-separate
-            {
-                padding-top: 5px;
-                padding-bottom: 5px;
-            }
-
-            body {
-                padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
-                background: url('<%= basePath%>img/background.png')
-            }
-
-            .container {
-                width: 820px; 
-            }
-            /* downsize our container to make the content feel a bit tighter and more cohesive. 
-            NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
-            .content {
-                background-color: #fff;
-                padding: 20px;
-                margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-                -webkit-border-radius: 0 0 6px 6px;
-                -moz-border-radius: 0 0 6px 6px;
-                border-radius: 0 0 6px 6px;
-                -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                z-index: -150;
-            }
-
-
-            .page-header {
-                background-color: #f5f5f5;
-                padding: 20px 20px 10px;
-                margin: -20px -20px 20px;
-            }
-        </style>
+ 
 
         <!-- <script src="http://code.jquery.com/jquery.js"></script>-->
         

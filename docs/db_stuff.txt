@@ -6,3 +6,5 @@ Heroku definition
 
 
 to create  the db locally;
+CREATE USER test WITH SUPERUSER UNENCRYPTED PASSWORD 'test'
+create database jdatabase owner test; when logged in as a super user
