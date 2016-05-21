@@ -1,5 +1,5 @@
-$menu-width: 165px;
-$menu-height: 35px;
+$menu-width: 175px;
+$menu-height: 45px;
 $base-menu-opacity: 0.7;
 
 nav.topMenu 
@@ -134,11 +134,10 @@ nav.topMenu
 
             a {
                 display: block;
-                height: 35px;
+                //height: 35px;
                 padding: 7px 8px;
                 color: #fff;
                 opacity: $base-menu-opacity;
-
                 text-decoration: none;
                 border-top: thin solid $white-color;
                 border-right: none;
