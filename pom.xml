@@ -19,6 +19,7 @@
                 </excludes>
             </resource>
         </resources>
+          
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -128,6 +129,75 @@
             -->
         </plugins>
     </build>
+    
+    
+    
+    <profiles>
+        <profile>
+            <id>css</id>
+       
+            <build>
+                <plugins>
+   
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <version>${jetty.version}</version>
+                        <configuration>
+                            
+                         
+                            <systemProperties>
+                                <systemProperty>
+                                    <key>DATABASE_URL</key>
+                                    <value>postgres://test:test@localhost:5433/jdatabase</value>
+                                </systemProperty>
+                            </systemProperties>
+                           
+                            
+                            <httpConnector>
+                                <port>8080</port>
+                            </httpConnector>
+                            <war>src/main/webapp</war>
+                            <webApp>
+                                <contextPath>/app</contextPath>
+                            </webApp>
+                            <scanIntervalSeconds>2</scanIntervalSeconds>
+                           
+                            <scanTargetPatterns>
+                                <scanTargetPattern>
+                                    <directory>src/main/webapp</directory>
+                                    <includes>
+                                        <include>**/*.jsp</include>
+                                        <include>**/*.properties</include>
+                                        <include>**/*.xml</include>
+                                    </includes>
+                                </scanTargetPattern>
+                            </scanTargetPatterns>
+                            <connectors>
+                                <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                                    <port>8080</port>
+                                    <maxIdleTime>60000</maxIdleTime>
+                                </connector>
+                            </connectors>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+                
+                
+                
+                
+        </profile>
+            
+            
+            
+    </profiles>
+
+    
+    
+    
+    
+    
     <properties>
         <java.version>1.7</java.version>
         <org.springframework.version>4.1.4.RELEASE</org.springframework.version>
@@ -142,7 +212,7 @@
     <repositories>
         
         
-         <repository>
+        <repository>
             <id>spring-repo</id>
             <name>Spring repo</name>
             <url>http://repo.springsource.org/libs-release-remote</url>
@@ -186,7 +256,7 @@
         
         
          
-         <dependency>
+        <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlets</artifactId>
             <version>${jetty.version}</version>
@@ -305,13 +375,13 @@
         </dependency>
           
       
-    <!--
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version></version>
-        </dependency>
-    -->
+        <!--
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version></version>
+            </dependency>
+        -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>

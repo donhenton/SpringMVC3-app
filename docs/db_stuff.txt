@@ -3,3 +3,6 @@ DATABASE_URL currently postgres://test:test@localhost:5433/jdatabase
 
 this is used by the spring restaurant config to load the database from
 Heroku definition
+
+
+to create  the db locally;
