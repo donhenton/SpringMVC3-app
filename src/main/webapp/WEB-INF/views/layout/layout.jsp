@@ -27,12 +27,12 @@
         <base href="<%= basePath%>" />
 
 
-        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-        <link rel="stylesheet" href="css/bootstrap-responsive.min.css"  media="screen">
-
+         
+        <link href="css/main/jquery-ui-theme.css" rel="stylesheet" type="text/css"/>  
+        <link href="css/main/foundation-icons.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="css/main/main.css" media="screen"/>
  
-
-        <!-- <script src="http://code.jquery.com/jquery.js"></script>-->
+ 
         
         <tiles:insertAttribute name="jsscripts" />
         <tiles:insertAttribute name="jsscripts_app_specific" />

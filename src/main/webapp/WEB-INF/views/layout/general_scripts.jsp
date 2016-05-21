@@ -7,7 +7,8 @@
 
 <c:url var="baseURL" value="/app/" />
 
-<script src="js/jquery.js"></script>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="js/jquery.form.js"></script>
 <script src="js/json.min.js"></script> 
-<script src="js/bootstrap.min.js"></script>  
+  
