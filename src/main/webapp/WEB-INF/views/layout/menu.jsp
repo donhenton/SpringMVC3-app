@@ -17,12 +17,15 @@
         <li>
             <aside>Code Demos</aside>
             <ul>
-
+                <li><aside>Websockets</aside><ul>
                 <li><a href="<c:out value="${baseURL}websocket/graph" />">Graph Update</a></li>
                 <li><a href="<c:out value="${baseURL}websocket/chat" />">Websocket Chat</a></li>
-                <li><a href="<c:out value="${baseURL}packtpub-es" />">PacktPub ElasticSearch Demo</a></li>    
+                </ul>
+                <li><a href="<c:out value="${baseURL}packtpub-es" />">PacktPub ElasticSearch Demo</a></li>  
+                <li><aside>Testing</aside><ul>
                 <li><a href="<c:out value="${baseURL}testreporting/JSONGoldFiles" />">JSON Gold File Comparisons</a></li>
                 <li><a href="<c:out value="${baseURL}testreporting/ImageTestComparison" />">Image Test Comparisons</a></li>
+                </ul>
                 <li>
                     <aside>JQuery Demos</aside>
                     <ul>
@@ -47,7 +50,7 @@
             <aside>Javascript Demos</aside>
             <ul>
                 <li><a href="<c:out value="${baseURL}angular/restaurant" />">Angular Restaurant App</a></li>
-                <li><a href="<c:out value="${baseURL}backbone/demos/js/model" />">Model/View</a></li>
+                <li><a href="<c:out value="${baseURL}backbone/demos/js/model" />">Javascript Model/ View</a></li>
  
                 <li><aside>Backbone</aside><ul>
                 <li><a href="<c:out value="${baseURL}backbone/demos/localstorage" />">Local Storage</a></li>

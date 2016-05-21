@@ -24,7 +24,7 @@ nav.topMenu
             float: left;
             width: $menu-width;
             position: relative;
-            height: $menu-height;
+          //  height: $menu-height;
             text-align: center;
 
             aside
@@ -109,10 +109,10 @@ nav.topMenu
                 
                 ul
                 {
-                    position: relative;
+                    position: absolute;
                     display:none;
                     left: $menu-width;
-                    top: -15px;
+                    top: 1px;
                     
                      
                     .show
@@ -125,10 +125,7 @@ nav.topMenu
                 
                 
                 /* sub sub menu */
-                
-                
-                
-                
+             
                 
             }
 
