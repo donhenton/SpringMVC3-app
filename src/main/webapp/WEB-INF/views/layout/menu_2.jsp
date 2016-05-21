@@ -10,8 +10,40 @@
 
 <nav class="topMenu grouping">
 
-    
+     
     <ul>
+        <li>
+            <aside>Credits</aside>
+            <ul>
+                <li><a href="<c:out value="${baseURL}home.html"/>">Home</a></li>
+                <li><a href="<c:out value="${baseURL}credits"/>">Credits</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <aside>Spring MVC 3</aside>
+            <ul>
+                <li><a href="<c:out value="${baseURL}jsondemo.html"/>">JSON Demo</a></li>
+                <li><a href="<c:out value="${baseURL}getpostdemo/home.html"/>">Get Post Demo</a></li>
+                <li><a href="<c:out value="${baseURL}data/standard/home.html"/>">Standard Arguments</a></li>
+                <li><a href="<c:out value="${baseURL}messageconverters/home.html"/>">Message Converters</a></li>
+                <li><a href="<c:out value="${baseURL}views/html.html" />">Simple Html via JSP</a></li>
+                <li><a href="<c:out value="${baseURL}tags/demo/home" />">Tag Demo</a></li>
+                <li><a href="<c:out value="${baseURL}views/nontile.html" />">Non Tile Demos</a></li>
+                <li><a href="<c:out value="${baseURL}complex/forms/home" />">Complex Forms</a></li>
+                <li><a href="<c:out value="${baseURL}servlet/functions/home" />">Basic Servlet Functions</a></li>
+
+                <li><a href="<c:out value="${baseURL}image/generator/home" />">Image Generator</a></li>
+
+                <li><a href="<c:out value="${baseURL}errors/demo/home" />">Error Handling</a></li>
+                <li><a href="<c:out value="${baseURL}security/demo/home" />">Security Demo</a></li>      
+
+               
+                <li><a href="<c:out value="${baseURL}context/bookMaker.html" />">Bean Loaded in Context</a></li>
+
+            </ul>
+        </li>
+
         <li>
             <aside>JQuery Demos</aside>
             <ul>
@@ -33,14 +65,14 @@
 
             </ul>
         </li>
-        
-         <li>
+
+        <li>
             <aside>Code Demos</aside>
             <ul>
                  
                 <li><a href="<c:out value="${baseURL}websocket/graph" />">Graph Update</a></li>
                 <li><a href="<c:out value="${baseURL}websocket/chat" />">Websocket Chat</a></li>
-                <li><a href="<c:out value="${baseURL}packtpub-es" />">PacktPub ElasticSearch Demo</a></li>
+                <li class="divider"></li>
                
                 <li><a href="<c:out value="${baseURL}testreporting/JSONGoldFiles" />">JSON Gold File Comparisons</a></li>
                 <li><a href="<c:out value="${baseURL}testreporting/ImageTestComparison" />">Image Test Comparisons</a></li>
@@ -71,34 +103,14 @@
             </ul>
         </li>
 
-         
-        <li><aside>Credits</aside>
-            <ul>
-                <li><a href="<c:out value="${baseURL}home.html"/>">Home</a></li>
-                <li><a href="<c:out value="${baseURL}credits"/>">Credits</a></li>
-            </ul>
-        </li>
-        
         <li>
-            <aside>Spring MVC 3</aside>
+            <aside>Elastic Search</aside>
             <ul>
-                <li><a href="<c:out value="${baseURL}jsondemo.html"/>">JSON Demo</a></li>
-                <li><a href="<c:out value="${baseURL}getpostdemo/home.html"/>">Get Post Demo</a></li>
-                <li><a href="<c:out value="${baseURL}data/standard/home.html"/>">Standard Arguments</a></li>
-                <li><a href="<c:out value="${baseURL}messageconverters/home.html"/>">Message Converters</a></li>
-                <li><a href="<c:out value="${baseURL}views/html.html" />">Simple Html via JSP</a></li>
-                <li><a href="<c:out value="${baseURL}tags/demo/home" />">Tag Demo</a></li>
-                <li><a href="<c:out value="${baseURL}views/nontile.html" />">Non Tile Demos</a></li>
-                <li><a href="<c:out value="${baseURL}complex/forms/home" />">Complex Forms</a></li>
-                <li><a href="<c:out value="${baseURL}servlet/functions/home" />">Basic Servlet Functions</a></li>
-                <li><a href="<c:out value="${baseURL}image/generator/home" />">Image Generator</a></li>
-                <li><a href="<c:out value="${baseURL}errors/demo/home" />">Error Handling</a></li>
-                <li><a href="<c:out value="${baseURL}security/demo/home" />">Security Demo</a></li>               
-                <li><a href="<c:out value="${baseURL}context/bookMaker.html" />">Bean Loaded in Context</a></li>
+                <li><a href="<c:out value="${baseURL}packtpub-es" />">PacktPub ElasticSearch Demo</a></li>
 
             </ul>
         </li>
-    </ul>    
+    </ul>         
 
 
 </nav>

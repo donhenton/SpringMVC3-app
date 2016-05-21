@@ -7,8 +7,6 @@
 
 <%
 
-
-
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 
@@ -27,94 +25,41 @@
         <base href="<%= basePath%>" />
 
 
-         
+
         <link href="css/main/jquery-ui-theme.css" rel="stylesheet" type="text/css"/>  
         <link href="css/main/foundation-icons.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="css/main/main.css" media="screen"/>
- 
- 
-        
+
+
+
         <tiles:insertAttribute name="jsscripts" />
         <tiles:insertAttribute name="jsscripts_app_specific" />
-            
-        
-        
-        <script>
-            var $dialog = null;
-
-            $(document).ready(function() {
-
-
-            });
-
-
-
-        </script>
-
+        <script src="js/ui-init.js" type="text/javascript"></script>
 
     </head>
     <body>
+        <section id="pageContainer">
+            <header>
 
-        <div  class='container'>
-            <div class="content">
-
-
-                <div class="page-header">
-                    <div class='row-fluid'>
-                        <div class='pull-left'>
-                            <h1>
-                                <small> 
-                                    <tiles:getAsString name="subTitle" />
-                                </small>
-                            </h1>
-                        </div>
-
-                        <div class='pull-right'>
-
-
-                            <a href="#explainModal" role="button" class="btn large btn-info" 
-                               data-toggle="modal">Explain</a>
-
-
-                        </div>
-                    </div>               
-
-
-                </div>
-
-                <div id="menu">
-                    <tiles:insertAttribute name="menu" />
-                </div>
-
-                <div id='content' class='row-fluid'>
-                    <div class='span12 main'>
-                        <tiles:insertAttribute name="body" />
-                    </div>
-                </div>
-
-                <div id="explainModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="explainModalLabel" aria-hidden="true">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="explainModalLabel">Explanation:</h3>
-                    </div>
-                    <div style="max-height: 200px" class="modal-body">
-
-                        <tiles:insertAttribute name="explainPanel"/>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="false">Close</button>
-
-                    </div>
-                </div>
-
-
-                <tiles:insertAttribute name="footer" />
-
-
-            </div><!-- end content -->
-        </div> 
- 
-
+                <figure class="logo"><a href="/">Spring MVC Demonstration</a><br>
+                <tiles:getAsString name="subTitle" /></figure> 
+                <tiles:insertAttribute name="menu" />
+            </header>
+            
+            
+            <section class="grouping" id="main">
+                
+                
+                
+                
+            </section>
+            
+            
+            
+             <footer>
+                footer stuff
+            </footer>  
+        </section>
     </body>
 
 </html>
