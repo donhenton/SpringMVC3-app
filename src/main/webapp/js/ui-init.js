@@ -59,8 +59,8 @@ $(document).ready(
             
             
             /* tab setup */
-            
-            $('.tabs').tabs();
+            jQuery.ui.tabs.prototype._isLocal = function() { return true; };
+             $('.tabs').tabs();
             
             
             /* tab setup */

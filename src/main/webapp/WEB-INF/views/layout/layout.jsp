@@ -48,18 +48,25 @@
             
             
             <section class="grouping" id="main">
-                
-                
-                
-                
+                <button onclick="showExplainDialog()" class="pull-right btn btn-primary btn-large">Explain</button>
+                <div class="row">
+                <tiles:insertAttribute name="body" />
+                </div>
             </section>
             
             
             
              <footer>
-                footer stuff
+                &copy; 2016 Don Henton 
             </footer>  
         </section>
+            
+            <div id="explainDialog" title="Explain">
+                <tiles:insertAttribute name="explainPanel"/>
+            </div>
+            
+            
+            
     </body>
 
 </html>
