@@ -71,45 +71,45 @@
 
 <h3>Processing Jason on the Server via jQuery and JSON.js</h3>
 
-<div class="row offset1">
+<div class="row">
     <h4>Get To Json Service</h4> 
 </div>
 
 
 <div class="row">
-    <div class="offset2 row-separate">
+    
         
         <span class="col1">&nbsp;</span>   
         <button class="btn btn-primary" onclick="getJSON();">Get Json</button>
         <span class="col1">&nbsp;</span>
         <span id="getJSONReply"> </span> 
         
-    </div>
+   
 </div>
-<div class="row offset1">
+<div class="row">
     <h4>GET to service with Brand Name as String Payload</h4> 
 </div>
 <div   class="row">
-    <div class="offset2 row-separate form-horizontal">   
+    <div class="form form-inline">   
          
         <button class="btn btn-primary" onclick="getBrand();">Get Brand</button>
-        Brand: <input type="text" id="brandGet" name="brand" value="Nescafe" class="input-prepend" size="20"/>
+        <label>Brand:</label><input type="text" id="brandGet" name="brand" value="Nescafe"   size="20"/>
         
-        <span class="col1">&nbsp;</span>  
+        <span>&nbsp;</span>  
          <span id="getBrandReply"> </span> 
         
     </div>
 </div> 
-<div class="row offset1">
+<div class="row">
     <h4>POST to service with Coffee JSON as Post Body</h4> 
 </div>
 <div class="row">
-    <div class="offset2 row-separate form-horizontal">
+    <div class="form form-inline">
 
         <button class="btn btn-primary"  onclick="postCoffee()">Post Coffee</button>
-        Brand: <input type="text" id="brandPost" class="input-prepend" value="Folgers" name="brand" size="20"/>
+        <label>Brand:</label> <input type="text" id="brandPost"  value="Folgers" name="brand" size="20"/>
         
-        <span class="col1">&nbsp;</span>   
+        <span>&nbsp;</span>   
         <span id="postJSONReply"> </span> 
     </div>
 </div> 
