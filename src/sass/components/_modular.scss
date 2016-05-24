@@ -15,7 +15,14 @@ a
     }
 }
 
-
+.alert-info
+{
+    background-color: $red-color;
+    color: white;
+    padding: 5px;
+    display: inline-table;
+    border-radius: 5px 7px;
+}
 
 .pull-left
 {
@@ -125,6 +132,20 @@ ul.basic-list
     color: $blue-color;
 
 
+}
+
+code
+{
+   font-family: monospace ;
+   font-size: 12px;
+   font-weight: 400;
+   font-style: italic; 
+   background-color: #ddd;
+   border-radius: 4px;
+   padding: 5px;
+   margin-top: 5px;
+   display: inline-table
+    
 }
 
 em,i

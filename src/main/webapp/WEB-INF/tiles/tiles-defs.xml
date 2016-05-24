@@ -107,7 +107,7 @@
         <put-attribute name="title" value="Processing input" />
         <put-attribute name="body"
                                value="/WEB-INF/views/pages/messageconverters_body.jsp" />
-        <put-attribute name="subTitle" value="Processing Input via Message Converters" />
+        <put-attribute name="subTitle" value="Message Converters" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/processinginput.jsp" />	
     </definition>
     <definition name="tiles.forms.demo" extends="tiles.base.definition">
