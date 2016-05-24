@@ -37,6 +37,14 @@
                                value="/WEB-INF/views/pages/creditspage_body.jsp" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/creditspage.jsp" />	
     </definition>
+    
+    <definition name="tiles.cssdemo" extends="tiles.base.definition">
+        <put-attribute name="title" value="CSS Demonstration" />
+        <put-attribute name="subTitle" value="CSS Demonstration" />
+        <put-attribute name="body"
+                               value="/WEB-INF/views/pages/cssdemo_body.jsp" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/cssdemo.jsp" />	
+    </definition>
 
     <definition name="tiles.swagger" extends="tiles.base.definition">
         <put-attribute name="title" value="Swagger Documentation" />
