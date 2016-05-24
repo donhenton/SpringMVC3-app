@@ -43,6 +43,7 @@
 
                     </ul>
                 </li>
+                <li><a href="<c:out value="${baseURL}cssdemo.html" />">CSS Demo Page</a></li>
             </ul>
         </li>
 

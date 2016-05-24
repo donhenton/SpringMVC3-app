@@ -1,4 +1,4 @@
-$menu-width: 175px;
+$menu-width: 210px;
 $menu-height: 45px;
 $base-menu-opacity: 0.7;
 
@@ -9,13 +9,14 @@ nav.topMenu
     // background-color: red;
     float: right;
     margin-top: 15px;
-    z-index: 200px;
+    margin-right: 25px;
+    z-index: 200;
 
     ul {
         margin: 0px;
         padding: 0px;
         list-style: none;
-
+        z-index: 200;
 
 
 
@@ -24,6 +25,7 @@ nav.topMenu
             float: left;
             width: $menu-width;
             position: relative;
+            z-index: 200;
           //  height: $menu-height;
             text-align: center;
 
@@ -85,21 +87,22 @@ nav.topMenu
             li {
                 width: $menu-width;
                 position:relative;
+               // border: thin solid red; 
                 text-align : left;
                 background-color: $blue-color;
                 //border-bottom: thin solid $white-color;
                 // float: left;
                 a
                 {
-                    margin-left: 8px;
+                   // margin-left: 8px;
                     border: none;
                 }
 
                 aside
                 {
                     border-right: none;
-                    margin-left: 10px;
-                    margin-top: 7px;
+                    margin-left: 8px;
+                  //  margin-top: 5px;
                      
 
                 }
