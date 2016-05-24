@@ -3,6 +3,20 @@
     float: right;
 }
 
+a
+{
+    color: #08c;
+    text-decoration: none;
+   
+    &:hover
+    {
+        text-decoration: underline;
+        
+    }
+}
+
+
+
 .pull-left
 {
     float: left;
@@ -113,7 +127,7 @@ ul.basic-list
 
 }
 
-em
+em,i
 {
     font-family: Orbitron, Arial, Sans-Serif ;
     font-size: 12px;
