@@ -7,7 +7,7 @@
 
 
 <div class="row">
-    <div style="height: 350px" class="well offset1 col-lg-7" id="randomDataChart"></div>
+    <div style="height: 350px" class="well" id="randomDataChart"></div>
 </div>
 <script>
     var baseURL = '${baseURL}';

@@ -9,17 +9,17 @@ and websockets. The link to source code for this applicaiton is in the
 
 
 
-<div>
+<div class="row">
    To learn more about each individual page, press the <b>Explain</b> button.
     
 </div>
 
-</div>
+ 
 
-<div class="well">
+<div class="row well">
     <h3>Node Application</h3>
-     More demonstration code,using Node and Express is available 
-    <a href="http://donhenton-node.herokuapp.com/">here</a>    
+     More demonstration code, using Node and Express is available 
+    <a target="_blank" href="http://donhenton-node.herokuapp.com/">here</a>    
 
 </div>
 
