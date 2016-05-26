@@ -44,7 +44,7 @@
 
 
 		 
-		<form:form id="form" method="post" cssClass="form well columnLeft" modelAttribute="formBean" action="${baseURL}complex/forms/addForm">
+		<form:form id="form" method="post" cssClass="form well" modelAttribute="formBean" action="${baseURL}complex/forms/addForm">
 			<div class="row well">
 				
 		  		<c:if test="${not empty message}">
@@ -64,12 +64,12 @@
 		  		<table class="table">
 		  		
 		  		<tr>
-		  		<td>
+		  		<td style="width:25%">
 		  		<form:label path="name">Name 
 		  		<form:errors path="name" cssClass="text-error" />
 		  		</form:label>
 		  		</td>
-		  		<td><form:input path="name" /></td>
+		  		<td><form:input    size="55"  path="name" /></td>
 		  		</tr>
 		  		
 	  		
@@ -79,7 +79,7 @@
 		  			Age <form:errors path="age" cssClass="text-error" />
 		 		</form:label>
 		  		</td>
-		  		<td><form:input path="age" /></td>
+                                <td><form:input  size="4" path="age" /></td>
 		  		</tr>
 		  		
 		  		<tr>
@@ -88,7 +88,7 @@
 		  			Birth Date (in form yyyy-mm-dd) <form:errors path="birthDate" cssClass="text-error" />
 		 		</form:label>		  		
 		 		</td>
-		  		<td><form:input path="birthDate" /></td>
+		  		<td><form:input cssClass="personalInput" path="birthDate" /></td>
 		  		</tr>
 		  		
 		  		<tr>
@@ -106,7 +106,7 @@
 		  			Percentage (in form ##%) <form:errors path="percent" cssClass="text-error" />
 		  		</form:label>
 		  		</td>
-		  		<td><form:input path="percent" /></td>
+		  		<td><form:input  size="6" path="percent" /></td>
 		  		</tr>
 		  		
 		  		</table>
