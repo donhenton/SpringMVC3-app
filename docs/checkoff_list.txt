@@ -13,5 +13,7 @@ Code Demos
         Updater (5/25/2016)
         Form Samples (5/25/2016)
         Ajax Form Submission (5/25/2016)
+        Lightbox (5/25/2016)
+        ArtTimer (5/25/2016)
 
     CSS Demo Page (5/25/2016)
