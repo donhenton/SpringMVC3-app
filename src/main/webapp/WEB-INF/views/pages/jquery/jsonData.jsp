@@ -86,8 +86,9 @@
         <div id="tabs-1">
 
             <table class="table" >
+                <thead>
                 <tr><th>Item</th><th>Formula</th><th>Result</th></tr>
-
+                </thead>
 
                 <tr><td>The first Accountant</td><td>
                         <pre>
@@ -121,9 +122,10 @@ $('#accountantListingDisplay').html(firstAccountant.lastName+", "
         <div id="tabs-2">
 
             <table class="table" >
+                <thead>
                 <tr><th>Item</th><th>Formula</th><th>Result</th></tr>
-
-
+                </thead>
+                
 
 
                 <tr><td>Salesman Under 30</td><td>
