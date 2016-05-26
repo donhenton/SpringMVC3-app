@@ -5,7 +5,7 @@
   {
 
         position: absolute;
-        top: 336px;
+        top: 400px;
         left: 375px;
   }
 
@@ -29,10 +29,10 @@
 </div>
 
 
-<div class="itemContainer" id="results">
+<div class="row" id="results">
 
 
-<table class="table">
+<table class="table table-striped">
 <tr><th>Item</th><th>Top</th><th>Left</th><th>Offset (top,left)</th><th>Offset Parent Id</th></tr>
 <tr><th>#foo</th><td id="foo_top"></td><td id="foo_left"></td><td id="foo_offset"></td><td id="foo_offset_parent"></td></tr>
 <tr><th>#bar</th><td id="bar_top"></td><td id="bar_left"></td><td id="bar_offset"></td><td id="bar_offset_parent"></td></tr>
@@ -40,12 +40,12 @@
 </table>
 </div>
 
-<div style="postion:absolute; left: 450px; top: 200px">
+<div class="row">
 <button class="btn btn-primary" onclick="doMove()">Move The 'foo' Div</button>
 </div>
 
 
-<div id="explanation" class="well blue row-separate">
+<div id="explanation" class="well row">
 
  An absolute CSS style has been applied to the foo outer container, and a relative style to the bar container.
  The offsets and calculations are reflected in the table above.

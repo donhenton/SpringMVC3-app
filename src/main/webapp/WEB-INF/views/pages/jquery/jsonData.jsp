@@ -1,9 +1,9 @@
 <SCRIPT>
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
 
-        
+
 
         setUp();
 
@@ -22,7 +22,7 @@
 
         var accountantListing = "";
         $.each(depts['accounting'],
-                function()
+                function ()
                 {
                     accountantListing += this.firstName + " " + this.lastName + " age: " + this.age + "<br/>";
                 }
@@ -33,7 +33,7 @@
         ////////////
 
         youngestSalesMan = $.grep(depts['sales'],
-                function(item, idx)
+                function (item, idx)
                 {
 
                     if (item.age < 30)
@@ -73,19 +73,19 @@
 
 
 
+<div class="row">
+
+    <DIV class="tabs">
+        <UL class="nav nav-tabs">
+            <LI class="active"><A href="#tabs-1"  data-toggle="tab">Code</A></LI>
+            <LI><A href="#tabs-2"  data-toggle="tab">More Code</A></LI>
+            <LI><A href="#tabs-3"  data-toggle="tab">JSON Data</A></LI>
+        </UL>
 
 
-<DIV class="tabbable">
-    <UL class="nav nav-tabs">
-        <LI class="active"><A href="#tabs-1"  data-toggle="tab">Code</A></LI>
-        <LI><A href="#tabs-2"  data-toggle="tab">More Code</A></LI>
-        <LI><A href="#tabs-3"  data-toggle="tab">JSON Data</A></LI>
-    </UL>
+        <div id="tabs-1">
 
-    <div class="tab-content">
-        <div id="tabs-1" class="tab-pane active">
-
-            <table border="1" cellpadding="5" cellspacing="1" >
+            <table class="table" >
                 <tr><th>Item</th><th>Formula</th><th>Result</th></tr>
 
 
@@ -118,9 +118,9 @@ $('#accountantListingDisplay').html(firstAccountant.lastName+", "
 
 
         </div> <!-- end tab 1 -->
-        <div id="tabs-2" class="tab-pane" >
+        <div id="tabs-2">
 
-            <table border="1" cellpadding="5" cellspacing="1" >
+            <table class="table" >
                 <tr><th>Item</th><th>Formula</th><th>Result</th></tr>
 
 
@@ -148,7 +148,7 @@ $('#youngestSalesManDisplay').html(youngestSalesManInfo);
 
 
         </div> <!-- end tab 2 -->
-        <div id="tabs-3" class="tab-pane">
+        <div id="tabs-3">
 
             <pre>
 var depts = 
@@ -174,6 +174,8 @@ var depts =
             </pre>
 
         </div> <!-- end tab 3 -->
-    </div>
 
-</DIV>
+
+    </DIV>
+
+</div>
