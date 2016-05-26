@@ -2,11 +2,11 @@
 // Firebug console is not enabled or Non-Firefox browser
 if (typeof console == 'undefined') {
     var console = {};
-    console.log = function(msg) {
+    console.log = function (msg) {
         return;
     };
 }
- 
+
 /* data object */
 
 var carMakers = [{
@@ -41,7 +41,7 @@ var carMakers = [{
 
 // returns array of elements whose 'prop' property is 'value' 
 function filterByProperty(arr, prop, value) {
-    return $.grep(arr, function(item) {
+    return $.grep(arr, function (item) {
         return item[prop] == value;
     });
 }
@@ -52,7 +52,7 @@ function populateSelect(el, items) {
     el.options.length = 0;
     if (items.length > 0)
         el.options[0] = new Option('please select', '');
-    $.each(items, function() {
+    $.each(items, function () {
         el.options[el.options.length] = new Option(this.name, this.value);
     });
 }
@@ -80,7 +80,7 @@ function populateSelectFromArray(el, items) {
     el.options.length = 0;
     if (items.length > 0)
         el.options[0] = new Option('please select', '');
-    $.each(items, function() {
+    $.each(items, function () {
         el.options[el.options.length] = new Option(this, this);
     });
 }
@@ -90,7 +90,7 @@ function setUpFirstBox()
 {
 
     populateSelect($('#maker').get(0), $.map(carMakers,
-            function(maker) {
+            function (maker) {
                 return {
                     name: maker.name,
                     value: maker.name
@@ -111,13 +111,13 @@ function getModelsForMaker(makerName)
     if (carMaker.length > 0)
         models = $
                 .map(
-                carMaker[0].models,
-                function(model) {
-                    return {
-                        name: model.name,
-                        value: model.name
-                    }
-                });
+                        carMaker[0].models,
+                        function (model) {
+                            return {
+                                name: model.name,
+                                value: model.name
+                            }
+                        });
 
     return models;
 }
@@ -131,11 +131,10 @@ function getFeaturesForMakerandModel(makerName, modelName)
     if (notThere(model))
     {
         return null;
-    }
-    else
+    } else
     {
         console.log("model name " + model[0].name);
-        features = $.map(model, function(z) {
+        features = $.map(model, function (z) {
             return(z.features);
         });
         console.log(features);
@@ -160,8 +159,7 @@ function doBoxChange(item, itemIndex)
         if (notThere(models))
         {
             $('#model').empty();
-        }
-        else
+        } else
         {
             populateSelect($('#model').get(0), models);
         }
@@ -183,8 +181,7 @@ function doBoxChange(item, itemIndex)
             $('#featureResult').empty();
             $('#modelResult').html(model);
 
-        }
-        else
+        } else
         {
             populateSelectFromArray($('#feature').get(0), features);
         }
@@ -206,7 +203,10 @@ function doBoxChange(item, itemIndex)
     }
 }
 
- 
+function showSelectgionDialog()
+{
+    $('#selectionInformation').dialog("open");
+}
 
 /*
  This is the main document call. Since this page is inside a tile
@@ -219,35 +219,58 @@ function doBoxChange(item, itemIndex)
  */
 $(document)
         .ready(
-        function()
-        {
-            setUpFirstBox();
-            $('#maker')
-                    .bind(
-                    'change',
-                    function()
-                    {
-                        doBoxChange(this, 1);
-                    }
-            );
-            $('#model')
-                    .bind(
-                    'change',
-                    function()
-                    {
-                        doBoxChange(this, 2);
-                    }
-            );
-            $('#feature')
-                    .bind(
-                    'change',
-                    function()
-                    {
-                        doBoxChange(this, 3);
-                    }
-            );
+                function ()
+                {
+                    setUpFirstBox();
+                    $('#maker')
+                            .bind(
+                                    'change',
+                                    function ()
+                                    {
+                                        doBoxChange(this, 1);
+                                    }
+                            );
+                    $('#model')
+                            .bind(
+                                    'change',
+                                    function ()
+                                    {
+                                        doBoxChange(this, 2);
+                                    }
+                            );
+                    $('#feature')
+                            .bind(
+                                    'change',
+                                    function ()
+                                    {
+                                        doBoxChange(this, 3);
+                                    }
+                            );
 
 
-        }
 
-);
+
+                    $('#selectionInformation').dialog(
+                            {
+                                'autoOpen': false,
+                                'title': "Explain",
+                                'resizable': false,
+                                'modal': true,
+                                'dialogClass': 'explainDialog',
+                                'width': 500,
+                                'height': 350,
+                                'minHeight': 350,
+                                'draggable': false,
+                                'buttons':
+                                        {
+                                            Close: function () {
+                                                $(this).dialog('close');
+                                            }
+                                        }
+                            });
+
+
+
+                });
+
+   

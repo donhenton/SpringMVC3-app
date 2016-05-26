@@ -13,28 +13,36 @@ var livereload = require('gulp-livereload');
  * watch-assets in the target task to use
  *  
  */
- 
+
 var pageURL = 'http://localhost:8080/app';
 
- 
+
 var webappLocation = 'src/main/webapp';
-var jspPages =  webappLocation+'/WEB-INF/views/**/*.jsp';
+var jspPages = webappLocation + '/WEB-INF/views/**/*.jsp';
 var sassFiles = "src/sass/**/*.scss";
+var jsFiles = [webappLocation + "/js/**/*.js"]
 
 gulp.task('watch-assets', function () {
     livereload.listen();
     watch(sassFiles, function (events, done) {
 
-         gulp.src(sassFiles)
+        gulp.src(sassFiles)
                 .pipe(sass().on('error', sass.logError))
                 //.pipe(concat('style.min.css'))
                 //.pipe(uglifycss())
-                .pipe(gulp.dest(webappLocation+"/css/main"))
+                .pipe(gulp.dest(webappLocation + "/css/main"))
                 .on('finish', function ( ) {
                     console.log("processing change in css");
                     livereload.reload(pageURL);
                 });
     });
+
+
+    watch(jsFiles, function (events, done) {
+
+        gulp.start(['refresh']);
+    });
+
 
     watch(jspPages, function (events, done) {
 

@@ -3,10 +3,10 @@
 
  
 
-<div class="row offset1">
-    <div class="span5">
+<div class="row">
+    <div class="columnLeft">
         <h3>Using JSON Object</h3>
-        <table class="table">
+        <table class="table table-striped">
 
             <tr>
                 <th>Car Maker</th>
@@ -23,18 +23,17 @@
             <tr>
                 <td colspan="2">
 
-                    <a href="#selectionInformation" role="button" class="btn btn-info" 
-                       data-toggle="modal">Show Selection</a>
+                    <button onclick="showSelectgionDialog()"   class="btn btn-primary">Show Selection</button>
                 </td>
             </tr>
         </table>
     </div>
-    <div class="span5">
+    <div  class="columnRight">
 
-        <h3>Using MVC Call <img id="loaderImage"  width="40px" height="40px" src="images/loader.gif" /></h3>
-        <table class="table">
-            <tr><th>Product Categories</th><td> <select style="width:140px" id="categories"></select></td><td rowspan="2"> </td></tr>
-            <tr><th>Product SubCategories</th><td> <select  style="width:140px"  id="subCategories"></select></td></tr>
+        <h3>Using MVC Call</h3>
+        <table class="table table-striped">
+            <tr><th>Categories</th><td> <select style="width:250px" id="categories"></select></td><td rowspan="2">  <img id="loaderImage"  width="40" height="40" src="images/loader.gif" /></td></tr>
+            <tr><th>SubCategories</th><td> <select  style="width:250px"  id="subCategories"></select></td></tr>
         </table>
     </div>
 
@@ -44,12 +43,12 @@
 
 <!--  ///////////////////// dialog ///////////////////////////// -->
 
-<div id="selectionInformation" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="selectionInformationLabel" aria-hidden="true" >
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<div id="selectionInformation"  >
+     
+         
         <h3 id="selectionInformationLabel">You Selected:</h3>
-    </div>
-    <div style="max-height: 200px" class="modal-body">
+     
+    <div style="max-height: 200px">
        <table class="table">
 
             <tr>
@@ -66,8 +65,5 @@
             </tr>
         </table>
     </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="false">Close</button>
-
-    </div>
+   
 </div>
