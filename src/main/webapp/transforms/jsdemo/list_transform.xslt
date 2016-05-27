@@ -8,11 +8,18 @@
     </xsl:template>
     <xsl:template match="//level3[@checked = 'yes']">
         <li>
-        <span class="label label-important">
+        <label class="label label-important">
+            <xsl:attribute name="for">
+                <xsl:value-of select="concat('selected_item_', @id)" />
+            </xsl:attribute>
             <i class="icon icon-small fi-price-tag"/>
             <xsl:value-of select="@name"/>
-        </span>
+        </label>
         <input class="checkbox large" type="checkbox">
+            <xsl:attribute name="id">
+                <xsl:value-of select="concat('selected_item_', @id)" />
+            </xsl:attribute>
+            
             <xsl:if test="@checked = 'yes'">
                 <xsl:attribute name="checked"/>
             </xsl:if>

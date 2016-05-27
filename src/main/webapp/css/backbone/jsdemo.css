@@ -16,21 +16,37 @@
 
 {
    
-    float: right;
+/*    float: right;
     margin-right: 150px;
-    margin-top: 10px;
+    margin-top: 10px;*/
+    display:none;
     
+}
+#tree label, #selected_list_items label
+{
+    cursor: pointer;
 }
 
 #selected_list_items input[type="checkbox"]
 {
    
-     
-    margin-top: 10px;
-    margin-left: 20px;
+      display:none;
+/*    margin-top: 10px;
+    margin-left: 20px;*/
     
 }
- 
+
+ #selected_list_items label
+{
+   margin: 20px;
+   
+}
+
+  #selected_list_items ul li
+{
+  padding: 2px;
+   
+}
 
 #tree .indicator {
     -moz-border-radius: 5px;

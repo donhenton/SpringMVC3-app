@@ -118,17 +118,23 @@
                     <xsl:apply-templates select="@name" mode="escape" />
                 </xsl:variable>    
                
-                <span class="label label-important">
+                <label  class="label label-important">
+                    <xsl:attribute name="for">
+                        <xsl:value-of select="concat('id_level_3_name_', @id)" />
+                    </xsl:attribute>
                     <xsl:attribute name="id">
                         <xsl:value-of select="concat('level_3_name_', @id)" />
                     </xsl:attribute>
                      <i class="icon  icon-large fi-price-tag" />
                     <xsl:value-of select="@name"/> 
-                </span>
-                <input class="checkbox large"  type="checkbox">
+                </label>
+                <input   class="checkbox large"  type="checkbox">
                     <xsl:if test="@checked = 'yes'">
                         <xsl:attribute name="checked"></xsl:attribute>
                     </xsl:if>
+                    <xsl:attribute name="id">
+                        <xsl:value-of select="concat('id_level_3_name_', @id)" />
+                    </xsl:attribute>
                     <xsl:attribute name="onclick">
                         <xsl:value-of select="concat('XTree.selectItem(3,', @id,');')" />
                     </xsl:attribute>
