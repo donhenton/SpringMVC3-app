@@ -48,7 +48,21 @@
 
 <div class="columnRight">
     
-    
+    <div class="panel panel-default"  style="border: thin solid grey; margin:5px; padding:2px">
+		<div class="panel-heading"><h4>Selected Items</h4></div>
+		<div class="panel-body" style="height: 250px; overflow-y: auto">
+	
+			<div id="selected_list_items"></div>
+		</div>
+	</div>
+	
+	 
+	
+	<p class="row">
+		Unit tests for the javascript used for developing the tree. <a target="_blank"
+			href="<%=basePath%>tree_tests/test.jsp" >QUnit
+			Tests</a>
+	</p>
     
     
 </div>

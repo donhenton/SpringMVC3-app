@@ -20,7 +20,9 @@ var pageURL = 'http://localhost:8080/app';
 var webappLocation = 'src/main/webapp';
 var jspPages = webappLocation + '/WEB-INF/views/**/*.jsp';
 var sassFiles = "src/sass/**/*.scss";
-var jsFiles = [webappLocation + "/js/**/*.js"]
+var jsFiles = webappLocation + "/js/**/*.js";
+var xlFiles = webappLocation +"/transforms/jsdemo/*.xslt";
+ 
 
 gulp.task('watch-assets', function () {
     livereload.listen();
@@ -39,10 +41,14 @@ gulp.task('watch-assets', function () {
 
 
     watch(jsFiles, function (events, done) {
-
+        console.log("js file hit")
         gulp.start(['refresh']);
     });
 
+    watch(xlFiles, function (events, done) {
+        console.log("xl file hit")
+        gulp.start(['refresh']);
+    });
 
     watch(jspPages, function (events, done) {
 

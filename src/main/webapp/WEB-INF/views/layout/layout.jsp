@@ -48,7 +48,9 @@
             
             
             <section class="grouping" id="main">
-                <button onclick="showExplainDialog()" class="pull-right btn btn-primary btn-large">Explain</button>
+                <button onclick="showExplainDialog()" class="pull-right btn btn-primary btn-large">
+                    <i class="icon icon-large fi-comment"></i>
+                    Explain</button>
                 <div class="row">
                 <tiles:insertAttribute name="body" />
                 </div>

@@ -27,13 +27,14 @@
                     <xsl:value-of select="concat('XTree.openFolder(1,', @id,');')" />
                 </xsl:attribute>
  
+ 
                 <xsl:choose>
                     <xsl:when test="@folder = 'open'">
-                        <i class='icon-folder-open' /> 
+                        <i class='icon icon-large fi-folder' /> 
                         <xsl:value-of select="$vOpenIcon" />
                     </xsl:when>
                     <xsl:otherwise>
-                        <i class='icon-folder-close' />
+                        <i class='icon  icon-large fi-folder-add' />
                         <xsl:value-of select="$vClosedIcon" />
                     </xsl:otherwise>
                 </xsl:choose>    
@@ -77,11 +78,11 @@
                        
                     <xsl:choose>
                         <xsl:when test="@folder = 'open'">
-                            <i class='icon-folder-open' /> 
+                            <i class='icon  icon-large fi-folder' /> 
                             <xsl:value-of select="$vOpenIcon" />
                         </xsl:when>
                         <xsl:otherwise>
-                            <i class='icon-folder-close' /> 
+                            <i class='icon  icon-large fi-folder-add' /> 
                             <xsl:value-of select="$vClosedIcon" />
                         </xsl:otherwise>
                     </xsl:choose>    
@@ -121,7 +122,7 @@
                     <xsl:attribute name="id">
                         <xsl:value-of select="concat('level_3_name_', @id)" />
                     </xsl:attribute>
-                     <i class="icon-tag icon-white" />
+                     <i class="icon  icon-large fi-price-tag" />
                     <xsl:value-of select="@name"/> 
                 </span>
                 <input class="checkbox large"  type="checkbox">
@@ -177,3 +178,6 @@
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
+
+
+<!--test   -->

@@ -9,7 +9,7 @@
     <xsl:template match="//level3[@checked = 'yes']">
         <li>
         <span class="label label-important">
-            <i class="icon-tag icon-white"/>
+            <i class="icon icon-small fi-price-tag"/>
             <xsl:value-of select="@name"/>
         </span>
         <input class="checkbox large" type="checkbox">

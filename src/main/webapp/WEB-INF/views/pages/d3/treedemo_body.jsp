@@ -25,10 +25,10 @@
                         <div  id="tree-container" class="columnLeft well"></div>
                         <div id="action-container" class="columnRight">
                             <div class="row">
-                            <button class="btn btn-small btn-primary" onclick="ActionCode.zoomIn()">
-                                <i class="icon-zoom-in icon-white"></i> Zoom In</button>
-                            <button class="btn btn-small btn-primary" onclick="ActionCode.zoomOut()">
-                                 <i class="icon-zoom-out icon-white"></i> Zoom Out</button>
+                            <button class="btn btn-small btn-primary btn-large" onclick="ActionCode.zoomIn()">
+                                <i class="fi-zoom-in icon icon-large"></i> Zoom In</button>
+                            <button class="btn btn-small btn-primary btn-large" onclick="ActionCode.zoomOut()">
+                                 <i class="fi-zoom-out icon icon-large"></i> Zoom Out</button>
                             </div>
                             <div class="row">
                                

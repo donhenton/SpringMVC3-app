@@ -37,4 +37,7 @@ Javascript Demos
         ArtTimer (5/25/2016)       
         
 
+Icon fixes
 
+js model/view
+d3 tree demo (5/27/2016)
