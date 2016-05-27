@@ -18,14 +18,29 @@
             <aside>Code Demos</aside>
             <ul>
                 <li><aside>Websockets</aside><ul>
-                <li><a href="<c:out value="${baseURL}websocket/graph" />">Graph Update</a></li>
-                <li><a href="<c:out value="${baseURL}websocket/chat" />">Websocket Chat</a></li>
-                </ul>
+                        <li><a href="<c:out value="${baseURL}websocket/graph" />">Graph Update</a></li>
+                        <li><a href="<c:out value="${baseURL}websocket/chat" />">Websocket Chat</a></li>
+                    </ul>
                 <li><a href="<c:out value="${baseURL}packtpub-es" />">PacktPub ElasticSearch Demo</a></li>  
                 <li><aside>Testing</aside><ul>
-                <li><a href="<c:out value="${baseURL}testreporting/JSONGoldFiles" />">JSON Gold File Comparisons</a></li>
-                <li><a href="<c:out value="${baseURL}testreporting/ImageTestComparison" />">Image Test Comparisons</a></li>
-                </ul>
+                        <li><a href="<c:out value="${baseURL}testreporting/JSONGoldFiles" />">JSON Gold File Comparisons</a></li>
+                        <li><a href="<c:out value="${baseURL}testreporting/ImageTestComparison" />">Image Test Comparisons</a></li>
+                    </ul>
+                <li><a href="<c:out value="${baseURL}jerseyclient.html" />">Jersey REST Client</a></li>
+                <li><a href="<c:out value="${baseURL}cssdemo.html" />">CSS Demo Page</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <aside>Javascript Demos</aside>
+            <ul>
+                <li><a href="<c:out value="${baseURL}angular/restaurant" />">Angular Restaurant App</a></li>
+                <li><a href="<c:out value="${baseURL}backbone/demos/js/model" />">Javascript Model/ View</a></li>
+
+                <li><aside>Backbone</aside><ul>
+                        <li><a href="<c:out value="${baseURL}backbone/demos/localstorage" />">Local Storage</a></li>
+                        <li><a href="<c:out value="${baseURL}backbone/demos/restaurant" />">Restaurant App</a></li>
+                    </ul>
                 <li>
                     <aside>JQuery Demos</aside>
                     <ul>
@@ -43,30 +58,15 @@
 
                     </ul>
                 </li>
-                <li><a href="<c:out value="${baseURL}cssdemo.html" />">CSS Demo Page</a></li>
-            </ul>
-        </li>
-
-        <li>
-            <aside>Javascript Demos</aside>
-            <ul>
-                <li><a href="<c:out value="${baseURL}angular/restaurant" />">Angular Restaurant App</a></li>
-                <li><a href="<c:out value="${baseURL}backbone/demos/js/model" />">Javascript Model/ View</a></li>
- 
-                <li><aside>Backbone</aside><ul>
-                <li><a href="<c:out value="${baseURL}backbone/demos/localstorage" />">Local Storage</a></li>
-                <li><a href="<c:out value="${baseURL}backbone/demos/restaurant" />">Restaurant App</a></li>
-                </ul>
-
                 <li><aside>D3</aside><ul>
-                <li><a href="<c:out value="${baseURL}d3/treeDemo" />">Tree Demo</a></li>
-                <li><a href="<c:out value="${baseURL}d3/dynamicGraph" />">Dynamic Graph</a></li>
-                <li><a href="<c:out value="${baseURL}d3/fade" />">Fading Graph Transition</a></li>
-                <li><a href="<c:out value="${baseURL}d3/d3labels" />">D3 Labels</a></li>   
-                <li><a href="<c:out value="${baseURL}jquery/demos/arttimer" />">Art Timer</a></li>
-                </ul>
+                        <li><a href="<c:out value="${baseURL}d3/treeDemo" />">Tree Demo</a></li>
+                        <li><a href="<c:out value="${baseURL}d3/dynamicGraph" />">Dynamic Graph</a></li>
+                        <li><a href="<c:out value="${baseURL}d3/fade" />">Fading Graph Transition</a></li>
+                        <li><a href="<c:out value="${baseURL}d3/d3labels" />">D3 Labels</a></li>   
+                        <li><a href="<c:out value="${baseURL}jquery/demos/arttimer" />">Art Timer</a></li>
+                    </ul>
                 <li><a href="<c:out value="${baseURL}swagger/mainPage" />">Swagger Restaurant REST Service Docs</a></li>
-                <li><a href="<c:out value="${baseURL}jerseyclient.html" />">Jersey REST Client</a></li>
+                
             </ul>
         </li>
 
@@ -91,9 +91,9 @@
 
             </ul>
         </li>
-        
-        
-        
+
+
+
         <li><aside>Credits</aside>
             <ul>
                 <li><a href="<c:out value="${baseURL}home.html"/>">Home</a></li>

@@ -7,8 +7,8 @@
 
 <c:url var="baseURL" value="/app/" />
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>  
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
 <script src="js/d3/d3.v3_4_2.min.js"></script>
 <script src="js/mpump/messagepump.js"></script>
  

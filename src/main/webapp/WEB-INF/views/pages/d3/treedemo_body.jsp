@@ -21,23 +21,28 @@
         </script>
  
  
-     
-                        <div  id="tree-container" class="float-left span9 well"></div>
-                        <div id="action-container" class="float-right span4">
-                            <button class="btn btn-small btn-info" onclick="ActionCode.zoomIn()">
+                        <div class="row grouping">
+                        <div  id="tree-container" class="columnLeft well"></div>
+                        <div id="action-container" class="columnRight">
+                            <div class="row">
+                            <button class="btn btn-small btn-primary" onclick="ActionCode.zoomIn()">
                                 <i class="icon-zoom-in icon-white"></i> Zoom In</button>
-                            <button class="btn btn-small btn-info" onclick="ActionCode.zoomOut()">
-                                <i class="icon-zoom-out icon-white"></i> Zoom Out</button>
+                            <button class="btn btn-small btn-primary" onclick="ActionCode.zoomOut()">
+                                 <i class="icon-zoom-out icon-white"></i> Zoom Out</button>
+                            </div>
+                            <div class="row">
+                               
                             <div id="outputBox" style="margin-top:10px"></div>
+                            </div>
                         </div>
-
+                        </div>
                         <div id="my_custom_menu" style="display:none;">
 
 
                             <ul> 
                                 <li id="nodeId" />
-                                <li><button class="btn btn-small btn-info" onclick="MESSAGE_PUMP.raiseEvent('1', ActionCode.actions.menuClicked)"><i class="icon-tasks icon-white"></i> Menu 1</button></li>
-                                <li><button class="btn btn-small btn-info" onclick="MESSAGE_PUMP.raiseEvent('2', ActionCode.actions.menuClicked)"><i class="icon-tasks icon-white"></i> Menu 2</button></li>    
+                                <li><button class="btn btn-small btn-primary" onclick="MESSAGE_PUMP.raiseEvent('1', ActionCode.actions.menuClicked)"><i class="icon-tasks icon-white"></i> Menu 1</button></li>
+                                <li><button class="btn btn-small btn-primary" onclick="MESSAGE_PUMP.raiseEvent('2', ActionCode.actions.menuClicked)"><i class="icon-tasks icon-white"></i> Menu 2</button></li>    
                             </ul>
 
                         </div>
