@@ -66,15 +66,13 @@
 
 
 
-<div class="container">
+ 
     
-    <div style="margin-bottom:20px">See the Explain button for options</div>
-    <div   id="label-demo"></div>
+<div class="row"><b>See the Explain button for options</b></div>
+    <div class="row"  id="label-demo"></div>
 
 
-
-</div>
-
+ 
 
 
 

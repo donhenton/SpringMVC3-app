@@ -31,9 +31,9 @@ Javascript Demos
         Restaurant App
     D3
         Tree Demo (5/27/2016)  
-        Dynamic Graph
-        Fading Graph Transition
-        D3 Labels 
+        Dynamic Graph (5/27/2016)
+        Fading Graph Transition (5/27/2016)
+        D3 Labels (5/27/2016)
         ArtTimer (5/25/2016)       
         
 

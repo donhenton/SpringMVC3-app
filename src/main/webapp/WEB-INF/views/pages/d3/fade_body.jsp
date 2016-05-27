@@ -19,27 +19,26 @@
 
 </script>
 
-<div class="container">
 
-    <div class="top-buffer">
 
-        <h4>See the Explain Panel for more information</h4>
+ 
+
+        <b>See the Explain Panel for more information</b>
         
-        <div id="info" class="well">
+        <div id="info" class="row well">
            Information will be reported here.
 
 
         </div>
 
-    </div>
-    <div class="top-buffer">
+ 
 
         <div class="graph" id="graph"> </div>
 
-    </div>
+ 
 
 
-</div>
+
 
 
 
