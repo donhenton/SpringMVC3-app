@@ -39,23 +39,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="js/backbone/backbone.js"></script>
   
     <script id="reviewTemplate" type="text/template">
-        {{reviewListing}}({{starRating}}<span class='icon-star'></span>s) 
-        <div style="margin:5px">
-        <span class='ptrClass badge badge-info'><i class='icon-edit editRatingClass icon-white'></i></span>
-        <span class='ptrClass badge badge-important'><i class='icon-remove deleteRatingClass icon-white'></i></span></li>
-        </div>
+        <section class="row">
+        {{reviewListing}}({{starRating}}<span class='icon  fi-star'></span>s) 
+        
+        <span class='label label-primary editRatingClass'><i class='icon fi-pencil'></i></span>
+        <span class='label label-important deleteRatingClass'><i class='icon fi-x-circle'></i></span></li>
+        </section>
     </script>
     <script id="reviewEditTemplate" type="text/template">
         
         <span class='form form-inline'>
-        <input type='text'  id='r_reviewListing'  name='r_reviewListing' value='{{reviewListing}}' class='input-xlarge'>
+        <input type='text'  id='r_reviewListing'  name='r_reviewListing' value='{{reviewListing}}' size="65">
 
-        <select id='s_starRating' name='s_starRating' class='input-mini'>
+        <select id='s_starRating' name='s_starRating'>
         $$star_select_content$$
         </select>
         <div style="row">
-        <input type='button' value='Save'  class="saveRatingClass btn btn-mini btn-primary" />
-        <input type='button' value='Cancel'   class="cancelRatingClass btn btn-mini btn-primary" />
+        <input type='button' value='Save'  class="saveRatingClass btn btn-small btn-primary" />
+        <input type='button' value='Cancel'   class="cancelRatingClass btn btn-small btn-red" />
         <span class="text-error" style="display:none" id="error_message"></span>
         </div>
         </span>

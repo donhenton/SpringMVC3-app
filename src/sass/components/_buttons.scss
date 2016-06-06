@@ -100,5 +100,9 @@
         background-color: $red-color;
     }
 
-
+    &.label-primary
+    {
+        color: white;
+        background-color: $blue-color;
+    }
 }

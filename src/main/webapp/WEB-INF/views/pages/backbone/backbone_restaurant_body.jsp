@@ -58,7 +58,7 @@
 			<button id="addReviewButton"
 				onclick="window.myRatingsListView.showAddReviewDialog();"
 				style="display: none" class='btn btn-small btn-primary'>
-				<i class="icon-pencil icon-white"></i> Add Review
+				<i class="icon fi-pencil"></i> Add Review
 			</button>
 			<ul id="ratingsLocation"></ul>
 		</div>
