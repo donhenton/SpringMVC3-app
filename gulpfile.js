@@ -14,7 +14,7 @@ var livereload = require('gulp-livereload');
  *  
  */
 
-var pageURL = 'http://localhost:8080/app';
+var pageURL = 'http://localhost:8080/';
 
 
 var webappLocation = 'src/main/webapp';

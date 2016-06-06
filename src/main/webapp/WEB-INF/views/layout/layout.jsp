@@ -4,8 +4,14 @@
 <%@ taglib uri="/WEB-INF/tld/spring.tld" prefix="spring"  %> 
 <%@ taglib uri="/WEB-INF/tld/spring-form.tld" prefix="form"  %> 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%
+    
+    Date d = new  Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("YYYY");
+    String yearValue = sdf.format(d) ;
+    
 
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -59,7 +65,7 @@
             
             
              <footer>
-                &copy; 2016 Don Henton 
+                &copy; <%= yearValue %> Don Henton 
             </footer>  
         </section>
             
