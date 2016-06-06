@@ -9,27 +9,34 @@
 
 
 
-
-<div style="background-color: #3a87ad; height: 25px; padding: 5px"
-	class="span12 pull-left">
-	<span class="tableHeader" style="position: relative; left: 20px">Name</span>
-	<span class="tableHeader" style="position: relative; left: 300px">City</span>
-	<span class="tableHeader" style="position: relative; left: 375px">St.</span>
-	<span class="tableHeader" style="position: relative; left: 380px">Zip</span>
-	<span class="tableHeader" style="position: relative; left: 385px">Ver.</span>
+<p>&nbsp;</p>
+<div class="tHeadContainer">
+    <table>
+        <tbody>
+        <tr>
+	<th class="nameItem">Name</th>
+	<th class="cityItem">City</th>
+	<th class="stateItem">State</th>
+	<th class="zipCodeItem">Zip Code</th>
+	<th class="versionItem">Version</th>
+        <th class="actionItems">&nbsp;</th>
+        <th class="actionItems">&nbsp;</th>
+    </tr>
+        </tbody>
+    </table>
 
 </div>
-<div style="overflow-y: auto; height: 200px" class="well well-small">
-	<table id="listPoint" class="table  table-bordered">
+<div  class="tBodyContainer">
+	<table id="listPoint" >
 		<tbody></tbody>
 	</table>
 </div>
 <div>
-	<div class="span12">
-		<div id="editArea" class="well well-small  span6 pull-left">
+	<div class="row">
+		<div id="editArea" class="well columnLeft">
 
 			<div id="restaurantFormViewItems"></div>
-			<div>
+			<div class="row">
 
 				<input type="button" id="saveEdits" style="display: none"
 					class="btn btn-primary"
@@ -46,7 +53,7 @@
 				</ul>
 			</div>
 		</div>
-		<div id="ratingsArea" class="span6 pull-right">
+		<div id="ratingsArea" class="columnRight">
 			<h4 style="display: inline-block">Reviews</h4>
 			<button id="addReviewButton"
 				onclick="window.myRatingsListView.showAddReviewDialog();"
