@@ -23,7 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        restaurantData = ${jsonRestaurants}
         //_main_url = "http://donhenton.appspot.com/app/backbone/restaurant"
         // generate using jsp tags
-      
+        
+    
      
     </script>
         <!-- 

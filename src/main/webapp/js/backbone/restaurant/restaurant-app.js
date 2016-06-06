@@ -466,7 +466,7 @@ $(document).ready(
 					errorAreaRef.html("");
 					this.addDialogRef.find("#a_reviewListing").val("");
 					this.addDialogRef.find("#a_starRating").val("1");					
-					this.addDialogRef.modal('show');
+					this.addDialogRef.dialog("open");
 					
 				},
 				/**
@@ -483,7 +483,7 @@ $(document).ready(
 							 errorAreaRef.show();
 						return;
 					}
-					this.addDialogRef.modal('hide');
+					this.addDialogRef.dialog('close');
 					errorAreaRef.html("");
 					errorAreaRef.hide();
 					
