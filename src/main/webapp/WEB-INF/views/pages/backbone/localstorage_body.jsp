@@ -4,7 +4,7 @@
 <c:url var="baseURL" value="/app/" />
 
 
-<div class="warning">Tested only in Chrome</civ>
+
 <div id="content" class="content">
     <!-- Content div that is filled by the router -->
 </div>

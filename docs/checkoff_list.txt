@@ -25,9 +25,9 @@ Javascript Demos
             ArtTimer (5/25/2016)
     Swagger Docs (5/27/2016)
     Angular Restaurant App
-    Javascript Model/View
+    Javascript Model/View (6/1/2016)
     Backbone
-        Local Storage
+        Local Storage (6/6/2016)
         Restaurant App
     D3
         Tree Demo (5/27/2016)  
