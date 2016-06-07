@@ -201,7 +201,7 @@
                                         </div>
                                         <div ng-switch-default  class="reviewRow">
                                             {{review.reviewListing}} ({{review.starRating}} 
-                                            <span class="icon-star"></span> s) 
+                                            <span class="icon fi-star"></span> s) 
 
 
                                             <div style="margin:5px">
