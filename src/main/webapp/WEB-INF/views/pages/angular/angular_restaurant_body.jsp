@@ -65,58 +65,59 @@
                 </table>
             </div>
 
-            <div class="row errorPanel restaurantErrorPanel">
+            <div class="row red-content">
                 &nbsp; {{errorMessage}}
             </div>
         </div>
         <!-- edit and review container -->
         <!-- https://docs.angularjs.org/api/ng/directive/input -->
 
-        <div class="row">
-            <div class="span11">
-                <div  id="editRestaurantController"  ng-controller="editRestaurantController" class="well well-large span5 pull-left">
+        <div>
+            
+                <div  id="editRestaurantController"  ng-controller="editRestaurantController" class="well columnLeft">
                     <h4 style="display: inline-block">Restaurants</h4>
-                    <div class="form-group">
+                    
 
                         <button  ng-show="canAdd" ng-click="addNewRestaurant()"   class="btn btn-small btn-primary"><i class="icon-pencil icon-white"></i> Add New Restaurant</button>
 
-                    </div>
+                  
 
 
-                    <form class="form-inline" name="editRestaurantForm"  role="form" novalidate ng-show="recordPresent">
-                        <label class="control-label" for="name"></label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">Name</span>
-                                <input required  id="name" name="name" class="input-xlarge" placeholder="Name"   ng-model="currentRestaurant.name" type="text">
-                            </div>
-                            <div class="input-prepend">
-                                <span class="add-on">City</span>
-                                <input  required  id="city" name="city" class="input-medium" placeholder="City"  ng-model="currentRestaurant.city"  type="text">
-                            </div>
-                            <div class="input-prepend">
-                                <span class="add-on">State</span>
-                                <input required ng-pattern="/[A-Z]{2}/" minlength="2" maxlength="2" id="state" name="state" class="input-small" placeholder="State"   ng-model="currentRestaurant.state" type="text">
-                            </div>
-                            <div class="input-prepend">
-                                <span class="add-on">Zip Code</span>
-                                <input required ng-pattern="/[0-9]/" minlength="5" maxlength="5" id="zipCode" name="zipCode"   class="input-small" placeholder="Zip Code"  ng-model="currentRestaurant.zipCode"  type="text">
-                            </div>
-                            <div class="input-prepend">
-                                <span class="add-on">Version</span>
-                                <input required  ng-pattern="/[0-9]/"   id="version" name="version" class="input-small" placeholder="Version"   ng-model="currentRestaurant.version" type="text">
-                            </div>
-                        </div>
+                    <form class="form form-inline" name="editRestaurantForm"  role="form" novalidate ng-show="recordPresent">
+                        <table class="table table-bordered">
+                        <tr>
+                              <td><label for="name">Name</label></td>
+                              <td><input required  id="name" name="name"  placeholder="Name" size="60"  ng-model="currentRestaurant.name" type="text"></td> 
+                        </tr>    
+                        <tr>
+                              <td><label for="name">City</label></td>
+                              <td><input  required  id="city" name="city"  placeholder="City" size="60" ng-model="currentRestaurant.city"  type="text"></td> 
+                        </tr>      
+                        <tr>
+                              <td><label for="name">State</label></td>
+                              <td><input required ng-pattern="/[A-Z]{2}/" minlength="2" maxlength="2" id="state" name="state"  placeholder="State"   ng-model="currentRestaurant.state" type="text"></td> 
+                        </tr>         
+                        <tr>
+                              <td><label for="name">Zip Code</label></td>
+                              <td><input required ng-pattern="/[0-9]/" minlength="5" maxlength="5" id="zipCode" name="zipCode"   placeholder="Zip Code"  ng-model="currentRestaurant.zipCode"  type="text"></td> 
+                        </tr>
+                        <tr>
+                              <td><label for="name">Version</label></td>
+                              <td><input required  ng-pattern="/[0-9]/"   id="version" name="version" size placeholder="Version"   ng-model="currentRestaurant.version" type="text"></td> 
+                        </tr>
+                </table>
+                             
+                         
                         <div  style="margin-top:5px" ng-show="recordPresent">
                             <button  ng-click="saveClick()" class="btn btn-small btn-primary"> <i class="icon-edit  icon-white"></i>  Save</button>
-                            <button  ng-click="cancelClick()" class="btn btn-small  btn-primary"> <i class="icon-refresh  icon-white"></i>  Restore</button>
+                            <button  ng-click="cancelClick()" class="btn btn-small  btn-red"> <i class="icon-refresh  icon-white"></i>  Restore</button>
                         </div>
-
+                        
                     </form>
 
                 </div><!-- end editRestaurantController -->
 
-                <div id="reviewController" class="span5" ng-controller="reviewController">
+                <div id="reviewController" class="columnRight" ng-controller="reviewController">
 
                     <h4 style="display: inline">Ratings</h4> 
 
@@ -126,7 +127,7 @@
                         <form name="addReviewForm" role="form" novalidate>
                             <div ng-switch-when="true" style="margin-bottom:5px">
 
-                                <input required style="margin-right:3px"  ng-model="addNewReviewBuffer.reviewListing" name="reviewListing" id="reviewListing"  class="input-large"  type="text">  
+                                <input required style="margin-right:3px"  ng-model="addNewReviewBuffer.reviewListing" name="reviewListing" id="reviewListing"  size="60" type="text">  
 
 
                                 <select  style="margin-right:2px" ng-model="addNewReviewBuffer.starRating"  class="input-mini">  
@@ -147,20 +148,20 @@
                                 </select>    <span class="icon-star"></span> s 
                                 <div>
                                     <button  ng-click="saveNewReview()" class="btn btn-small btn-primary"> 
-                                        <i class="icon-edit icon-white"></i> Save 
+                                        <i class="icon fi-pencil"></i> Save 
                                     </button>
-                                    <button ng-click="cancelNewReview()" class="btn btn-small btn-danger">
-                                        <i class="icon-remove icon-white"></i> Cancel 
+                                    <button ng-click="cancelNewReview()" class="btn btn-small btn-red">
+                                        <i class="icon fi-x-circle"></i> Cancel 
                                     </button>
                                 </div>
 
                             </div>
                         </form>   
-                        <form name="editReviewForm" role="form" novalidate>
+                        <form name="editReviewForm" role="form" class="form" novalidate>
                             <div ng-switch-when="false">
                                 <div   ng-show="hasCurrentRestaurant()"  style="margin-bottom:5px">
                                     <button  id="addReviewButton" ng-click="addNewReview()" class='btn btn-small btn-primary'>
-                                        <i class="icon-pencil icon-white"></i> Add Review</button>
+                                        <i class="icon fi-pencil"></i> Add Review</button>
                                 </div>
 
                                 <!-- end adding new review -->
@@ -169,10 +170,10 @@
                                     <div ng-switch="review.isEditing">
                                         <div ng-switch-when="true" class="reviewRow" ng-class= "{true: 'editingReview', false: ''}[review.isEditing]">
 
-                                            <input style="margin-right:3px" required class="input-large" ng-model="review.reviewListing" type="text">    
+                                            <input style="margin-right:3px" required size="60" ng-model="review.reviewListing" type="text">    
 
 
-                                            <select  style="margin-right:2px" required class="input-mini" ng-model="review.starRating" type="text">  
+                                            <select  style="margin-right:2px" required  ng-model="review.starRating" type="text">  
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -187,13 +188,13 @@
                                                 <option>12</option>
                                                 <option>13</option>
 
-                                            </select>    <span class="icon-star"></span> s
+                                            </select>    <span class="icons fi-star"></span> s
                                             <div>
-                                                <button  ng-click="saveReviewEdit(review)" class="btn btn-mini btn-primary"> 
-                                                    <i class="icon-edit icon-white"></i> 
+                                                <button  ng-click="saveReviewEdit(review)" class="btn btn-small btn-primary"> 
+                                                    <i class="icon fi-pencil icon-white"></i> Save
                                                 </button>
-                                                <button ng-click="cancelReviewEdit(review)" class="btn btn-mini btn-danger">
-                                                    <i class="icon-refresh  icon-white"></i>  
+                                                <button ng-click="cancelReviewEdit(review)" class="btn btn-small btn-red">
+                                                    <i class="icon fi-x-circle"></i> Cancel  
                                                 </button>
                                             </div>
 
@@ -204,11 +205,11 @@
 
 
                                             <div style="margin:5px">
-                                                <button  ng-click="editReview(review)" class="btn btn-mini btn-primary"> 
-                                                    <i class="icon-edit icon-white"></i> Edit
+                                                <button  ng-click="editReview(review)" class="btn btn-small btn-primary"> 
+                                                    <i class="icon fi-pencil"></i> Edit
                                                 </button>
-                                                <button ng-click="deleteReview(review)" class="btn btn-mini btn-danger">
-                                                    <i class="icon-remove icon-white"></i> Delete
+                                                <button ng-click="deleteReview(review)" class="btn btn-small btn-red">
+                                                    <i class="icon fi-x-circle"></i> Delete
                                                 </button>
 
                                             </div>
@@ -225,7 +226,7 @@
                 </div><!-- end reviewController -->
 
 
-            </div><!-- edit and review container -->        
+                  
         </div>
 
 
