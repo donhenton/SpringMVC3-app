@@ -21,42 +21,51 @@
 <link href="js/angular/restaurant/libs/angular.js/angular-csp.css" rel="stylesheet" type="text/css"/>
 
 <div ng-app="restaurantApp">
-    <div class="container  restaurantContainer span12" ng-cloak>
-
+    <div ng-cloak>
+        
 
         <div ng-controller="listRestaurantController">
-
-            <div class="row scrollHeader container span12">
-                <span class="tableHeader" style="position: relative; left:20px">Name</span>
-                <span class="tableHeader" style="position: relative; left:280px">City</span>
-                <span class="tableHeader" style="position: relative; left:360px">St.</span>
-                <span class="tableHeader" style="position: relative; left:370px">Zip</span>
-                <span class="tableHeader" style="position: relative; left:375px">Ver.</span>
+            &nbsp;<br/>
+            <div class="tHeadContainer">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th class="nameItem">Name</th>
+                            <th class="cityItem">City</th>
+                            <th class="stateItem">State</th>
+                            <th class="zipCodeItem">Zip Code</th>
+                            <th class="versionItem">Version</th>
+                            <th class="actionItems">&nbsp;</th>
+                            <th class="actionItems">&nbsp;</th>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
 
-            <div class="row scrollList container well well-small span12">
+            <div class="tBodyContainer">
 
-                <table style="width:100%">
+                <table class="table">
+                    <tbody>
+                    <tr class="restaurantRow" ng-class= "{true: 'highLighted', false: ''}[restaurant.is_current]"  ng-repeat="restaurant in restaurantList">
 
-                    <tr ng-repeat="restaurant in restaurantList">
-
-                        <td  data-ng-click="changeRestaurant($event, restaurant)" ng-class= "{true: 'currentUserRow', false: ''}[restaurant.is_current]"   class="span6 editRow" data-id="{{restaurant.id}}">{{restaurant.name}}</td>
-                        <td  data-ng-click="changeRestaurant($event, restaurant)" ng-class= "{true: 'currentUserRow', false: ''}[restaurant.is_current]"   class="span2 editRow">{{restaurant.city}}</td>
-                        <td  data-ng-click="changeRestaurant($event, restaurant)" ng-class= "{true: 'currentUserRow', false: ''}[restaurant.is_current]"   class="span1 editRow">{{restaurant.state}}</td>
-                        <td  data-ng-click="changeRestaurant($event, restaurant)" ng-class= "{true: 'currentUserRow', false: ''}[restaurant.is_current]"   class="span1 editRow">{{restaurant.zipCode}}</td>
-                        <td  data-ng-click="changeRestaurant($event, restaurant)" ng-class= "{true: 'currentUserRow', false: ''}[restaurant.is_current]"   class="span1 editRow">{{restaurant.version}}</td>                            
-                        <td ng-class= "{true: 'currentUserRow', false: ''}[restaurant.is_current]" >
-                            <span data-ng-click="changeRestaurant($event, restaurant)"   class="badge ptrClass badge-info"> <i class="icon-edit icon-white"></i> Edit</span></td>
-                        <td ng-class= "{true: 'currentUserRow', false: ''}[restaurant.is_current]" >
-                            <span data-ng-click="deleteRestaurant(restaurant)"           class="badge ptrClass badge-important"> <i class="icon-remove icon-white"></i> Delete</span></td>
+                        <td  data-ng-click="changeRestaurant($event, restaurant)"   class="nameItem" data-id="{{restaurant.id}}">{{restaurant.name}}</td>
+                        <td  data-ng-click="changeRestaurant($event, restaurant)"   class="cityItem">{{restaurant.city}}</td>
+                        <td  data-ng-click="changeRestaurant($event, restaurant)"   class="stateItem">{{restaurant.state}}</td>
+                        <td  data-ng-click="changeRestaurant($event, restaurant)"   class="zipCodeItem">{{restaurant.zipCode}}</td>
+                        <td  data-ng-click="changeRestaurant($event, restaurant)"   class="versionItem">{{restaurant.version}}</td>                            
+                        <td class="actionItems">
+                            <span data-ng-click="changeRestaurant($event, restaurant)"   class="btn btn-primary"> <i class="icon fi-pencil"></i> Edit</span></td>
+                        <td class="actionItems">
+                            <span data-ng-click="deleteRestaurant(restaurant)"           class="btn btn-red"> <i class="icon fi-x-circle"></i> Delete</span></td>
 
 
                     </tr>    
+                    </tbody>
                 </table>
             </div>
 
-            <div class="row container span12 errorPanel restaurantErrorPanel">
+            <div class="row errorPanel restaurantErrorPanel">
                 &nbsp; {{errorMessage}}
             </div>
         </div>

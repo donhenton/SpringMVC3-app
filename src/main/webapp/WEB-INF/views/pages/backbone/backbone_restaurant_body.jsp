@@ -27,7 +27,7 @@
 
 </div>
 <div  class="tBodyContainer">
-	<table id="listPoint" >
+	<table class="table" id="listPoint" >
 		<tbody></tbody>
 	</table>
 </div>

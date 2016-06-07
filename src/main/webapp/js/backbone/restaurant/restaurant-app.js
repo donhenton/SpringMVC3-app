@@ -318,7 +318,7 @@ $(document).ready(
 			});
 			window.RestaurantView = Backbone.View.extend({
 				tagName : "tr",
-                                className: 'row',
+                                className: 'restaurantRow',
                                 
 				initialize : function(options) {
 					this.vent = options.vent;
