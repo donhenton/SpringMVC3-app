@@ -17,7 +17,7 @@
     the class TestHandshakeHandler. See 
     <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html">
         http://docs.spring.io/spring/docs/current/spring-framework-reference/html/websocket.html
-    </a>. Search for <span class="badge">determineUser</span>
+    </a>. Search for <span class="label"> determineUser</span>
 
 
 

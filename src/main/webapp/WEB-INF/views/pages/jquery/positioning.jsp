@@ -5,7 +5,7 @@
   {
 
         position: absolute;
-        top: 400px;
+        top: 480px;
         left: 375px;
   }
 
@@ -28,7 +28,7 @@
 
 </div>
 
-
+<p>&nbsp;</p>
 <div class="row" id="results">
 
 
