@@ -44,10 +44,6 @@ public class HomePageController {
 		return new ModelAndView("tiles.cssdemo");
 	}	
         
-        @RequestMapping("/ajax/download")
-	public ModelAndView ajaxDownloadPage() {
-		
-		return new ModelAndView("tiles.ajax.download");
-	}
+      
        
 }
