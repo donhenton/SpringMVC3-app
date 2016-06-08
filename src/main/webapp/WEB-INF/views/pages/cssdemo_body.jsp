@@ -20,7 +20,7 @@
     <div class="columnRight">
         <h3>Lists</h3>
         <hr/>
-        <ul class="basic-list">
+        <ul>
             <li><em>emphasis</em></li>
 
             <li><b>bold text</b></li>

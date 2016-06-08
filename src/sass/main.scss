@@ -12,10 +12,15 @@ body
     z-index: 0;
 }
 
-#explainDialog p
+#explainDialog 
 {
      
-    margin: 5px 0px;
+    margin: 5px;
+    p , div
+    {
+        margin: 5px 0px;
+    }
+    
 }
  
 section#pageContainer
