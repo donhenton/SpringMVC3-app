@@ -1,12 +1,9 @@
 package com.dhenton9000.spring.mvc.controllers.ajax.download;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +15,8 @@ import org.apache.log4j.*;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * The controller for the homepage
+ * The controller for the ajax downloader both the download and the navigation
+ * method
  *
  * @author Don
  *
@@ -53,10 +51,8 @@ public class AjaxDownloadController {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
         //String fullPath = context.getRealPath("/com/dhenton9000/spring/mvc/controllers/ajax/download/TestData.xls");
         //log.info("starting "+fullPath);
-
         String contentType = request.getHeader("Content-Type");
         //contentType == null is a simple GET click
 
@@ -78,7 +74,7 @@ public class AjaxDownloadController {
             OutputStream outstream = null;
             try {
                 ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-               in   = classLoader.getResourceAsStream("TestData.xls");
+                in = classLoader.getResourceAsStream("TestData.xls");
 
                 response.reset();
                 // file = new File(fullPath);
@@ -87,8 +83,10 @@ public class AjaxDownloadController {
                 response.addHeader("content-disposition", "attachment; filename=data" + fileExt + ".xls");
                 outstream = response.getOutputStream();
                 IOUtils.copyLarge(in, outstream);
+                Thread.sleep(1500);
+                
                 response.flushBuffer();
-                log.info("finished");
+                log.debug("finished");
             } catch (Exception e) {
                 log.error("Unable to download file " + e.getMessage());
             } finally {

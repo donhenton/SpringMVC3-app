@@ -13,7 +13,7 @@
 
 %>
 
-<h3>AJAX Download</h3>
+
 
 <script>
  function doDownloadXHR(requestId)
@@ -26,11 +26,11 @@
         requestId = 0;
     }
     var dataToSend = JSON.stringify({"version": requestId});
-    $('#loader').css({"visibility":"visible"})
+    $('#loader'+requestId).css({"visibility":"visible"})
     xhr.responseType = 'arraybuffer';
     xhr.addEventListener("loadend", function()
     {
-         $('#loader').css({"visibility":"hidden"})
+         $('#loader'+requestId).css({"visibility":"hidden"})
     })
     xhr.addEventListener("onerror", function(event)
     {
@@ -100,6 +100,9 @@
    
     
 </script>
-
-  <p><button onClick="doDownloadXHR()">Do AJAX Download No parameter</button> <span id="loader" class="loading"></span>    </p>
-  <p><button onClick="doDownloadXHR(1)">Do AJAX Download Parameter 1</button> <span id="loader" class="loading"></span>    </p>	 
+<h3>AJAX Download</h3>
+<div class="row">
+ <button class="btn btn-primary" onClick="doDownloadXHR()">Do AJAX Download No parameter</button> <span id="loader0" class="loading"></span>  
+ <button  class="btn btn-primary" onClick="doDownloadXHR(1)">Do AJAX Download Parameter 1</button> <span id="loader1" class="loading"></span>    
+</div>
+  	 
