@@ -9,6 +9,17 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
 var livereload = require('gulp-livereload');
+
+
+var gutil = require('gulp-util');
+var argv = require('yargs').argv;
+
+ 
+
+
+
+
+
 /**
  * watch-assets in the target task to use
  *  
@@ -64,4 +75,15 @@ gulp.task('refresh', function () {
 });
 
 
-  
+// production build stuff --------------------------------
+
+gulp.task('copy-sass', function () {
+
+
+
+    gulp.src( 'src/sass/**/*.scss')
+            .pipe(sass().on('error', sass.logError))      
+            .pipe(gulp.dest('src/main/webapp/css/main'));
+
+});
+gulp.task('default', [ 'copy-sass']);  
