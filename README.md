@@ -15,6 +15,16 @@ http://donhenton-springmvc3.herokuapp.com/</a>
 * activate the livereload plugin on chrome
 * sass modifications are made at src/sass and need to be forced the first time
 
+
+## CSS Processing
+The gulp default task will rebuild the sass--> css file main.css. The main.css
+is part of the source tree, so any changes for css will be a multi step process:
+
+* develop locally using profile -Pcss
+* run gulp default task
+* commit the new css file
+
+
 This will handle css, js and jsp edits
 
 

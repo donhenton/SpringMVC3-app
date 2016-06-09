@@ -71,13 +71,13 @@
                             </includes>
                             <followSymlinks>false</followSymlinks>
                         </fileset>
-                        <fileset>
+<!--                        <fileset>
                             <directory>./src/main/webapp/css/main</directory>
                             <includes>
                                 <include>main.css</include>
                             </includes>
                             <followSymlinks>false</followSymlinks>
-                        </fileset>
+                        </fileset>-->
                         
                     </filesets>
                 </configuration>
