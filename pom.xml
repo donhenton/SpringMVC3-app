@@ -106,44 +106,6 @@
                     </execution>
                 </executions>
             </plugin>
-            
-            <!-- allows gulp processing see https://github.com/donhenton/maven-gulp-sandbox -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>exec-npm-install</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <executable>npm</executable>
-                            <arguments>
-                                <argument>install</argument>
-                            </arguments>
-                        </configuration>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>exec-gulp</id>
-                        <phase>prepare-package</phase>
-                        <configuration>
-                            <executable>gulp</executable>
-                            
-                        </configuration>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            
-            
-            
-            
             <!--
               reinstate this for local, DO NOT LEAVE IT IN WHEN PUSHING
               TO HEROKU
@@ -180,7 +142,6 @@
     
     <profiles>
         <profile>
-            <!-- this profile is for local css development -->
             <id>css</id>
        
             <build>
@@ -341,7 +302,28 @@
             <version>${jetty.version}</version>
             <type>jar</type>
         </dependency>
-
+        <!--
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-runner</artifactId>
+            <version></version>
+            <type>jar</type>
+       <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>javax.servlet-api</artifactId>
+                </exclusion>
+         <exclusion>
+           <groupId>org.glassfish.web</groupId>
+           <artifactId>javax.servlet.jsp</artifactId>
+         </exclusion>
+         <exclusion>
+           <groupId>org.eclipse.jetty</groupId>
+           <artifactId>jetty-servlet</artifactId>
+         </exclusion>
+       </exclusions>     
+        </dependency>
+        -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
@@ -400,6 +382,14 @@
             <scope>provided</scope>
         </dependency>
           
+      
+        <!--
+        <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version></version>
+            </dependency>
+        -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
