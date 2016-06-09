@@ -9,27 +9,34 @@
 
 
 
-
-<div style="background-color: #3a87ad; height: 25px; padding: 5px"
-	class="span12 pull-left">
-	<span class="tableHeader" style="position: relative; left: 20px">Name</span>
-	<span class="tableHeader" style="position: relative; left: 300px">City</span>
-	<span class="tableHeader" style="position: relative; left: 375px">St.</span>
-	<span class="tableHeader" style="position: relative; left: 380px">Zip</span>
-	<span class="tableHeader" style="position: relative; left: 385px">Ver.</span>
+<p>&nbsp;</p>
+<div class="tHeadContainer">
+    <table>
+        <tbody>
+        <tr>
+	<th class="nameItem">Name</th>
+	<th class="cityItem">City</th>
+	<th class="stateItem">State</th>
+	<th class="zipCodeItem">Zip Code</th>
+	<th class="versionItem">Version</th>
+        <th class="actionItems">&nbsp;</th>
+        <th class="actionItems">&nbsp;</th>
+    </tr>
+        </tbody>
+    </table>
 
 </div>
-<div style="overflow-y: auto; height: 200px" class="well well-small">
-	<table id="listPoint" class="table  table-bordered">
+<div  class="tBodyContainer">
+	<table class="table" id="listPoint" >
 		<tbody></tbody>
 	</table>
 </div>
 <div>
-	<div class="span12">
-		<div id="editArea" class="well well-small  span6 pull-left">
+	<div class="row">
+		<div id="editArea" class="well columnLeft">
 
 			<div id="restaurantFormViewItems"></div>
-			<div>
+			<div class="row">
 
 				<input type="button" id="saveEdits" style="display: none"
 					class="btn btn-primary"
@@ -46,12 +53,12 @@
 				</ul>
 			</div>
 		</div>
-		<div id="ratingsArea" class="span6 pull-right">
+		<div id="ratingsArea" class="columnRight">
 			<h4 style="display: inline-block">Reviews</h4>
 			<button id="addReviewButton"
 				onclick="window.myRatingsListView.showAddReviewDialog();"
 				style="display: none" class='btn btn-small btn-primary'>
-				<i class="icon-pencil icon-white"></i> Add Review
+				<i class="icon fi-pencil"></i> Add Review
 			</button>
 			<ul id="ratingsLocation"></ul>
 		</div>
@@ -59,22 +66,19 @@
 </div>
 
 
-<div id="addReviewModal" class="modal hide fade">
-	<div class="modal-header">
-		<button type="button" class="close"
-			onclick="$('#addReviewModal').modal('hide');" aria-hidden="true">&times;</button>
+<div id="addReviewModal">
+	 
 		<h3>Add Review</h3>
-	</div>
-	<div class="modal-body">
+	 
+	<div>
 
-		<div class="controls">
-			<div class="input-prepend">
-				<span class="add-on">Review</span> <input id="a_reviewListing"
-					name="reviewListing" class="input-xlarge" placeholder="Review"
+		<div class="form form-inline row">
+			 
+				<label class="row">Review</label> <input id="a_reviewListing"
+					name="reviewListing" size="50" placeholder="Review"
 					value="" type="text">
-			</div>
-			<div class="input-prepend">
-				<span class="add-on">Rating</span> <select class="input-small"
+			 
+				<label class="row">Rating</label> <select  
 					id="a_starRating" name="starRating">
 					<option>1</option>
 					<option>2</option>
@@ -96,19 +100,40 @@
 
 		</div>
 
-<div class="text-error" style="display:none" id="error_message_for_addReview"></div>
+            <div class="text-error row" style="display:none" id="error_message_for_addReview"></div>
 
 
-	</div>
-	<div class="modal-footer">
-		<button onclick="$('#addReviewModal').modal('hide');" class="btn">Cancel</button>
+	
+	<div class="row">
+		<button class="btn btn-red btn-primary" onclick="$('#addReviewModal').dialog('close');">Cancel</button>
 		<button class="btn btn-primary"
 			onclick="window.myRatingsListView.addReview();">Save changes</button>
 	</div>
-</div>
+ </div>
 
-
-
+<script>
+    console.log("zzz")
+     $('#addReviewModal').dialog(
+                    {
+                        'autoOpen':false,
+                        'title':"Explain",
+                        'resizable':false,
+                        'modal':true,
+                        'dialogClass': 'addReviewModalClass',
+                        'width':500,
+                        'height':350,
+                        'minHeight':250,
+                        'draggable': false,
+                        'buttons':
+                                {
+                                    Close: function(){ $(this).dialog('close');}
+                                }
+                    });
+   
+        
+ </script>       
+        
+      
 
 <script src="js/backbone/restaurant/restaurant-app.js"></script>
 

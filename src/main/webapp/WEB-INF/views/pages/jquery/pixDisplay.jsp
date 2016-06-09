@@ -16,7 +16,8 @@
 
 		);
     </script>
-    
+ 
+    <h4>Click On A Picture</h4>
  <table>
 
 <tr>

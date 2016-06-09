@@ -32,19 +32,19 @@
         <div class="row span12">
 
             
-            <div  class="form-inline">
+            <div  class="form form-inline">
 
 
 
 
                 <label for="imageSelect">Image</label> 
-                <select class="input-medium" onchange="goToImage(this)" id="imageSelector">
+                <select   onchange="goToImage(this)" id="imageSelector">
 
                 </select>
 
 
 
-                <label for="maxTimeSelect">Delay</label> <select  class="input-small"  
+                <label for="maxTimeSelect">Delay</label> <select   
                     onchange="goToTime(this)" id="maxTimeSelect">
                     <option value="0">1 min</option>
                     <option value="1">2 min</option>
@@ -61,8 +61,8 @@
         </div>
         <!--  end control row -->
 
-        <div class="row span12">
-            <div class="span5">
+        <div class="row ">
+            <div class="columnLeft">
                 <div id="imageCollection">
                     <img src="simages/a1.jpg" alt=""/>
                     <img src="simages/a2.jpg" alt=""/>
@@ -72,7 +72,7 @@
                     <img src="simages/a6.jpg" alt=""/>
                 </div>
             </div>
-            <div class="span4">
+            <div class="columnRight">
                 <div  id="clockTimer"></div>
             </div>
         </div>

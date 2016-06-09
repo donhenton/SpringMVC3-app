@@ -38,5 +38,12 @@ public class HomePageController {
 		return new ModelAndView("tiles.jerseyclient");
 	}	
         
+        @RequestMapping("/cssdemo")
+	public ModelAndView cssDemoPage() {
+		
+		return new ModelAndView("tiles.cssdemo");
+	}	
         
+      
+       
 }

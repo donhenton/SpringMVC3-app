@@ -7,8 +7,8 @@
 
 <p></p>
 
-<form:form method="post" cssClass="form-horizontal"  modelAttribute="errorInfo"  action="${baseURL}errors/demo/submitError">
-<form:input path="errorValue" /> <input class="btn-larg btn-primary" type="submit" value="Submit Error" />
+<form:form method="post" cssClass="form form-inline"  modelAttribute="errorInfo"  action="${baseURL}errors/demo/submitError">
+<form:input path="errorValue" /> <input class="btn  btn-primary" type="submit" value="Submit Error" />
 </form:form>
 
 

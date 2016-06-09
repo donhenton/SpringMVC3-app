@@ -12,35 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- backbone restaurant scripts -->
  
-  <style>  
-
-        li 
-        {
-            margin: 5px
-        }
-
-        .ptrClass {cursor:pointer }
-
-        
-       /* td { margin: 3px; padding: 3px} */
-        /*.selectedRow {background-color: #a47e3c;color:white}*/
-        .selectedRow {background-color: #0044cc; color:whitesmoke }
-        .editRow {  cursor:pointer }
-        .tableHeader
-        {
-
-            font-size: 20px;
-            font-weight: normal;
-
-            color: white;
-            padding: 4px 2px 2px 4px;
-            margin: 2px;
-
-        }
-
-
-    </style>
-    
+ 
     <!--  
     <script src="tree_tests/jquery.mockjax.js"></script>
    -->
@@ -51,7 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        restaurantData = ${jsonRestaurants}
         //_main_url = "http://donhenton.appspot.com/app/backbone/restaurant"
         // generate using jsp tags
-      
+        
+    
      
     </script>
         <!-- 
@@ -67,23 +40,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="js/backbone/backbone.js"></script>
   
     <script id="reviewTemplate" type="text/template">
-        {{reviewListing}}({{starRating}}<span class='icon-star'></span>s) 
-        <div style="margin:5px">
-        <span class='ptrClass badge badge-info'><i class='icon-edit editRatingClass icon-white'></i></span>
-        <span class='ptrClass badge badge-important'><i class='icon-remove deleteRatingClass icon-white'></i></span></li>
-        </div>
+        <section class="row">
+        {{reviewListing}}({{starRating}}<span class='icon  fi-star'></span>s) 
+        
+        <span class='label label-primary editRatingClass'><i class='icon fi-pencil'></i></span>
+        <span class='label label-important deleteRatingClass'><i class='icon fi-x-circle'></i></span></li>
+        </section>
     </script>
     <script id="reviewEditTemplate" type="text/template">
         
-        <span class='form-inline'>
-        <input type='text'  id='r_reviewListing'  name='r_reviewListing' value='{{reviewListing}}' class='input-xlarge'>
+        <span class='form form-inline'>
+        <input type='text'  id='r_reviewListing'  name='r_reviewListing' value='{{reviewListing}}' size="65">
 
-        <select id='s_starRating' name='s_starRating' class='input-mini'>
+        <select id='s_starRating' name='s_starRating'>
         $$star_select_content$$
         </select>
-        <div style="margin:5px">
-        <input type='button' value='Save'  class="saveRatingClass btn btn-mini btn-primary" />
-        <input type='button' value='Cancel'   class="cancelRatingClass btn btn-mini btn-primary" />
+        <div style="row">
+        <input type='button' value='Save'  class="saveRatingClass btn btn-small btn-primary" />
+        <input type='button' value='Cancel'   class="cancelRatingClass btn btn-small btn-red" />
         <span class="text-error" style="display:none" id="error_message"></span>
         </div>
         </span>
@@ -94,42 +68,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <script id="formTemplate" type="text/template">
 
-
-        <label class="control-label" for="name"></label>
-        <div class="controls">
-        <div class="input-prepend">
-        <span class="add-on">Name</span>
-        <input id="name" name="name" class="input-xlarge" placeholder="Name"  value="{{name}}" type="text" required="">
-        </div>
-        <div class="input-prepend">
-        <span class="add-on">City</span>
-        <input id="city" name="city" class="input-medium" placeholder="City"  value="{{city}}"  type="text" required="">
-        </div>
-        <div class="input-prepend">
-        <span class="add-on">State</span>
+        <div class=form form-inline>
+         
+         <table class="table">
+         <tr>
+        <td>Name</td><td>
+        <input id="name" name="name" size=60 placeholder="Name"  value="{{name}}" type="text" required="">
+        </td></tr>
+        <tr><td>City</td><td>
+        <input id="city" name="city" size=60 placeholder="City"  value="{{city}}"  type="text" required="">
+        </td></tr>
+        <tr><td>State</td><td>
         <input id="state" name="city" class="input-small" placeholder="State"   value="{{state}}" type="text" required="">
-        </div>
-        <div class="input-prepend">
-        <span class="add-on">Zip Code</span>
+        </td></tr>
+        <td>Zip Code</td><td>
         <input id="zipCode" name="zipCode" class="input-small" placeholder="Zip Code"  value="{{zipCode}}"  type="text" required="">
-        </div>
-        <div class="input-prepend">
-        <span class="add-on">Version</span>
+        </td></tr>
+        <tr><td>Version</td><td>
         <input id="version" name="version" class="input-small" placeholder="Version"   value="{{version}}" type="text" required="">
+        </td>
+        </tr></table>
         </div>
-        </div>
-
 
     </script>  
 
     <script id="rowTemplate" type="text/template">
-        <td class="editRow span6" data-id="{{id}}">{{name}}</td>
-        <td class="editRow span2">{{city}}</td>
-        <td class="editRow span1">{{state}}</td>
-        <td class="editRow span1">{{zipCode}}</td>
-        <td class="editRow span1">{{version}}</td>
-        <td><span class="badge ptrClass badge-info editMarker"> <i class="icon-edit icon-white"></i> Edit</span></td>
-        <td><span class="badge ptrClass badge-important deleteMarker"> <i class="icon-remove icon-white"></i> Delete</span></td>
+        <td class="nameItem editMarker" data-id="{{id}}">{{name}}</td>
+        <td class="cityItem editMarker">{{city}}</td>
+        <td class="stateItem editMarker">{{state}}</td>
+        <td class="zipCodeItem editMarker">{{zipCode}}</td>
+        <td class="versionItem editMarker">{{version}}</td>
+        <td class="actionItems"><button class="btn   btn-primary editMarker"> <i class="icon   fi-pencil"></i> Edit</button></td>
+        <td class="actionItems"><button class="btn  btn-red  deleteMarker"> <i class="icon  fi-x-circle"></i> Delete</button></td>
     </script>
   
 

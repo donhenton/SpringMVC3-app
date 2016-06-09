@@ -9,7 +9,7 @@
         <put-attribute name="jsscripts" value="/WEB-INF/views/layout/general_scripts.jsp" />
         <put-attribute name="jsscripts_app_specific" value="" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/default.jsp" />
-        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+         
     </definition>
 
 
@@ -19,6 +19,15 @@
         <put-attribute name="body"
                                value="/WEB-INF/views/pages/homepage_body.jsp" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/homepage.jsp" />	
+    </definition>
+    
+    
+    <definition name="tiles.ajax.download" extends="tiles.base.definition">
+        <put-attribute name="title" value="AJAX Download" />
+        <put-attribute name="subTitle" value="AJAX Download" />
+        <put-attribute name="body"
+                               value="/WEB-INF/views/pages/demos/ajax_download_body.jsp" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/demos/ajax_download.jsp" />	
     </definition>
     
     
@@ -37,10 +46,18 @@
                                value="/WEB-INF/views/pages/creditspage_body.jsp" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/creditspage.jsp" />	
     </definition>
+    
+    <definition name="tiles.cssdemo" extends="tiles.base.definition">
+        <put-attribute name="title" value="CSS Demonstration" />
+        <put-attribute name="subTitle" value="CSS Demonstration" />
+        <put-attribute name="body"
+                               value="/WEB-INF/views/pages/cssdemo_body.jsp" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/cssdemo.jsp" />	
+    </definition>
 
     <definition name="tiles.swagger" extends="tiles.base.definition">
         <put-attribute name="title" value="Swagger Documentation" />
-        <put-attribute name="subTitle" value="Swagger Restaurant REST Service Documentation" />
+        <put-attribute name="subTitle" value="REST Service Documentation" />
         <put-attribute name="body"
                                value="/WEB-INF/views/pages/swagger_body.jsp" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/swagger.jsp" />	
@@ -99,7 +116,7 @@
         <put-attribute name="title" value="Processing input" />
         <put-attribute name="body"
                                value="/WEB-INF/views/pages/messageconverters_body.jsp" />
-        <put-attribute name="subTitle" value="Processing Input via Message Converters" />
+        <put-attribute name="subTitle" value="Message Converters" />
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/processinginput.jsp" />	
     </definition>
     <definition name="tiles.forms.demo" extends="tiles.base.definition">

@@ -5,32 +5,31 @@
 
 
 
-<div style="margin: 10px" class="col-lg-10">
+<div style="margin: 20px" class="row">
 
 
-
-
-    <div class="row well well-sm">
+ 
+    <div class="row well">
         <div>
             <button style="margin-left: 20px" class="btn btn-primary" onclick="doSendAppCode()">Send To App Code</button>
-            <span style="margin-left: 10px" class="col2">Bonzo</span> 
+            <span style="margin-left: 10px" >Bonzo</span> 
             <span style="margin-left: 10px" id="renderBonzo" class="col5"></span>
-            <span style="margin-left: 10px" class="col2">Frodo</span> 
+            <span style="margin-left: 10px" >Frodo</span> 
             <span style="margin-left: 10px" id="renderFrodo" class="col5"></span>
         </div>
     </div>
 
 
-    <div class="row well well-sm">
+    <div class="row well">
 
         <div>
             <button  style="margin-left: 20px" class="btn btn-primary" onclick="doSendUser()">Send To User Code</button>
-            <span style="margin-left: 10px" class="col2">User</span> 
+            <span style="margin-left: 10px"  >User</span> 
             <span style="margin-left: 10px" id="renderUser" class="col5"></span>
         </div>
 
     </div>
-
+</div>
    
 
        

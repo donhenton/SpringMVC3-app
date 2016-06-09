@@ -19,22 +19,23 @@
 
 </script>
 
-<div class="container">
-    <div id="graph"></div>
-    <div class="row  top-buffer">
-        
-        <div class="offset1 span4" style="font-size: 20px">
+<div>
+    <div id="graph" class="columnLeft"></div>
+    <div class="columnRight">
+
+        <div class="row columnRight" style="font-size: 20px">
             <ul>
                 <li><span style="color:blue">Updated Points</span></li>
                 <li><span style="color:green">Added Points</span></li>
                 <li><span style="color:red">Deleted Points</span></li>
             </ul>
+            <div class="row">
+                <button class="btn btn-primary btn-large" onclick="reDraw()">Update Data</button>
+            </div>
         </div>
 
 
-        <div class="span6">
-            <button class="btn btn-primary btn-large" onclick="reDraw()">Update Data</button>
-        </div>
+
     </div>
 </div>
 

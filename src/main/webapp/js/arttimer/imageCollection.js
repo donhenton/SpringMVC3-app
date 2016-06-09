@@ -12,9 +12,9 @@ d3.imageCollection.init = function (initConditions)
     // var inAnimation = true;
     var imageList = null;
     var currentIdx = 0;
-    var baseZIndex = 100;
-    var midZIndex = 500;
-    var topZIndex = 1000;
+    var baseZIndex = 20;
+    var midZIndex = 25;
+    var topZIndex = 30;
     var fadeLength = 1000;
 
 

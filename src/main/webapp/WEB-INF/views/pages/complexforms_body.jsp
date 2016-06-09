@@ -5,7 +5,14 @@
 
 
 
+<style>
     
+    .text-error
+    {
+        color: red;
+        font-weight: 35px;
+    }
+</style>
 
 
 		
@@ -37,8 +44,8 @@
 
 
 		 
-		<form:form id="form" method="post" cssClass="form-horizontal" modelAttribute="formBean" action="${baseURL}complex/forms/addForm">
-			<div>
+		<form:form id="form" method="post" cssClass="form well" modelAttribute="formBean" action="${baseURL}complex/forms/addForm">
+			<div class="row well">
 				
 		  		<c:if test="${not empty message}">
 					<div id="message" class="${message.type}">${message.text}</div>	
@@ -51,18 +58,18 @@
 		  		
 		  		
 			</div>
-		  	<fieldset>
-		  		<legend>Personal Info</legend>
+		  	 
+		  		<h2>Personal Info</h2>
 		  		
-		  		<table>
+		  		<table class="table">
 		  		
 		  		<tr>
-		  		<td>
+		  		<td style="width:25%">
 		  		<form:label path="name">Name 
 		  		<form:errors path="name" cssClass="text-error" />
 		  		</form:label>
 		  		</td>
-		  		<td><form:input path="name" /></td>
+		  		<td><form:input    size="55"  path="name" /></td>
 		  		</tr>
 		  		
 	  		
@@ -72,7 +79,7 @@
 		  			Age <form:errors path="age" cssClass="text-error" />
 		 		</form:label>
 		  		</td>
-		  		<td><form:input path="age" /></td>
+                                <td><form:input  size="4" path="age" /></td>
 		  		</tr>
 		  		
 		  		<tr>
@@ -81,7 +88,7 @@
 		  			Birth Date (in form yyyy-mm-dd) <form:errors path="birthDate" cssClass="text-error" />
 		 		</form:label>		  		
 		 		</td>
-		  		<td><form:input path="birthDate" /></td>
+		  		<td><form:input cssClass="personalInput" path="birthDate" /></td>
 		  		</tr>
 		  		
 		  		<tr>
@@ -99,51 +106,54 @@
 		  			Percentage (in form ##%) <form:errors path="percent" cssClass="text-error" />
 		  		</form:label>
 		  		</td>
-		  		<td><form:input path="percent" /></td>
+		  		<td><form:input  size="6" path="percent" /></td>
 		  		</tr>
 		  		
 		  		</table>
 			  		
-		  		<%--  
-		  		<form:label path="phone">
-		  			Phone (in form (###) ###-####) <form:errors path="phone" cssClass="text-error" />
-		  		</form:label>
-		  		<form:input path="phone" />
-				--%>
-		  		
-		  		 
-		  	</fieldset>
-	
-			<fieldset>
-				<legend>Inquiry</legend>
-				<form:label path="inquiry">
+		  	
+			 
+				<h2>Inquiry</h2>
+                                <table class="table">
+                                    <tr><td><form:label path="inquiry">
 					Type (select one)
-				</form:label>
-				<form:select path="inquiry">
+				</form:label></td><td><form:select path="inquiry">
 					<form:option value="comment">Comment</form:option>
 					<form:option value="feedback">Feedback</form:option>
 					<form:option value="suggestion">Suggestion</form:option>
-				</form:select>
-				
+				</form:select></td></tr>
+                             
+                                    
+                                
+                         
+                                    <tr>
+                                        <td>
 		  		<form:label path="inquiryDetails">
 		  			Details
 		  		</form:label>
+                                        </td><td>
 		  		<form:textarea path="inquiryDetails" />
-		  	</fieldset>
-	
-			<fieldset class="checkbox">
-				<legend>Request Additional Info</legend>
-				<label><form:checkbox path="additionalInfo[mvc]" value="true" />on Spring MVC</label>
-				<label><form:checkbox path="additionalInfo[java]" value="true" />on Java (4-ever)</label>				
-			</fieldset>
+                                        </td></tr>
+                                
+                                
+                               
+		  	 
+	 
+                                    <tr><td>
+                                            <form:label path="additionalInfo">Request Additional Info</form:label></td><td>
+                                    <label><form:checkbox path="additionalInfo[mvc]" value="true" />on Spring MVC</label> 
+                                    <label><form:checkbox path="additionalInfo[java]" value="true" />on Java (4-ever)</label></td></tr>				
+			 
 		  		  	
-			<fieldset class="radio">
-				<legend>Subscribe to Newsletter?</legend>
-				<label><form:radiobutton path="subscribeNewsletter" value="true" />Yes</label>
-				<label><form:radiobutton path="subscribeNewsletter" value="false" /> No</label>
-			</fieldset>
+                                <tr><td><form:label path="subscribeNewsletter">
+                                 Subscribe to Newsletter? </form:label></td><td>
+                                    <label><form:radiobutton path="subscribeNewsletter" value="true" />Yes</label> 
+                                    <label><form:radiobutton path="subscribeNewsletter" value="false" /> No</label></td></tr>
+			 
 	
-			<p><button class="btn-large btn-primary" type="submit">Submit</button></p>
+                                <tr><td colspan="2"><button class="btn btn-large btn-primary" type="submit">Submit</button></td></tr>
+                        
+                        </table>
 		</form:form>
 		
 	

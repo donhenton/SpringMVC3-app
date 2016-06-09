@@ -1,0 +1,43 @@
+Spring MVC3 (completely done!)
+    all items (5/25/2016)
+
+Credits  (completely done!)
+    all items (5/25/2016)
+
+Code Demos (completely done!)
+    WebSockets
+        Graph Update (5/25/2016)
+        Chat (5/25/2016)
+    Packtpub (5/25/2016)
+    Testing (5/25/2016)
+        all items (5/25/2016)
+    CSS Demo Page (5/25/2016)
+
+Javascript Demos
+    JQuery Demos
+            Linked Lists (5/25/2016)
+            JSON Data (5/25/2016)
+            Positioning (5/25/2016)
+            Updater (5/25/2016)
+            Form Samples (5/25/2016)
+            Ajax Form Submission (5/25/2016)
+            Lightbox (5/25/2016)
+            ArtTimer (5/25/2016)
+    Swagger Docs (5/27/2016)
+    Angular Restaurant App
+    Javascript Model/View (6/1/2016)
+    Backbone
+        Local Storage (6/6/2016)
+        Restaurant App
+    D3
+        Tree Demo (5/27/2016)  
+        Dynamic Graph (5/27/2016)
+        Fading Graph Transition (5/27/2016)
+        D3 Labels (5/27/2016)
+        ArtTimer (5/25/2016)       
+        
+
+Icon fixes
+
+js model/view
+d3 tree demo (5/27/2016)

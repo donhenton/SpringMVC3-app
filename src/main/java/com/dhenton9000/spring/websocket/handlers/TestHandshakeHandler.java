@@ -42,12 +42,12 @@ public class TestHandshakeHandler extends DefaultHandshakeHandler {
         Principal originalPrincipal = request.getPrincipal();
         if (originalPrincipal != null)
         {
-            LOG.info("returning original principal "+originalPrincipal.getName());
+            LOG.debug("returning original principal "+originalPrincipal.getName());
            return originalPrincipal; 
         }
         else
         {
-            LOG.info("original principal null ");
+            LOG.debug("original principal null ");
         }
         final String principalName =  UUID.randomUUID().toString(); 
         LOG.debug("assigning principal name : "+principalName);

@@ -4,3 +4,6 @@
 /target
 **/.DS_Store
 .DS_Store
+/node_modules/
+/src/main/webapp/css/main/main.css
+/logfile

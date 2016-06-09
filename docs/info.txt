@@ -12,6 +12,15 @@ The jsmodel.zip file contains a Netbeans project that allows for non-network
 development on the jsmodel tree page.
 
 
+CSS launch and gulp stuff:
+
+to run:
+mvn clean -Pcss jetty:run-exploded -DskipTests=true 
+
+
+
+
+
 running from the command line: (java 7)
 
 ##java -jar target/dependency/jetty-runner.jar target/SpringMVC3-app-1.0-SNAPSHOT.war

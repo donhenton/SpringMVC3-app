@@ -29,13 +29,13 @@
 <div ng-app="mySearchApp" class="container" ng-controller="SearchResultsList">
     <div ng-cloak>
         <div class="row">
-            <div class="offset1 span5">
-                <form ng-submit="search()" class="form-inline" role="form">
-                    <input type="text" ng-model="searchTerms" placeholder="Search for books" class="form-control" ng-keyup="evaluateTerms($event)" ng-blur="showAutocomplete = false">
+            <div>
+                <form ng-submit="search()" class="form form-inline" role="form">
+                    <input type="text" size=35 ng-model="searchTerms" placeholder="Search for books"   ng-keyup="evaluateTerms($event)" ng-blur="showAutocomplete = false">
                     <input type="submit" value="Search" class="btn btn-primary">
                 </form>
             </div>
-            <div class="span6">
+            <div>
 
                 <ul class="suggestions" ng-show="showAutocomplete">
                     <li ng-repeat="suggestion in autocomplete.suggestions" ng-show="suggestion.options.length > 0">

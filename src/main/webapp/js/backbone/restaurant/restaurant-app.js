@@ -318,13 +318,14 @@ $(document).ready(
 			});
 			window.RestaurantView = Backbone.View.extend({
 				tagName : "tr",
+                                className: 'restaurantRow',
+                                
 				initialize : function(options) {
 					this.vent = options.vent;
 					_.bindAll(this, "editModel", "deleteModel");
 				},
 				events : {
 					"click .editMarker" : "editModel",
-					"click .editRow" : "editModel",
 					"click .deleteMarker" : "deleteModel"
 
 				},
@@ -338,8 +339,8 @@ $(document).ready(
 				 */
 				editModel : function(e) {
 					this.vent.trigger("editModel", this.model);
-					$('.selectedRow').removeClass('selectedRow');
-					$(this.el).attr("class", "selectedRow");
+					$('.highLighted').toggleClass('highLighted');
+					$(this.el).toggleClass(  "highLighted");
 				},
 				/**
 				 * clean up the model to handle zombies and prepare for delete
@@ -465,7 +466,7 @@ $(document).ready(
 					errorAreaRef.html("");
 					this.addDialogRef.find("#a_reviewListing").val("");
 					this.addDialogRef.find("#a_starRating").val("1");					
-					this.addDialogRef.modal('show');
+					this.addDialogRef.dialog("open");
 					
 				},
 				/**
@@ -482,7 +483,7 @@ $(document).ready(
 							 errorAreaRef.show();
 						return;
 					}
-					this.addDialogRef.modal('hide');
+					this.addDialogRef.dialog('close');
 					errorAreaRef.html("");
 					errorAreaRef.hide();
 					

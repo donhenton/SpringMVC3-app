@@ -102,19 +102,19 @@
 
 
 
-<form id="demoForm" class="form-inline row-separate" action="${baseURL}jquery/formSubmission/getBook.html" method="post">
+<form id="demoForm" class="form form-inline row" action="${baseURL}jquery/formSubmission/getBook.html" method="post">
 
     Office Code: <input type="text" name="officeCode" />	<input  class="btn btn-primary"  type="submit" value="Submit" />
 
 
 </form>
  
-<button class="btn btn-primary row-separate" onclick="clearText()">Clear text area</button>
+<button class="btn btn-primary row" onclick="clearText()">Clear text area</button>
 <hr />
 
 <p>&nbsp;</p>
 
 
-<div class="outputClass" id="target1"></div>
-<table  id="tableTarget" class="table table-bordered"></table>
+<div class="row outputClass" id="target1"></div>
+<table  id="tableTarget" class="table table-striped"></table>
 

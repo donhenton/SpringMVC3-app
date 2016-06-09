@@ -1,26 +1,27 @@
 <SCRIPT type=text/javascript src="js/formSamplesCode.js"></SCRIPT>
 <SCRIPT>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         documentReady();
 //        $('#fred').addClass("text-error");
     });
 </script>
 
-<div class="row offset1 span8">
+<div class="row">
 
     <h3>Sample of Setting select via jQuery</h3>
 </div>
-<div class="row offset1 span4">
-    <div class="form-stacked">
-        <select id="mySelect" multiple="multiple">
-            <option value="1">First</option>
-            <option selected="selected" value="2">Second</option>
-            <option value="3">Third</option>
-            <option value="4">Fourth</option>
-        </select>
-        <input id="position" type="text" size="5" value="1">
-        <button class="btn btn-primary" onclick="setSelect()">Set</button>
+<div class="row">
+    <div class="form form-inline">
+        <table>
+            <tr><td><select  style="height: 75px" id="mySelect" multiple="multiple">
+                        <option value="1">First</option>
+                        <option selected="selected" value="2">Second</option>
+                        <option value="3">Third</option>
+                        <option value="4">Fourth</option>
+                    </select></td><td>
+                    <input id="position" type="text" size="5" value="1"></td><td>
+                    <button class="btn btn-primary" onclick="setSelect()">Set</button></td></tr></table>
     </div>
 </div>
 
@@ -28,14 +29,14 @@
 
     <h3>Exclusive Radio Selections</h3>
 
-    <div class="well">
+    
+
+<div class="well row">
         Each team can have at most one player, each player can only be on one team.
     </div>
 
-
-
-    <div class="form-inline">
-        <table class="table table-bordered table-striped">
+    <div class="form-inline row columnLeft">
+        <table class="table table-striped">
 
             <tr>
 

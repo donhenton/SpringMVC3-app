@@ -1,8 +1,7 @@
  
-
+ 
 #imageCollection{
     position:relative; 
-    // overflow:hidden;
     height: 400px;
     width: 400px;
     top:0;
@@ -14,7 +13,7 @@
     position: absolute;
     top:0;
     left:0;
-    z-index: 100;
+    z-index: 20;
     opacity: 1;
     display:none;
     margin-top: 20px
@@ -65,7 +64,9 @@ svg{
 }
 
 .hour-tick{
-    stroke-width:8; //same as the miute hand
+    /*  same as the minute hand */
+
+    stroke-width:8;  
 }
 
 .second-label{

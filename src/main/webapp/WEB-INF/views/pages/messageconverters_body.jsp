@@ -4,66 +4,60 @@
 <%@ taglib uri="/WEB-INF/tld/spring.tld" prefix="spring"%>
 <%@ taglib uri="/WEB-INF/tld/spring-form.tld" prefix="form"%>
 <c:url var="baseURL" value="/app/views/" />
-
-
-
 <c:url var="stringPostVar" value="/app/messageconverters/stringPOST.html" />
-<div class="offset1 row">
-    <p>Message Conversion or request/form conversion/processing demonstrations</p>
-</div>
 
-<div class="offset1 row">
-    <div class="span6">
+<h4>Message Conversion or request/form conversion/processing demonstrations</h4>
 
-        <div class="row">
+ 
+<div class="columnLeft">
 
-            <form id="readString" class="form-inline"
-                  action="<c:out value="${stringPostVar}" />" method="post">
-                <input type="hidden" name="personalValue" value="astounding " />
-                <input type="hidden" name="future" value="rosy " />
-                <input class="btn large btn-primary" type="submit" value="Read a Post as String" />
-                <input class="input-medium" type="text" size="20" name="input" value="boundless" />
-            </form>
-        </div>
+    <form id="readString" class="form form-inline"
+          action="<c:out value="${stringPostVar}" />" method="post">
+        <input type="hidden" name="personalValue" value="astounding " />
+        <input type="hidden" name="future" value="rosy " />
+        <input class="btn large btn-primary" type="submit" value="Read a Post as String" />
+        <input class="input-medium" type="text" size="20" name="input" value="boundless" />
+    </form>
 
 
 
-        <div class="row">
-            <form id="readXml" class="form-inline" action="<c:url value="/app/messageconverters/xml.xml" />"
-                  method="get">
-                <input class="btn large btn-primary" id="readXmlSubmit" type="submit" value="Read XML" />
-            </form>
-        </div>
-        <div class="row">
+    <div class="row">
 
-            <p>  <button class="btn large btn-primary" onclick="getJSON();">Get JSON via JQuery</button></p> 
+        <form id="readXml" class="form form-inline" action="<c:url value="/app/messageconverters/xml.xml" />"
+              method="get">
+            <input class="btn  btn-primary" id="readXmlSubmit" type="submit" value="Read XML" />
+        </form>
+    </div>
+    <div class="row">
 
-        </div>
-
-        <div class="row">       
-
-            <p><button  class="btn large btn-primary" onclick="getXML();">Get XML via jQuery</button></p> 
-
-        </div>
+        <p>  <button class="btn   btn-primary" onclick="getJSON();">Get JSON via JQuery</button></p> 
 
     </div>
 
-    <div id="displayArea" class="span6">
-        <c:choose>
-            <c:when test="${not empty results}">
-                <div class="row offset1">
-                    <div class="blue">
+    <div class="row">       
 
-                        <div>${results}</div>
-                    </div>
+        <p><button  class="btn   btn-primary" onclick="getXML();">Get XML via jQuery</button></p> 
 
-                </div>
-            </c:when>
-            <c:otherwise></c:otherwise>
-        </c:choose>       
-    </div>   
+    </div>
 
-</div>
+
+</div> 
+
+<div id="displayArea" class="columnRight">
+    <c:choose>
+        <c:when test="${not empty results}">
+
+            <div>
+
+                <div>${results}</div>
+            </div>
+
+
+        </c:when>
+        <c:otherwise></c:otherwise>
+    </c:choose>       
+</div>   
+
 
 
 
@@ -83,7 +77,7 @@
 
 
         $.getJSON('<c:url value="/app/messageconverters/xml.json" />', function (item) {
-            alertDisplay(JSON.stringify("item has a value of "+item.foo, null));
+            alertDisplay(JSON.stringify("item has a value of " + item.foo, null));
         });
 
 
@@ -122,5 +116,4 @@
 </script>
 
 
-
-
+ 
