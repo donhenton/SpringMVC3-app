@@ -30,6 +30,21 @@
             <li>normal text</li>
         </ul>
         <p>You can't get much better than this. This is <em>sample emphasized</em> and <b>bolded</b> text</p>
+        
+        <div class="row">
+        <h3>List Without Image</h3><hr/>
+        <ul class="noImage">
+            <li><em>emphasis</em></li>
+
+            <li><b>bold text</b></li>
+
+            <li><em><b>bold text with emphasis</b></em></li>
+
+            <li>normal text</li>
+        </ul>
+        </div>
+        
+        
     </div>
 </div>
 <div class="row">

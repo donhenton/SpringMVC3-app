@@ -60,7 +60,7 @@
 				style="display: none" class='btn btn-small btn-primary'>
 				<i class="icon fi-pencil"></i> Add Review
 			</button>
-			<ul id="ratingsLocation"></ul>
+			<ul class="noImage" id="ratingsLocation"></ul>
 		</div>
 	</div>
 </div>

@@ -149,6 +149,12 @@ ul
 
 }
 
+ul.noImage
+{
+    list-style-image: none;
+    color: inherit;
+}
+
 code
 {
    font-family: monospace ;
