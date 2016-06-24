@@ -5,45 +5,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.log4j.*;
 
-
 /**
  * The controller for the homepage
+ *
  * @author Don
  *
  */
 @Controller
 public class HomePageController {
-	
-	
-	
-	private static Logger log = LogManager.getLogger(HomePageController.class);
-	
-	
-	@RequestMapping("/home")
-	public ModelAndView homePage() {
-		String message = "Hello World, Spring 3.0!";
-		return new ModelAndView("tiles.homepage", "message", message);
-	}
-	
-	@RequestMapping("/credits")
-	public ModelAndView creditsPage() {
-		
-		return new ModelAndView("tiles.creditspage");
-	}	
-	
-        
-        @RequestMapping("/jerseyclient")
-	public ModelAndView jerseyClientPage() {
-		
-		return new ModelAndView("tiles.jerseyclient");
-	}	
-        
-        @RequestMapping("/cssdemo")
-	public ModelAndView cssDemoPage() {
-		
-		return new ModelAndView("tiles.cssdemo");
-	}	
-        
-      
-       
+
+    private static Logger log = LogManager.getLogger(HomePageController.class);
+
+    @RequestMapping("/home")
+    public ModelAndView homePage() {
+        String message = "Hello World, Spring 3.0!";
+        return new ModelAndView("tiles.homepage", "message", message);
+    }
+
+    @RequestMapping("/credits")
+    public ModelAndView creditsPage() {
+
+        return new ModelAndView("tiles.creditspage");
+    }
+
+    @RequestMapping("/jerseyclient")
+    public ModelAndView jerseyClientPage() {
+
+        return new ModelAndView("tiles.jerseyclient");
+    }
+
+    @RequestMapping("/cssdemo")
+    public ModelAndView cssDemoPage() {
+
+        return new ModelAndView("tiles.cssdemo");
+    }
+
+    @RequestMapping("other/demos")
+    public ModelAndView otherDemosPage() {
+
+        return new ModelAndView("tiles.other.demos");
+    }
+
 }

@@ -30,6 +30,14 @@
         <put-attribute name="explainPanel" value="/WEB-INF/views/explain/demos/ajax_download.jsp" />	
     </definition>
     
+    <definition name="tiles.other.demos" extends="tiles.base.definition">
+        <put-attribute name="title" value="Other Demos" />
+        <put-attribute name="subTitle" value="Other Demos" />
+        <put-attribute name="body"
+                               value="/WEB-INF/views/pages/demos/other_demos_body.jsp" />
+        <put-attribute name="explainPanel" value="/WEB-INF/views/explain/demos/other_demos.jsp" />	
+    </definition>
+    
     
     <definition name="tiles.jerseyclient" extends="tiles.base.definition">
         <put-attribute name="title" value="Jersey Client" />

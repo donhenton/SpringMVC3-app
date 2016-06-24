@@ -37,7 +37,7 @@
                 <li><a href="<c:out value="${baseURL}angular/restaurant" />">Angular Restaurant App</a></li>
                 <li><a href="<c:out value="${baseURL}backbone/demos/js/model" />">Javascript Model/ View</a></li>
                 <li><a href="<c:out value="${baseURL}/ajax/download" />">AJAX File Download</a></li>
-
+                <li><a href="<c:out value="${baseURL}/other/demos" />">Other Demos</a></li>
                 <li><aside>Backbone</aside><ul>
                         <li><a href="<c:out value="${baseURL}backbone/demos/localstorage" />">Local Storage</a></li>
                         <li><a href="<c:out value="${baseURL}backbone/demos/restaurant" />">Restaurant App</a></li>
