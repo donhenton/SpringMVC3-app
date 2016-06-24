@@ -140,12 +140,27 @@ a
 
 }
 
+
+blockquote
+{
+    padding-bottom: 5px;  
+    padding-top: 5px;    
+    padding-left: 20px; 
+    blockquote
+    {
+        padding-left: 35px; 
+    }
+}
+
+
 ul 
 {
 
     list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle fill="#963019" cx="5" cy="5" r="4"/></svg>') ;
     color: $blue-color;
-
+    padding-bottom: 5px;  
+    padding-top: 5px;    
+    padding-left: 10px; 
 
 }
 
