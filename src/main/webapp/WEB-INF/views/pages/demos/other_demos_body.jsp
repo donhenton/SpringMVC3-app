@@ -21,8 +21,8 @@
                 <blockquote>
                     <ul>
                         <li><b>Description: </b>UI for the Mountebank Imposter Server</li>
-                        <li><a href="http://donhenton.github.io/mountebank-UI/public_html/index.html">GitHub Source</a></li>
-                        <li><a href="https://github.com/donhenton/mountebank-UI">Demonstration Site</a></li>
+                        <li><a href="https://github.com/donhenton/mountebank-UI">GitHub Source</a></li>
+                        <li><a href="http://donhenton.github.io/mountebank-UI/public_html/index.html">Demonstration Site</a></li>
                     </ul>
                 </blockquote>
 
