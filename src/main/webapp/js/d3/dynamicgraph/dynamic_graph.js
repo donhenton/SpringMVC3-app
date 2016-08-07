@@ -11,11 +11,17 @@ var MAX_POINTS = 20;
 var xAxis = null;
 var yAxis = null;
 var delay = 500;
+var div = null;
 
-var div = d3.select("body").append("div")	// declare the properties for the div used for the tooltips
+$(document).ready(
+        function () {
+            
+  
+
+ div = d3.select("body").append("div")	// declare the properties for the div used for the tooltips
         .attr("class", "tooltip")				// apply the 'tooltip' class
         .style("opacity", 0);
-
+ });
 
 // Parse the date / time 2015-02-13
 

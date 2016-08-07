@@ -19,7 +19,7 @@ div.tooltip {					/* set the CSS for tooltip divs */
     position: absolute;			/* reference for measurement */
     text-align: center;			/* align the text to the center */
     width: 60px;					/* set the width of the rectangle */
-    height: 50px;					/* set the height of the rectangle */
+    height: 40px;					/* set the height of the rectangle */
     padding: 2px;	
     vertical-align: central;
     font: 12px sans-serif;		/* set the font type for the tooltips */
