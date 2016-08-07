@@ -8,6 +8,10 @@
     new data set have the same date, it will be considered an update.
 </div>
 <div>
+	Hovering over a point will display a tooltip with the data values
+        for that point.
+</div>
+<div>
 	The corresponding java code that handles these actions can be found in
 	<code>com.dhenton9000.spring.mvc.controllers.d3.</code>
 	<code>D3Controller</code>
