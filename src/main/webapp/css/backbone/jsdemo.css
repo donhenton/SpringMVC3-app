@@ -42,6 +42,14 @@
    
 }
 
+  #selected_list_items ul  
+{
+   list-style-image: none;
+   list-style-type: none;
+   
+}
+
+
   #selected_list_items ul li
 {
   padding: 2px;
@@ -71,6 +79,7 @@
 
 #tree ul {
     list-style-type: none;
+    list-style-image: none;
     padding: 2px;
 }
 
