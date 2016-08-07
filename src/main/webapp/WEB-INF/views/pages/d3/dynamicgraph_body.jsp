@@ -20,10 +20,10 @@
 </script>
 
 <div>
-    <div id="graph" class="columnLeft"></div>
-    <div class="columnRight">
+    <div id="graph" class="pull-left"></div>
+    <div class="pull-right" style="margin-right: 150px">
 
-        <div class="row columnRight" style="font-size: 20px">
+        <div class="row pull-right" style="font-size: 20px">
             <ul>
                 <li><span style="color:blue">Updated Points</span></li>
                 <li><span style="color:green">Added Points</span></li>

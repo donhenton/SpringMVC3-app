@@ -131,7 +131,7 @@ function doDots()
                         .duration(delay)
                         .style("opacity", .9);
                 div.html(formatTime(d.date) + "<br/>" + d.data)
-                        .style("left", (d3.event.pageX) + "px")
+                        .style("left", (d3.event.pageX-10) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
             })
             .on("mouseout", function (d, x, y) {
