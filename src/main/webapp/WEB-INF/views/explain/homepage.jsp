@@ -6,11 +6,11 @@ The main technologies on exhibit are :
 
 <ol>
     <li>Spring MVC 3.0</li>
-    <li>JQuery for JSON processing</li>
     <li>JQuery Functionality</li>
-    <li>Twitter Bootstrap UI Elements</li>
+    <li>React.js</li>
     <li>Backbone.js for Javascript MV*</li>
     <li>Angular.js</li>
+    <li>Rest Services</li>
 </ol>
 
 <div>Apache Tiles is used to format the pages, allowing for reusable sections
