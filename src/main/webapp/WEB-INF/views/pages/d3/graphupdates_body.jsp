@@ -39,7 +39,9 @@
         </style>
 
         <div class="row">
-            Demonstration code illustrating D3 transitions for basic graph types.
+            Demonstration code illustrating D3 transitions for basic graph types. Source code is available
+            at the <a href="https://github.com/donhenton/d3-library">d3-library</a> github project.
+            The javascript here is a ES6 browserified, babelfied bundle.
         </div>
              
 
