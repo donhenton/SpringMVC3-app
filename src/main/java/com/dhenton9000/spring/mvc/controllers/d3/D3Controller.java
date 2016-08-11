@@ -15,6 +15,12 @@ public class D3Controller {
 
 		return new ModelAndView("tiles.d3.demos.treedemo");
 	}
+        
+        @RequestMapping("/graphUpdates")
+	public ModelAndView gotoGraphUpdates() {
+
+		return new ModelAndView("tiles.d3.demos.graphupdates");
+	}
 	
 	@RequestMapping("/dynamicGraph")
 	public ModelAndView gotoDynamicGraph() {
