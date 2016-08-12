@@ -18,27 +18,9 @@
 
 
 </script>
-
-        <style>
-
-            div.tooltip {					/* set the CSS for tooltip divs */
-                position: absolute;			/* reference for measurement */
-                text-align: center;			/* align the text to the center */
-                width: 60px;					/* set the width of the rectangle */
-                height: 35px;					/* set the height of the rectangle */
-                padding: 2px;	
-                vertical-align: central;
-                font: 12px sans-serif;		/* set the font type for the tooltips */
-                background: lightsteelblue;	/* set the colour of the rectangle */
-                border: 0px;					/* turn off the border (0px) */
-                border-radius: 8px;			/* set how rounded the edges of the rectangle is */
-                pointer-events: none;			/* 'none' tells the mouse to ignore the rectangle */
-            }
-
-
-        </style>
-
+       
         <div class="row">
+            <p>&nbsp;</p>
             Demonstration code illustrating D3 transitions for basic graph types. Source code is available
             at the <a href="https://github.com/donhenton/d3-library">d3-library</a> github project.
             The javascript here is a ES6 browserified, babelfied bundle.
@@ -48,39 +30,15 @@
         <div class="row">
                 <div class="tabs">
                     <ul>
-                        <li><a href="#lineChart">Line Chart</a></li>
+                        
                         <li><a href="#pieChart">Pie Chart</a></li>
+                        <li><a href="#lineChart">Line Chart</a></li>
                         <li><a href="#hchart">Horizontal Chart</a></li>
 
                     </ul>
 
-
-                    <div id="lineChart"> 
-
-
-
-
-
-                        <div class="row">
-                            <h3>Line</h3>  
-                        </div>
-                        <div class="row well">
-                             
-                                   <div id="lineChartMain"></div> 
-                              
-                        </div>
-
-
-
-
-
-
-
-                    </div><!-- end pie -->
-
-
-
-                    <div id="pieChart"> 
+                    
+                     <div id="pieChart"> 
 
 
 
@@ -106,6 +64,34 @@
 
                     </div><!-- end pie -->
 
+                    
+
+                    <div id="lineChart"> 
+
+
+
+
+
+                        <div class="row">
+                            <h3>Line</h3>  
+                        </div>
+                        <div class="row well">
+                             
+                                   <div id="lineChartMain"></div> 
+                              
+                        </div>
+
+
+
+
+
+
+
+                    </div><!-- end line -->
+
+
+
+                   
                     <div id="hchart"> 
                         <div class="well">
 

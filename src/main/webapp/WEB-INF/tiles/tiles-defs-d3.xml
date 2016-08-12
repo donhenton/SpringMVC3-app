@@ -18,7 +18,7 @@
     </definition>
     
     
-     <definition name="tiles.d3.demos.graphupdates" extends="tiles.base.d3.definition">
+     <definition name="tiles.d3.demos.graphupdates" extends="tiles.base.definition">
         <put-attribute name="title" value="D3 Graph Updates" />
         <put-attribute name="body"
                        value="/WEB-INF/views/pages/d3/graphupdates_body.jsp" />

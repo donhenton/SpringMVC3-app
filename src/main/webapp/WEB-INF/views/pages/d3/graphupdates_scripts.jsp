@@ -14,5 +14,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <script src="js/d3/graphupdates/graph_updates.js"></script>
     
-   <!-- <link rel="stylesheet" href="css/d3/dynamic_graph.css" /> -->
+    <link rel="stylesheet" href="css/d3/graph_updates.css" /> 
      
