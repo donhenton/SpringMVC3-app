@@ -69,7 +69,7 @@
                   <blockquote>
                     <ul>
                         <li><b>Description: </b>Redux and React-Redux</li>
-                        <li><a href="https://github.com/donhenton/redux-sandbox">GitHub Source</a> <em>(flux-sandbox branch)</em></li>
+                        <li><a href="https://github.com/donhenton/redux-sandbox">GitHub Source</a></li>
                         <li><a href="https://donhenton.github.io/redux-sandbox/public_html/index.html">Demonstration Site</a></li>
                     </ul>
                    </blockquote>
