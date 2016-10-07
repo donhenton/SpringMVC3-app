@@ -39,7 +39,7 @@
                         <div id="my_custom_menu" style="display:none;">
 
 
-                            <ul> 
+                            <ul class="noImage"> 
                                 <li id="nodeId" />
                                 <li><button class="btn btn-small btn-primary" onclick="MESSAGE_PUMP.raiseEvent('1', ActionCode.actions.menuClicked)"><i class="icon-tasks icon-white"></i> Menu 1</button></li>
                                 <li><button class="btn btn-small btn-primary" onclick="MESSAGE_PUMP.raiseEvent('2', ActionCode.actions.menuClicked)"><i class="icon-tasks icon-white"></i> Menu 2</button></li>    
