@@ -1,7 +1,7 @@
 Running locally requires defining a system variable called
-DATABASE_URL currently postgres://test:test@localhost:5433/jdatabase
-this is also present in the pom.xml under the css profile as a system
-variable to the jetty plugin
+DATABASE_URL this is also present in the pom.xml under the css profile as a system
+variable to the jetty plugin. Apparently, the pom value is what is used
+for local development. Currently using postgresql://test:test@localhost:5432/jdatabase
 
 this is used by the spring restaurant config to load the database from
 Heroku definition

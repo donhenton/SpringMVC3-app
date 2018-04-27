@@ -157,7 +157,7 @@
                             <systemProperties>
                                 <systemProperty>
                                     <key>DATABASE_URL</key>
-                                    <value>postgres://test:test@localhost:5433/jdatabase</value>
+                                    <value>postgresql://test:test@localhost:5432/jdatabase</value>
                                 </systemProperty>
                             </systemProperties>
                            
