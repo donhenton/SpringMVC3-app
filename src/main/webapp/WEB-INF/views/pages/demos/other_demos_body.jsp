@@ -43,21 +43,14 @@
              <div>
                     <blockquote>
                         <ul>
-                            <li><b>Description: </b>Demonstrates Spring Boot Basics</li>
+                            <li><b>Description: </b>Spring Boot Basics <em>(Takes a while to load)</em></li>
                             <li><a href="https://github.com/donhenton/spring-boot-birt">GitHub Source</a></li>
                             <li><a href="http://donhenton-spring-boot.herokuapp.com/">Demonstration Site</a></li>
                      
                         </ul>
                     </blockquote>
 
-             <h3>GOOGLE CALENDAR API</h3>
-                    <blockquote>
-                        <ul>
-                            <li><b>Description: </b>Calendar API Using Spring Boot</li>
-                            <li><a href="https://github.com/donhenton/google-cal-api">GitHub Source</a></li>
-                            <li><a href="http://google-cal-api.herokuapp.com/">Demonstration Site</a></li>
-                        </ul>
-                    </blockquote>
+           
         </blockquote>
         
     </div>
